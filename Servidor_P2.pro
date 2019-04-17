@@ -26,10 +26,14 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp\
+        Pathfinding/Backtracking.cpp\
+        Data_Structures/Stack.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h\
+        Pathfinding/Backtracking.hpp\
+        Data_Structures/Stack.hpp
 
 FORMS += \
         mainwindow.ui
