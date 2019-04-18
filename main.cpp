@@ -19,8 +19,7 @@ int main()
 {
 
    Nodo<int> *nodo;
-   nodo = new Nodo<int>;
-   nodo->set_Nodo(2);
+   nodo = new Nodo<int>(2);
    nodo->_print_Nodo();
    //Backtracking_test();
    return 0;
