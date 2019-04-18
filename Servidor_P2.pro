@@ -27,13 +27,15 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp\
-        Pathfinding/Backtracking.cpp\
-        Data_Structures/Stack.cpp
+        Pathfinding/Backtracking.cpp \
+    Data_Structures/Lista.cpp
 
 HEADERS += \
         mainwindow.h\
-        Pathfinding/Backtracking.hpp\
-        Data_Structures/Stack.hpp
+        Pathfinding/Backtracking.hpp \
+    Data_Structures/Lista.hpp \
+    Data_Structures/nodo.hpp \
+    Data_Structures/nodo_def.h
 
 FORMS += \
         mainwindow.ui
