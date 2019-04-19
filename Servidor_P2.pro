@@ -26,10 +26,12 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    gladiador.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    gladiador.h
 
 FORMS += \
         mainwindow.ui
