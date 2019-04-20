@@ -55,17 +55,18 @@ void Gladiador::setFuerzaTroncoInferior(unsigned short value)
 Gladiador::Gladiador()
 {
     id=++idGlobal;
-    Edad=rand()%40+20;
-    InteligenciaEmocional=rand()%100; //coeficiente
-    CondicionFisica=rand()%15; //Test de Ruffier
-    FuerzaTroncoSuperior=rand()%100; //Newtons
-    FuerzaTroncoInferior=rand()%100; //Newtons
+    Edad=rand()%40+21;
+    InteligenciaEmocional=rand()%101; //coeficiente
+    CondicionFisica=rand()%16; //Test de Ruffier
+    FuerzaTroncoSuperior=rand()%101; //Newtons
+    FuerzaTroncoInferior=rand()%101; //Newtons
 
-    Resistencia=Edad/10
-    +FuerzaTroncoSuperior/10
-    +FuerzaTroncoInferior/10
-    +InteligenciaEmocional/10
-    +15-CondicionFisica;
+    //Total 4-26
+    this->Resistencia=Edad/10 //4-6
+    +FuerzaTroncoSuperior/20 //0-5
+    +FuerzaTroncoInferior/20 //0-5
+    +InteligenciaEmocional/20 //0-5
+    +5-CondicionFisica/3; //0-5
 }
 
 Gladiador::Gladiador(unsigned short Edad, unsigned short InteligenciaEmocional, unsigned short CondicionFisica, unsigned short FuerzaTroncoSuperior, unsigned short FuerzaTroncoInferior)
@@ -77,11 +78,12 @@ Gladiador::Gladiador(unsigned short Edad, unsigned short InteligenciaEmocional, 
     this->FuerzaTroncoInferior=FuerzaTroncoInferior;
     this->FuerzaTroncoSuperior=FuerzaTroncoSuperior;
 
-    this->Resistencia=Edad/10
-    +FuerzaTroncoSuperior/10
-    +FuerzaTroncoInferior/10
-    +InteligenciaEmocional/10
-    +15-CondicionFisica;
+    //Total 4-26
+    this->Resistencia=Edad/10 //4-6
+    +FuerzaTroncoSuperior/20 //0-5
+    +FuerzaTroncoInferior/20 //0-5
+    +InteligenciaEmocional/20 //0-5
+    +5-CondicionFisica/3; //0-5
 }
 
 
