@@ -77,9 +77,6 @@ T Lista<T>::get(T dato){
         aux = aux->get_Next();
     }
 
-    if(aux->get_Dato())
-        cout<<"Elemento no se encuentra en la lista"<<endl;
-        throw string("Elemento no se encuentra en la lista");
     return aux->get_Dato();
 }
 
