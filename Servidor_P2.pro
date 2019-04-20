@@ -32,10 +32,10 @@ SOURCES += \
 HEADERS += \
         mainwindow.h\
         Pathfinding/Backtracking.hpp \
-    Data_Structures/Lista.hpp \
     Data_Structures/nodo.hpp \
     Data_Structures/nodo_def.h \
-    Data_Structures/lista_def.h
+    Data_Structures/lista_def.h \
+    Data_Structures/lista.hpp
 
 FORMS += \
         mainwindow.ui

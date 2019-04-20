@@ -41,7 +41,7 @@ Nodo<T>* Nodo<T>::get_Next(){
  * -------------------------------*/
 
 template <class T>
-void Nodo<T>::_print_Nodo(){
+void Nodo<T>::print_Nodo(){
     cout<<"{ Dato: "+ to_string(this->_dato)+"}"<<endl;
 }
 

@@ -34,7 +34,7 @@ public:
     Nodo* get_Next();
 
     //! @brief Imprime la informacion del nodo en consola
-    void _print_Nodo();
+    void print_Nodo();
 };
 
 #include "nodo_def.h"

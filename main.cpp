@@ -2,6 +2,7 @@
 #include "mainwindow.h"
 #include "Pathfinding/Backtracking.hpp"
 #include "Data_Structures/nodo.hpp"
+#include "Data_Structures/lista.hpp"
 
 #include <QApplication>
 #include <iostream>
@@ -18,9 +19,17 @@ int Backtracking_test();
 int main()
 {
 
-   Nodo<int> *nodo;
-   nodo = new Nodo<int>(2);
-   nodo->_print_Nodo();
+   Lista<int> *lista = new Lista<int>;
+   lista->push_back(12);
+   lista->push_back(100);
+   lista->push_back(5);
+   lista->print_lista();
+   lista->push_front(23);
+   lista->print_lista();
+   cout<<lista->pop_back()<<endl;
+   cout<<lista->get_index(2)<<endl;
+   cout<<lista->get(12)<<endl;
+
    //Backtracking_test();
    return 0;
 }
