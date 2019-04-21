@@ -87,7 +87,12 @@ int Lista<T>::get_largo(){
 
 template <class T>
 void Lista<T>::set(int index,T dato){
+    Nodo<T> *aux = _head;
+    for(int i = 0;i!= index;i++){
+        aux = aux->get_Next();
+    }
 
+    aux->set_Dato(dato);
 }
 
 /* -------------------------------

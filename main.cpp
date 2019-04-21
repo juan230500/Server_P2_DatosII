@@ -29,6 +29,8 @@ int main()
    cout<<lista->pop_back()<<endl;
    cout<<lista->get_index(2)<<endl;
    cout<<lista->get(100)<<endl;
+   lista->set(1,45);
+   lista->print_lista();
 
    //Backtracking_test();
    return 0;
