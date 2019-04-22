@@ -3,8 +3,8 @@
 // Metodo inicial de la funcion
 string Pathfinding::Backtracking(int (*maze)[10]){
 
-  vector<string> path;
-  if(!solve_Bt(maze,0,0,path)){
+    Lista<string> *path = new Lista<string>();
+    if(!solve_Bt(maze,0,0,path)){
     return "False";
   }
 
@@ -12,7 +12,7 @@ string Pathfinding::Backtracking(int (*maze)[10]){
 }
 
 // Metodo que valida si la posicion es valida
-bool Pathfinding::is_safe(int (*maze)[10],int x, int y){
+bool Pathfinding::is_safe_Bt(int (*maze)[10],int x, int y){
     // Si (x,y) se encuentra fuera del laberinto return False
     if(x >= 0 && x < 10 && y >= 0 && y < 10 && maze[x][y] == 0){
         return true;
@@ -22,7 +22,7 @@ bool Pathfinding::is_safe(int (*maze)[10],int x, int y){
 
 
 // Metodo recursivo de Backtracking
-bool Pathfinding::solve_Bt(int (*maze)[10], int x, int y, vector<string> path){
+bool Pathfinding::solve_Bt(int (*maze)[10], int x, int y, Lista<string> *path){
 
     cout<<"Recorriendo: "<<x<<","<<y<<endl;
 
@@ -30,17 +30,17 @@ bool Pathfinding::solve_Bt(int (*maze)[10], int x, int y, vector<string> path){
         if(x == 9 && y == 9)
         {
             // Se agrega (x,y) al path
-            path.push_back(to_string(x) + to_string(y) + "->");
+            path->push_back(to_string(x) + to_string(y) + "->");
             maze[x][y] = 5;
             print_solution(path);
             return true;
         }
 
         // Verifica si maze[x][y] es una posicion valida
-        if(is_safe(maze,x,y))
+        if(is_safe_Bt(maze,x,y))
         {
             // Marcar x,y como parte del path
-            path.push_back(to_string(x) + to_string(y) + "->");
+            path->push_back(to_string(x) + to_string(y) + "->");
             maze[x][y] = 5;
 
             // Moverse hacia adelante
@@ -60,7 +60,7 @@ bool Pathfinding::solve_Bt(int (*maze)[10], int x, int y, vector<string> path){
 
             /* Si ninguno de estos movimientos, lleva a una solucion, realizar BACKTRACK:
                 desmarcar x,y como parte de la solucion */
-            path.pop_back();
+            path->pop_back();
             maze[x][y] = 0;
             return false;
         }
@@ -69,9 +69,9 @@ bool Pathfinding::solve_Bt(int (*maze)[10], int x, int y, vector<string> path){
 }
 
 // Metodo que muestra el path en consola
-void Pathfinding::print_solution(vector<string> path){
-    for(int i = 0; i < path.size();i++){
-        cout<<path[i];
+void Pathfinding::print_solution(Lista<string> *path){
+    for(int i = 0; i < path->size();i++){
+        cout<<path->get_index(i);
     }
     cout<<endl;
 }

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "../Data_Structures/lista.hpp"
 
 using namespace std;
 
@@ -22,13 +23,13 @@ class Pathfinding{
     //! \param y
     //! \return
     //!
-    static bool is_safe(int (*maze)[10],int x, int y);
+    static bool is_safe_Bt(int (*maze)[10],int x, int y);
 
     //!
     //! \brief print_solution
     //! \param path
     //!
-    static void print_solution(vector<string> path);
+    static void print_solution(Lista<string> *path);
 
 public:
 
@@ -47,7 +48,7 @@ public:
     //! \param path
     //! \return
     //!
-    static bool solve_Bt(int (*maze)[10], int x, int y, vector<string> path);
+    static bool solve_Bt(int (*maze)[10], int x, int y, Lista<string> *path);
 
     static void A_star();
 

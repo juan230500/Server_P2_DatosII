@@ -52,10 +52,12 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../main.cpp \
 		../mainwindow.cpp \
-		../Pathfinding/Pathfinding.cpp moc_mainwindow.cpp
+		../Pathfinding/Pathfinding.cpp \
+		../Pathfinding/a_star.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		Pathfinding.o \
+		a_star.o \
 		moc_mainwindow.o
 DIST          = ../Pathfinding/Pathfinding_examples \
 		../Data_Structures/List_test \
@@ -138,9 +140,11 @@ DIST          = ../Pathfinding/Pathfinding_examples \
 		../Data_Structures/nodo_def.h \
 		../Data_Structures/lista_def.h \
 		../Data_Structures/lista.hpp \
-		../Pathfinding/Pathfinding.hpp ../main.cpp \
+		../Pathfinding/Pathfinding.hpp \
+		../Pathfinding/a_star.hpp ../main.cpp \
 		../mainwindow.cpp \
-		../Pathfinding/Pathfinding.cpp
+		../Pathfinding/Pathfinding.cpp \
+		../Pathfinding/a_star.cpp
 QMAKE_TARGET  = Servidor_P2
 DESTDIR       = 
 TARGET        = Servidor_P2
@@ -324,8 +328,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../mainwindow.h ../Data_Structures/nodo.hpp ../Data_Structures/nodo_def.h ../Data_Structures/lista_def.h ../Data_Structures/lista.hpp ../Pathfinding/Pathfinding.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../main.cpp ../mainwindow.cpp ../Pathfinding/Pathfinding.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../mainwindow.h ../Data_Structures/nodo.hpp ../Data_Structures/nodo_def.h ../Data_Structures/lista_def.h ../Data_Structures/lista.hpp ../Pathfinding/Pathfinding.hpp ../Pathfinding/a_star.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../main.cpp ../mainwindow.cpp ../Pathfinding/Pathfinding.cpp ../Pathfinding/a_star.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../mainwindow.ui $(DISTDIR)/
 
 
@@ -387,9 +391,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 main.o: ../main.cpp ../mainwindow.h \
 		../Pathfinding/Pathfinding.hpp \
+		../Data_Structures/lista.hpp \
 		../Data_Structures/nodo.hpp \
 		../Data_Structures/nodo_def.h \
-		../Data_Structures/lista.hpp \
 		../Data_Structures/lista_def.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../main.cpp
 
@@ -397,8 +401,15 @@ mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../mainwindow.cpp
 
-Pathfinding.o: ../Pathfinding/Pathfinding.cpp ../Pathfinding/Pathfinding.hpp
+Pathfinding.o: ../Pathfinding/Pathfinding.cpp ../Pathfinding/Pathfinding.hpp \
+		../Data_Structures/lista.hpp \
+		../Data_Structures/nodo.hpp \
+		../Data_Structures/nodo_def.h \
+		../Data_Structures/lista_def.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Pathfinding.o ../Pathfinding/Pathfinding.cpp
+
+a_star.o: ../Pathfinding/a_star.cpp ../Pathfinding/a_star.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o a_star.o ../Pathfinding/a_star.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

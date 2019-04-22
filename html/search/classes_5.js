@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ui_5fmainwindow',['Ui_MainWindow',['../classUi__MainWindow.html',1,'']]]
+  ['pathfinding',['Pathfinding',['../classPathfinding.html',1,'']]]
 ];
