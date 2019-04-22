@@ -100,11 +100,11 @@ void Gladiador::print()
 
 Gladiador* Gladiador::operator+(const Gladiador &P)
 {
-    int unsigned short Edad=(this->Edad+P.getEdad())/2;
-    int unsigned short InteligenciaEmocional=(this->InteligenciaEmocional+P.getInteligenciaEmocional())/2;
-    int unsigned short CondicionFisica=(this->CondicionFisica+P.getCondicionFisica())/2;
-    int unsigned short FuerzaTroncoSuperior=(this->FuerzaTroncoSuperior+P.getFuerzaTroncoSuperior())/2;
-    int unsigned short FuerzaTroncoInferior=(this->FuerzaTroncoInferior+P.getFuerzaTroncoInferior())/2;
+    unsigned short int Edad=(this->Edad+P.getEdad())/2;
+    unsigned short int InteligenciaEmocional=(this->InteligenciaEmocional+P.getInteligenciaEmocional())/2;
+    unsigned short int CondicionFisica=(this->CondicionFisica+P.getCondicionFisica())/2;
+    unsigned short int FuerzaTroncoSuperior=(this->FuerzaTroncoSuperior+P.getFuerzaTroncoSuperior())/2;
+    unsigned short int FuerzaTroncoInferior=(this->FuerzaTroncoInferior+P.getFuerzaTroncoInferior())/2;
 
     return new Gladiador(Edad,InteligenciaEmocional,CondicionFisica,FuerzaTroncoSuperior,FuerzaTroncoInferior);
 }

@@ -11,26 +11,26 @@
 class Gladiador
 {
 private:
-    int unsigned short static idGlobal;
-    int unsigned short id;
-    int unsigned short Edad;
-    int unsigned short InteligenciaEmocional; //coeficiente
-    int unsigned short CondicionFisica; //Test de Ruffier
-    int unsigned short FuerzaTroncoSuperior; //Newtons
-    int unsigned short FuerzaTroncoInferior; //Newtons
+    unsigned short int static idGlobal;
+    unsigned short int id;
+    unsigned short int Edad;
+    unsigned short int InteligenciaEmocional; //coeficiente
+    unsigned short int CondicionFisica; //Test de Ruffier
+    unsigned short int FuerzaTroncoSuperior; //Newtons
+    unsigned short int FuerzaTroncoInferior; //Newtons
 
-    int Resistencia; //Vida
+    unsigned short int Resistencia; //Vida
 
-    int ProbabilidadSupervivencia;
-    int GeneracionesSupervivencia;
+    unsigned short int ProbabilidadSupervivencia;
+    unsigned short int GeneracionesSupervivencia;
 public:
     Gladiador();
 
-    Gladiador(int unsigned short Edad,
-    int unsigned short InteligenciaEmocional,
-    int unsigned short CondicionFisica,
-    int unsigned short FuerzaTroncoSuperior,
-    int unsigned short FuerzaTroncoInferior);
+    Gladiador(unsigned short int Edad,
+    unsigned short int InteligenciaEmocional,
+    unsigned short int CondicionFisica,
+    unsigned short int FuerzaTroncoSuperior,
+    unsigned short int FuerzaTroncoInferior);
 
     void print();
     Gladiador* operator+(const Gladiador& b);
