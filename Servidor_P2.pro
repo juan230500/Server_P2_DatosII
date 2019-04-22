@@ -26,16 +26,16 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp\
-        Pathfinding/Backtracking.cpp
+        mainwindow.cpp \
+    Pathfinding/Pathfinding.cpp
 
 HEADERS += \
         mainwindow.h\
-        Pathfinding/Backtracking.hpp \
     Data_Structures/nodo.hpp \
     Data_Structures/nodo_def.h \
     Data_Structures/lista_def.h \
-    Data_Structures/lista.hpp
+    Data_Structures/lista.hpp \
+    Pathfinding/Pathfinding.hpp
 
 FORMS += \
         mainwindow.ui
@@ -44,3 +44,7 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    Pathfinding/Pathfinding_examples \
+    Data_Structures/List_test

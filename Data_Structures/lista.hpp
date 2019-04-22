@@ -6,28 +6,92 @@
 #include "nodo.hpp"
 
 template <class T>
+//!
+//! \brief The Lista class
+//!
 class Lista
 {
-    Nodo<T> *_head;
-    int _largo;
+    Nodo<T> *front; //!<
+    int _size; //!<
+
+    //!
+    //! \brief remove_swapping
+    //! \param prev
+    //! \param aux
+    //!
+    T remove_swapping(Nodo<T> *prev, Nodo<T> *aux);
 
 public:
 
+    //!
+    //! \brief Lista
+    //!
     Lista();
 
+    //!
+    //! \brief push_back
+    //! \param dato
+    //!
     void push_back(T dato);
 
+    //!
+    //! \brief push_front
+    //! \param dato
+    //!
     void push_front(T dato);
 
+    //!
+    //! \brief pop_back
+    //! \return
+    //!
     T pop_back();
 
+    //!
+    //! \brief pop_front
+    //! \return
+    //!
+    T pop_front();
+
+    //!
+    //! \brief get
+    //! \param dato
+    //! \return
+    //!
     T get(T dato);
 
+    //!
+    //! \brief get_index
+    //! \param index
+    //! \return
+    //!
     T get_index(int index);
 
-    int get_largo();
+    //!
+    //! \brief insert
+    //! \param index
+    //! \param dato
+    //!
+    void insert(int index, T dato);
 
-    void set(int index, T dato);
+    //!
+    //! \brief remove
+    //! \param dato
+    //! \return
+    //!
+    T remove(T dato);
+
+    //!
+    //! \brief remove_at
+    //! \param index
+    //! \return
+    //!
+    T remove_at(int index);
+
+    //!
+    //! \brief size
+    //! \return
+    //!
+    int size();
 
     void print_lista();
 };
