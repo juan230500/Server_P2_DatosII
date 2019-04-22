@@ -8,7 +8,8 @@
 #include <QApplication>
 #include <iostream>
 #include <algorithm>
-
+#include <stdlib.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -17,10 +18,9 @@ void print_maze(int(*maze)[10]);
 int Backtracking_test();
 void lista_test();
 
-
+typedef pair<int,int> Pair;
 int main()
 {
-
    //lista_test();
    //Backtracking_test();
    return 0;
@@ -31,22 +31,16 @@ int main()
  */
 int Backtracking_test(){
     // Declarar la matriz que se usara como laberinto
-    int (*maze)[10];
-    maze = (int(*)[10]) calloc(10,sizeof(*maze));
-
-    // Colocar 3 obstaculos aleatorios
-    srand(time(NULL));
-    int cnt = 0;
-    vector<string> obstaculos;
-    while(cnt < 30){
-
-        int x = rand() %10;
-        int y = rand() %10;
-        if(x!=0 && y!=0){
-            maze[x][y]=1;
-            cnt++;
-        }
-    }
+    int maze[][10] = { {0,0,1,0,0,0,0,0,0,0},
+                       {0,0,1,0,0,0,0,0,0,0},
+                       {0,0,1,0,0,0,0,0,0,0},
+                       {0,1,0,0,0,1,1,0,0,0},
+                       {0,0,1,0,0,0,1,0,0,0},
+                       {0,0,0,0,0,0,0,0,0,1},
+                       {0,0,0,1,0,0,0,0,0,1},
+                       {0,0,0,1,0,0,0,0,0,1},
+                       {0,0,0,1,0,0,1,1,0,0},
+                       {0,0,0,1,0,0,0,1,0,0}};
 
     // Mostrar la matriz
     print_maze(maze);

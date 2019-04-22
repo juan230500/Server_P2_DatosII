@@ -3,7 +3,10 @@
 
 // Bibliotecas
 #include <iostream>
+#include <stdlib.h>
 #include <bits/stdc++.h>
+
+#include "../Data_Structures/lista.hpp"
 
 using namespace std;
 
@@ -49,7 +52,7 @@ class A_star
     //! \param value: Valor que indica si es un obstáculo.
     //! \return true si está bloqueada y false si no lo está.
     //!
-    bool pos_bloqueada(int value);
+    bool pos_desbloqueada(int value);
 
     //!
     //! \brief es_destino. Indica si una celda dada es el final del laberinto.
@@ -67,6 +70,7 @@ class A_star
     //!
     int calc_H(int row, int col);
 
+
 public:
 
     //! \brief A_star constructor
@@ -76,12 +80,12 @@ public:
     //!
     //! \brief A_star_Search. Metodo inicial que se encarga de llamar al método de búqueda recursivo.
     //!
-    void A_star_Search(int maze[][10],pos src);
+    void A_star_Search(int maze[][COL],pos src);
 
     //!
     //! \brief A_star_Solver. Método auxiliar para resolver el laberinto.
     //!
-    void A_star_Solver(int maze[][10],pos src);
+    void A_star_Solver(int int_maze[][COL],Celda maze[][COL],pos src,bool lista_cerrada[ROW][COL]);
 
 
 };

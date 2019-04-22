@@ -62,11 +62,17 @@ T Lista<T>::pop_back(){
             aux = aux->get_Next();
         }
 
-        prev->set_Next(nullptr);
-        T ans = aux->get_Dato();
+        T ans;
+        if(prev){
+            prev->set_Next(nullptr);
+            ans = aux->get_Dato();
 
-        delete(aux);
-        this->_size--;
+            delete(aux);
+            this->_size--;
+
+        } else {
+            ans = pop_front();
+        }
         return ans;
     }
 }
@@ -177,6 +183,16 @@ int Lista<T>::size(){
     return this->_size;
 }
 
+template <class T>
+bool Lista<T>::contains(T elem){
+    if(front){
+        for(Nodo<T> *nodo = front; nodo!= nullptr; nodo = nodo->get_Next()){
+            if(nodo->get_Dato() == elem)
+                return true;
+        }
+    }
+    return false;
+}
 
 
 /* -------------------------------

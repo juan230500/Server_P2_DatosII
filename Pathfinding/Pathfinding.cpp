@@ -24,15 +24,17 @@ bool Pathfinding::is_safe_Bt(int (*maze)[10],int x, int y){
 // Metodo recursivo de Backtracking
 bool Pathfinding::solve_Bt(int (*maze)[10], int x, int y, Lista<string> *path){
 
-    cout<<"Recorriendo: "<<x<<","<<y<<endl;
+    // cout<<"Recorriendo: "<<x<<","<<y<<endl;
 
     // Si (x,y) es la salida return true
         if(x == 9 && y == 9)
         {
             // Se agrega (x,y) al path
-            path->push_back(to_string(x) + to_string(y) + "->");
+            path->push_back(to_string(x) +"-" +to_string(y));
             maze[x][y] = 5;
-            print_solution(path);
+            cout<<">> La ruta de salida es:"<<endl;
+            path->print_lista();
+            cout<<endl;
             return true;
         }
 
@@ -40,7 +42,7 @@ bool Pathfinding::solve_Bt(int (*maze)[10], int x, int y, Lista<string> *path){
         if(is_safe_Bt(maze,x,y))
         {
             // Marcar x,y como parte del path
-            path->push_back(to_string(x) + to_string(y) + "->");
+            path->push_back(to_string(x) +"-" +to_string(y));
             maze[x][y] = 5;
 
             // Moverse hacia adelante

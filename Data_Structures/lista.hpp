@@ -93,7 +93,25 @@ public:
     //!
     int size();
 
+    //!
+    //! \brief print_lista
+    //!
     void print_lista();
+
+    //!
+    //! \brief empty
+    //! \return
+    //!
+    bool empty(){
+        return !front;
+    }
+
+    //!
+    //! \brief contains
+    //! \param elem
+    //! \return
+    //!
+    bool contains(T elem);
 };
 
 #include "lista_def.h"
