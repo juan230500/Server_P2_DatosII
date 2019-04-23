@@ -27,8 +27,8 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    Pathfinding/Pathfinding.cpp \
-    Pathfinding/a_star.cpp
+    Pathfinding/a_star.cpp \
+    Pathfinding/Backtracking.cpp
 
 HEADERS += \
         mainwindow.h\
@@ -36,8 +36,8 @@ HEADERS += \
     Data_Structures/nodo_def.h \
     Data_Structures/lista_def.h \
     Data_Structures/lista.hpp \
-    Pathfinding/Pathfinding.hpp \
-    Pathfinding/a_star.hpp
+    Pathfinding/a_star.hpp \
+    Pathfinding/Backtracking.hpp
 
 FORMS += \
         mainwindow.ui

@@ -11,10 +11,9 @@ template <class T>
 //!
 class Lista
 {
-    Nodo<T> *front; //!<
-    int _size; //!<
+    Nodo<T> *front; //!< Primer nodo de la lista
+    int _size; //!< Tamaño de la lista
 
-    //!
     //! \brief remove_swapping
     //! \param prev
     //! \param aux

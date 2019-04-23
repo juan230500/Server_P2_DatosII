@@ -157,6 +157,7 @@ T Lista<T>::remove_swapping(Nodo<T> *prev,Nodo<T> *aux){
 /* -------------------------------
  *        SETTERS & GETTERS
  * -------------------------------*/
+
 template <class T>
 T Lista<T>::get_index(int index){
     Nodo<T> *aux = front;

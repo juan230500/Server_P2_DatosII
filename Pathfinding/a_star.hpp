@@ -39,6 +39,11 @@ using namespace std;
 //!
 class A_star
 {
+
+    string _path;//!< Ruta encontrada en formato string
+
+
+
     //!
     //! \brief pos_valida. Recibe la fila y col de una celda para indicar si es un posición permitida.
     //! \param row: fila de la celda.
@@ -70,6 +75,11 @@ class A_star
     //!
     int calc_H(int row, int col);
 
+    //!
+    //! \brief trace_path. Método encargado de mostrar la ruta encontrada
+    //! \param cell_maze: Matriz que implementa el laberinto de celdas
+    //!
+    void trace_path(Celda cell_maze[][10]);
 
 public:
 
@@ -87,7 +97,11 @@ public:
     //!
     void A_star_Solver(int int_maze[][COL],Celda maze[][COL],pos src,bool lista_cerrada[ROW][COL]);
 
-
+    //!
+    //! \brief get_Path. Función que retorna el path en formato "ij-i1j1-i2j2-..."
+    //! \return Path en formato string
+    //!
+    string get_Path();
 };
 
 #endif // A_STAR_H

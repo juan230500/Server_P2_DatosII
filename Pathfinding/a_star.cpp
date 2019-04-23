@@ -3,8 +3,7 @@
 /* -------------------------------
  *          CONSTRUCTOR
  * -------------------------------*/
-A_star::A_star()
-{
+A_star::A_star(){
 
 }
 
@@ -57,6 +56,7 @@ int A_star::calc_H(int row, int col){
         N.W--> North-West  (i-1, j-1)
         S.E--> South-East  (i+1, j+1)
         S.W--> South-West  (i+1, j-1)
+
  source: https://www.geeksforgeeks.org/a-search-algorithm/*/
 
 // Método encargado de inicializar la matriz de celdas a partir de una numérica.
@@ -110,7 +110,8 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
 
     bool foundDest = false;
 
-    while (!lista_abierta->empty()) {
+    while (!(lista_abierta->empty())) {
+
         // Se extrae el primer nodo de la lista
         pos_info p = lista_abierta->pop_back();
 
@@ -135,6 +136,7 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 cell_maze[i-1][j].padre_i = i;
                 cell_maze[i-1][j].padre_j = j;
                 foundDest = true;
+                trace_path(cell_maze);
                 return;
 
             }else if(!lista_cerrada[i-1][j] &&
@@ -179,11 +181,12 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 // Set el padre de la celda de destino
                 cell_maze[i+1][j].padre_i = i;
                 cell_maze[i+1][j].padre_j = j;
+                trace_path(cell_maze);
                 foundDest = true;
                 return;
 
             }else if(!lista_cerrada[i+1][j] &&
-                     pos_desbloqueada(int_maze[i-1][j])){
+                     pos_desbloqueada(int_maze[i+1][j])){
 
                 // Calcula los "nuevos" valores F,G y H
                 tmp_G = cell_maze[i][j].G + HOR;
@@ -225,11 +228,12 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 // Set el padre de la celda de destino
                 cell_maze[i][j+1].padre_i = i;
                 cell_maze[i][j+1].padre_j = j;
+                trace_path(cell_maze);
                 foundDest = true;
                 return;
 
             }else if(!lista_cerrada[i][j+1] &&
-                     pos_desbloqueada(int_maze[i-1][j])){
+                     pos_desbloqueada(int_maze[i][j+1])){
 
                 // Calcula los "nuevos" valores F,G y H
                 tmp_G = cell_maze[i][j].G + VERT;
@@ -270,10 +274,11 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 // Set el padre de la celda de destino
                 cell_maze[i][j-1].padre_i = i;
                 cell_maze[i][j-1].padre_j = j;
+                trace_path(cell_maze);
                 foundDest = true;
                 return;
             }else if(!lista_cerrada[i][j-1] &&
-                     pos_desbloqueada(int_maze[i-1][j])){
+                     pos_desbloqueada(int_maze[i][j-1])){
 
                 // Calcula los "nuevos" valores F,G y H
                 tmp_G = cell_maze[i][j].G + VERT;
@@ -310,6 +315,7 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
         /* -------------------------------
          *        MOVIMIENTOS DIAG
          * -------------------------------*/
+
         // ------------------------ NOR-ESTE ----------------------------
         if(pos_valida(i-1,j+1)){
 
@@ -317,11 +323,12 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 // Set el padre de la celda de destino
                 cell_maze[i-1][j+1].padre_i = i;
                 cell_maze[i-1][j+1].padre_j = j;
+                trace_path(cell_maze);
                 foundDest = true;
                 return;
 
             }else if(!lista_cerrada[i-1][j+1] &&
-                     pos_desbloqueada(int_maze[i-1][j])){
+                     pos_desbloqueada(int_maze[i-1][j+1])){
 
                 // Calcula los "nuevos" valores F,G y H
                 tmp_G = cell_maze[i][j].G + DIAG;
@@ -362,11 +369,12 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 // Set el padre de la celda de destino
                 cell_maze[i-1][j-1].padre_i = i;
                 cell_maze[i-1][j-1].padre_j = j;
+                trace_path(cell_maze);
                 foundDest = true;
                 return;
 
             }else if(!lista_cerrada[i-1][j-1] &&
-                     pos_desbloqueada(int_maze[i-1][j])){
+                     pos_desbloqueada(int_maze[i-1][j-1])){
 
                 // Calcula los "nuevos" valores F,G y H
                 tmp_G = cell_maze[i][j].G + DIAG;
@@ -407,11 +415,12 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 // Set el padre de la celda de destino
                 cell_maze[i+1][j+1].padre_i = i;
                 cell_maze[i+1][j+1].padre_j = j;
+                trace_path(cell_maze);
                 foundDest = true;
                 return;
 
             }else if(!lista_cerrada[i+1][j+1] &&
-                     pos_desbloqueada(int_maze[i-1][j])){
+                     pos_desbloqueada(int_maze[i+1][j+1])){
 
                 // Calcula los "nuevos" valores F,G y H
                 tmp_G = cell_maze[i][j].G + DIAG;
@@ -452,11 +461,12 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 // Set el padre de la celda de destino
                 cell_maze[i+1][j-1].padre_i = i;
                 cell_maze[i+1][j-1].padre_j = j;
+                trace_path(cell_maze);
                 foundDest = true;
                 return;
 
             }else if(!lista_cerrada[i+1][j-1] &&
-                     pos_desbloqueada(int_maze[i-1][j])){
+                     pos_desbloqueada(int_maze[i+1][j-1])){
 
                 // Calcula los "nuevos" valores F,G y H
                 tmp_G = cell_maze[i][j].G + DIAG;
@@ -496,4 +506,38 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
     return;
 }
 
+// Método encargado de trazar la ruta una vez conocidos todos los padres de las celdas
+void A_star::trace_path(Celda cell_maze[][10]){
 
+    Lista<pos> *path = new Lista<pos>();
+
+    int row = 9,col = 9; // La posición final es (9,9)
+
+    // Añade las celdas que pertenecen a la ruta al "stack" (Lista LIFO)
+    while (!(cell_maze[row][col].padre_i == row
+             && cell_maze[row][col].padre_j == col)) {
+
+        // Añade la celda a lista con comportamiento LIFO y hace cambios.
+        path->push_front(make_pair(row,col));
+        int tmp_row = cell_maze[row][col].padre_i;
+        int tmp_col = cell_maze[row][col].padre_j;
+        row = tmp_row;
+        col = tmp_col;
+    }
+
+    path->push_front(make_pair(row,col));
+
+    // Acomoda e inserta los elementos en la lista de salida y en el orden que se debe
+    while (!path->empty()) {
+        pos p = path->pop_front();
+        this->_path += to_string(p.first)+ to_string(p.second) + "-" ;
+    }
+
+    //cout<<this->_path<<endl;
+
+}
+
+// Retorna la ruta en formato string
+string A_star::get_Path(){
+    return this->_path;
+}

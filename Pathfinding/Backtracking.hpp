@@ -15,7 +15,9 @@ using namespace std;
 //!
 //! \brief The Pathfinding class
 //!
-class Pathfinding{
+class Backtracking{
+
+    string _path;//!< Ruta que encuentra el algoritmo
 
     //!
     //! \brief is_safe
@@ -23,23 +25,23 @@ class Pathfinding{
     //! \param y
     //! \return
     //!
-    static bool is_safe_Bt(int (*maze)[10],int x, int y);
+    bool is_safe_Bt(int (*maze)[10],int x, int y);
 
     //!
     //! \brief print_solution
     //! \param path
     //!
-    static void print_solution(Lista<string> *path);
+    void trace_path(Lista<string> *path);
 
 public:
 
     //! @brief Constructor
-    Pathfinding();
+    Backtracking();
 
     //! @brief Implementacion del algoritmo de busqueda Backtracking.
     //! @param[in] maze: Laberinto sobre el que se realiza la busqueda.
     //! @return[out] Ruta encontrada para salir del laberinto.
-    static string Backtracking(int (*maze)[10]);
+   string Backtracking_Search(int (*maze)[10]);
 
     //!
     //! \brief solve_Bt
@@ -48,9 +50,6 @@ public:
     //! \param path
     //! \return
     //!
-    static bool solve_Bt(int (*maze)[10], int x, int y, Lista<string> *path);
-
-    static void A_star();
-
+    bool Backtracking_Solver(int (*maze)[10], int x, int y, Lista<string> *path);
 
 };
