@@ -25,11 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        Socket.cpp \
         main.cpp \
         mainwindow.cpp \
         traductorservidor.cpp
 
 HEADERS += \
+        Socket.h \
         mainwindow.h \
         traductorservidor.h
 
