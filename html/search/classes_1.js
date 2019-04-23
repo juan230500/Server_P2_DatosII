@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['celda',['Celda',['../structCelda.html',1,'']]]
+  ['backtracking',['Backtracking',['../classBacktracking.html',1,'']]]
 ];
