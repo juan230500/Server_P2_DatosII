@@ -9,7 +9,7 @@ void traductorServidor::DeserializarInfoDeSimulacion(string json,string *obstacu
 {
     Document d;
     d.Parse(json.c_str());
-    cout << "ya parsee"<<endl;
+   // cout << "ya parsee"<<endl;
 
     for (int i=0;i<9;i++){
         atributosGladiador1[i]= d["atributosGladiador1"].GetArray()[i].GetInt();
@@ -47,10 +47,10 @@ string traductorServidor::SerializarInformacion(string obstaculos1 , int atribut
         d["obstaculos"].SetString((StringRef(obstaculos)));
         d["ruta"].SetString((StringRef(cstr)));
     }
-     cout<<"termine de serializar"<<endl;
+    // cout<<"termine de serializar"<<endl;
     StringBuffer buffer;
     Writer<StringBuffer> writer(buffer);
     d.Accept(writer);
-    cout<<"est es el JSON"<<buffer.GetString()<<endl;
+   // cout<<"est es el JSON"<<buffer.GetString()<<endl;
     return buffer.GetString();
 }

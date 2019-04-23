@@ -24,9 +24,9 @@ public:
          return instance;
      }
 
-    void escuchar_sala2(int puerto);
+    string escuchar(int puerto);
 
-    void enviar2(string mnsaje,int puerto,string ip);
+    void enviar(string mnsaje,int puerto,string ip);
 };
 
 #endif // SOCKET_H

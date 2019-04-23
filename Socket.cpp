@@ -4,7 +4,7 @@ Socket::Socket()
 {
 
 }
-void Socket::escuchar_sala2(int puerto)
+string Socket::escuchar(int puerto)
 {
         int server_fd, new_socket, valread;
         struct sockaddr_in address;
@@ -52,13 +52,13 @@ void Socket::escuchar_sala2(int puerto)
 
             string peticion=  string(buffer);
             qDebug()<<"JASON  ENTRANTE "<<buffer;
-
+            return buffer;
 
                 //send(new_socket , respuesta.c_str() , strlen(respuesta.c_str()) , 0 );
             }
-            //close(server_fd);
+
         }
-void Socket::enviar2(string mensaje, int puerto, string ip)
+void Socket::enviar(string mensaje, int puerto, string ip)
 {
         struct sockaddr_in address;
         int sock = 0, valread;
