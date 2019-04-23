@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['backtracking',['Backtracking',['../classPathfinding.html#af5a6e1cc38e40f91c82bf8ec337c05e1',1,'Pathfinding']]]
+  ['backtracking',['Backtracking',['../classBacktracking.html',1,'Backtracking'],['../classBacktracking.html#a9afe4ead7d455ef7bd132f21470a20d3',1,'Backtracking::Backtracking()']]],
+  ['backtracking_5fsearch',['Backtracking_Search',['../classBacktracking.html#a810da9a8a45d1033af045fc73ad71977',1,'Backtracking']]],
+  ['backtracking_5fsolver',['Backtracking_Solver',['../classBacktracking.html#a57a7140df590e056367aea916e51be07',1,'Backtracking']]]
 ];

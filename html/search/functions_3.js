@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['insert',['insert',['../classLista.html#a2f4629f329197b429ce288a19a90616f',1,'Lista']]]
+  ['empty',['empty',['../classLista.html#a4bc09d1ac5b71fdb4ca1b656b0fb8f44',1,'Lista']]]
 ];

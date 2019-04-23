@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lista',['Lista',['../classLista.html',1,'']]]
+  ['celda',['Celda',['../structCelda.html',1,'']]]
 ];
