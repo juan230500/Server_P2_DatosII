@@ -26,10 +26,18 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    Pathfinding/a_star.cpp \
+    Pathfinding/Backtracking.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h\
+    Data_Structures/nodo.hpp \
+    Data_Structures/nodo_def.h \
+    Data_Structures/lista_def.h \
+    Data_Structures/lista.hpp \
+    Pathfinding/a_star.hpp \
+    Pathfinding/Backtracking.hpp
 
 FORMS += \
         mainwindow.ui
@@ -38,3 +46,7 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    Pathfinding/Pathfinding_examples \
+    Data_Structures/List_test
