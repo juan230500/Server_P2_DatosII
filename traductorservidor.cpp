@@ -1,6 +1,5 @@
 #include "traductorservidor.h"
 #include <iostream>
-
 using namespace std;
 traductorServidor::traductorServidor()
 {
