@@ -49,9 +49,10 @@ int Backtracking_test(){
 
     Backtracking* solver = new Backtracking();
     string my_path = solver->Backtracking_Search(maze);
-    //print_maze(maze);
+    int time = solver->get_Time();
     delete(solver);
     cout<<my_path<<endl;
+    cout<<"Encuentra la ruta en: "<< time<<" ns"<<endl;
     return 0;
 }
 
@@ -87,9 +88,11 @@ int A_star_test(){
 
     // Obtener la ruta como String
     string my_Path = solver->get_Path();
+    int time = solver->get_Time();
     delete(solver);
 
     // Muestra en consola la ruta encontrada
     cout<<my_Path<<endl;
+    cout<<"Encuentra la ruta en: "<<time<<" ns"<<endl;
     return 0;
 }

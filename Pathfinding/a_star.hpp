@@ -5,8 +5,15 @@
 #include <iostream>
 #include <stdlib.h>
 #include <bits/stdc++.h>
+#include <chrono>
 
 #include "../Data_Structures/lista.hpp"
+
+// Esto se realiza para conocer cuánto tiempo le toma al algoritmo encontrar la ruta
+using Clock = std::chrono::steady_clock;
+using std::chrono::time_point;
+using std::chrono::duration_cast;
+using std::chrono::microseconds;
 
 using namespace std;
 
@@ -42,7 +49,7 @@ class A_star
 
     string _path;//!< Ruta encontrada en formato string
 
-
+    int _time; //!< Tiempo que tarda el algoritmo en encontrar la ruta
 
     //!
     //! \brief pos_valida. Recibe la fila y col de una celda para indicar si es un posición permitida.
@@ -102,6 +109,10 @@ public:
     //! \return Path en formato string
     //!
     string get_Path();
+
+    int get_Time(){
+        return this->_time;
+    }
 };
 
 #endif // A_STAR_H

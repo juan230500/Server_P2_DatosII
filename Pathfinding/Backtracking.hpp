@@ -3,7 +3,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <chrono>
+
 #include "../Data_Structures/lista.hpp"
+
+// Esto se realiza para conocer cuánto tiempo le toma al algoritmo encontrar la ruta
+using Clock = std::chrono::steady_clock;
+using std::chrono::time_point;
+using std::chrono::duration_cast;
+using std::chrono::microseconds;
 
 using namespace std;
 
@@ -18,6 +26,8 @@ using namespace std;
 class Backtracking{
 
     string _path;//!< Ruta que encuentra el algoritmo
+
+    int _time; //!< Tiempo que tarda el algoritmo en encontrar la ruta
 
     //!
     //! \brief is_safe
@@ -51,5 +61,13 @@ public:
     //! \return
     //!
     bool Backtracking_Solver(int (*maze)[10], int x, int y, Lista<string> *path);
+
+    //!
+    //! \brief get_Time
+    //! \return
+    //!
+    int get_Time(){
+        return this->_time;
+    }
 
 };

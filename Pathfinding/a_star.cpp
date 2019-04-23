@@ -103,6 +103,8 @@ void A_star::A_star_Search(int maze[][COL], pos src){
 
 void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,bool lista_cerrada[ROW][COL]){
 
+    time_point<Clock> start = Clock::now();
+
     // Se crea una lista que almacenará las tuplas <f,<i,j>>, con F = G+H
     Lista<pos_info> *lista_abierta = new Lista<pos_info>();
 
@@ -111,6 +113,7 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
     bool foundDest = false;
 
     while (!(lista_abierta->empty())) {
+
 
         // Se extrae el primer nodo de la lista
         pos_info p = lista_abierta->pop_back();
@@ -137,6 +140,11 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 cell_maze[i-1][j].padre_j = j;
                 foundDest = true;
                 trace_path(cell_maze);
+                // Se realiza una marca al final del algoritmo
+                time_point<Clock> end = Clock::now();
+
+                microseconds time = duration_cast<microseconds>(end - start);
+                this->_time = time.count(); // Dado en us
                 return;
 
             }else if(!lista_cerrada[i-1][j] &&
@@ -182,6 +190,11 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 cell_maze[i+1][j].padre_i = i;
                 cell_maze[i+1][j].padre_j = j;
                 trace_path(cell_maze);
+                // Se realiza una marca al final del algoritmo
+                time_point<Clock> end = Clock::now();
+
+                microseconds time = duration_cast<microseconds>(end - start);
+                this->_time = time.count(); // Dado en us
                 foundDest = true;
                 return;
 
@@ -229,6 +242,12 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 cell_maze[i][j+1].padre_i = i;
                 cell_maze[i][j+1].padre_j = j;
                 trace_path(cell_maze);
+                // Se realiza una marca al final del algoritmo
+                time_point<Clock> end = Clock::now();
+
+                microseconds time = duration_cast<microseconds>(end - start);
+                this->_time = time.count(); // Dado en us
+
                 foundDest = true;
                 return;
 
@@ -275,6 +294,13 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 cell_maze[i][j-1].padre_i = i;
                 cell_maze[i][j-1].padre_j = j;
                 trace_path(cell_maze);
+
+                // Se realiza una marca al final del algoritmo
+                time_point<Clock> end = Clock::now();
+
+                microseconds time = duration_cast<microseconds>(end - start);
+                this->_time = time.count(); // Dado en us
+
                 foundDest = true;
                 return;
             }else if(!lista_cerrada[i][j-1] &&
@@ -324,6 +350,13 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 cell_maze[i-1][j+1].padre_i = i;
                 cell_maze[i-1][j+1].padre_j = j;
                 trace_path(cell_maze);
+
+                // Se realiza una marca al final del algoritmo
+                time_point<Clock> end = Clock::now();
+
+                microseconds time = duration_cast<microseconds>(end - start);
+                this->_time = time.count(); // Dado en us
+
                 foundDest = true;
                 return;
 
@@ -370,6 +403,12 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 cell_maze[i-1][j-1].padre_i = i;
                 cell_maze[i-1][j-1].padre_j = j;
                 trace_path(cell_maze);
+                // Se realiza una marca al final del algoritmo
+                time_point<Clock> end = Clock::now();
+
+                microseconds time = duration_cast<microseconds>(end - start);
+                this->_time = time.count(); // Dado en us
+
                 foundDest = true;
                 return;
 
@@ -416,6 +455,13 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 cell_maze[i+1][j+1].padre_i = i;
                 cell_maze[i+1][j+1].padre_j = j;
                 trace_path(cell_maze);
+
+                // Se realiza una marca al final del algoritmo
+                time_point<Clock> end = Clock::now();
+
+                microseconds time = duration_cast<microseconds>(end - start);
+                this->_time = time.count(); // Dado en us
+
                 foundDest = true;
                 return;
 
@@ -462,6 +508,13 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
                 cell_maze[i+1][j-1].padre_i = i;
                 cell_maze[i+1][j-1].padre_j = j;
                 trace_path(cell_maze);
+
+                // Se realiza una marca al final del algoritmo
+                time_point<Clock> end = Clock::now();
+
+                microseconds time = duration_cast<microseconds>(end - start);
+                this->_time = time.count(); // Dado en us
+
                 foundDest = true;
                 return;
 
@@ -503,6 +556,7 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
 
     if(!foundDest)
         cout<<"Error al encontrar la ruta a la salida"<<endl;
+
     return;
 }
 
