@@ -26,10 +26,12 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        traductorservidor.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+        traductorservidor.h
 
 FORMS += \
         mainwindow.ui
