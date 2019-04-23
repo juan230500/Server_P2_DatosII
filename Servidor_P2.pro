@@ -29,7 +29,7 @@ SOURCES += \
         mainwindow.cpp \
     Pathfinding/a_star.cpp \
     Pathfinding/Backtracking.cpp \
-    gladiador.cpp
+    Objetos/gladiador.cpp
 
 HEADERS += \
         mainwindow.h\
@@ -39,7 +39,7 @@ HEADERS += \
     Data_Structures/lista.hpp \
     Pathfinding/a_star.hpp \
     Pathfinding/Backtracking.hpp \
-    gladiador.h
+    Objetos/gladiador.h
 
 FORMS += \
         mainwindow.ui
