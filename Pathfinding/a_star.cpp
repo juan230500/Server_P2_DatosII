@@ -115,8 +115,21 @@ void A_star::A_star_Solver(int int_maze[][COL],Celda cell_maze[][COL], pos src,b
     while (!(lista_abierta->empty())) {
 
 
-        // Se extrae el primer nodo de la lista
-        pos_info p = lista_abierta->pop_back();
+        // Se encuentra el index del nodo con menor F de la lista
+        int f_menor= lista_abierta->get_index(0).first, index = 0;
+
+        for(int i = 0; i < lista_abierta->size();i++){
+
+            int f_actual= lista_abierta->get_index(i).first;
+
+            // Si el valor de F es menor que el que se tiene, realiza el cambio
+            if(f_menor > f_actual){
+                index = i;
+            }
+        }
+
+        // Se extrae el nodo con el menor F
+        pos_info p = lista_abierta->remove_at(index);
 
         // Se añade este vértice a la lista cerrada
         int i = p.second.first,j = p.second.second;

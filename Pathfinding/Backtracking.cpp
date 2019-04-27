@@ -14,11 +14,17 @@ Backtracking::Backtracking(){
 // Metodo inicial de la funcion
 string Backtracking::Backtracking_Search(int (*maze)[10]){
 
+    // Se realiza una marca al inicio del algoritmo
+    time_point<Clock> start = Clock::now();
     Lista<string> *path = new Lista<string>();
     if(!Backtracking_Solver(maze,0,0,path)){
         return this->_path;
     }
+    // Se realiza una marca al final del algoritmo
+    time_point<Clock> end = Clock::now();
 
+    microseconds time = duration_cast<microseconds>(end - start);
+    this->_time = time.count(); // Dado en us
     return this->_path;
 }
 
@@ -26,8 +32,7 @@ string Backtracking::Backtracking_Search(int (*maze)[10]){
 // Metodo recursivo de Backtracking
 bool Backtracking::Backtracking_Solver(int (*maze)[10], int x, int y, Lista<string> *path){
 
-    // Se realiza una marca al inicio del algoritmo
-    time_point<Clock> start = Clock::now();
+
 
     // Si (x,y) es la salida return true
         if(x == 9 && y == 9)
@@ -38,12 +43,6 @@ bool Backtracking::Backtracking_Solver(int (*maze)[10], int x, int y, Lista<stri
 
             // Se convierte la lista al string
             trace_path(path);
-
-            // Se realiza una marca al final del algoritmo
-            time_point<Clock> end = Clock::now();
-
-            microseconds time = duration_cast<microseconds>(end - start);
-            this->_time = time.count(); // Dado en us
             return true;
         }
 
@@ -63,9 +62,27 @@ bool Backtracking::Backtracking_Solver(int (*maze)[10], int x, int y, Lista<stri
             if (Backtracking_Solver(maze, x+1, y, path) == true)
                 return true;
 
+            /* Si moverse abajo el frente no es una solucion
+               entonces intenta moverse hacia arriba  */
+            if (Backtracking_Solver(maze, x-1, y, path) == true)
+                return true;
+
+
             /* Si ninguna de estas lleva a una solucion entonces
-               intenta moverse en diagonal */
+               intenta moverse en diagonal hacia abajo */
             if(Backtracking_Solver(maze,x+1,y+1,path)){
+                return true;
+            }
+
+            /* Si ninguna de estas lleva a una solucion entonces
+               intenta moverse en diagonal hacia arriba */
+            if(Backtracking_Solver(maze,x-1,y+1,path)){
+                return true;
+            }
+
+            /* Si ninguna de estas lleva a una solucion entonces
+               intenta moverse en hacia atras */
+            if(Backtracking_Solver(maze,x,y-1,path)){
                 return true;
             }
 

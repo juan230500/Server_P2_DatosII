@@ -23,10 +23,10 @@ typedef pair<int,int> Pair;
 int main()
 {
    //lista_test();
-   cout<<"Backtracking:";
+   cout<<"Backtracking:"<<endl;
    Backtracking_test();
 
-   cout<<"A*:";
+   cout<<"A*:"<<endl;
    A_star_test();
    return 0;
 }
@@ -36,23 +36,23 @@ int main()
  */
 int Backtracking_test(){
     // Declarar la matriz que se usara como laberinto
-    int maze[][10] = { {0,0,1,0,0,0,0,0,0,0},
-                       {0,0,1,0,0,0,0,0,0,0},
-                       {0,0,1,0,0,0,0,0,0,0},
-                       {0,1,0,0,0,1,1,0,0,0},
-                       {0,0,1,0,0,0,1,0,0,0},
-                       {0,0,0,0,0,0,0,0,0,1},
-                       {0,0,0,1,0,0,0,0,0,1},
-                       {0,0,0,1,0,0,0,0,0,1},
-                       {0,0,0,1,0,0,1,1,0,0},
-                       {0,0,0,1,0,0,0,1,0,0}};
+    int maze[][10] = { {0,0,1,0,0,0,0,0,1,0},
+                       {0,0,1,0,1,1,1,0,1,0},
+                       {0,1,1,0,0,0,0,0,1,0},
+                       {0,1,0,0,1,1,1,0,0,0},
+                       {0,0,1,0,1,0,1,0,0,0},
+                       {0,0,0,0,1,0,0,0,1,1},
+                       {1,1,0,1,1,0,1,1,1,1},
+                       {0,0,0,1,0,0,1,0,0,1},
+                       {0,0,0,1,0,0,1,0,1,0},
+                       {0,0,0,1,0,0,0,0,1,0}};
 
     Backtracking* solver = new Backtracking();
     string my_path = solver->Backtracking_Search(maze);
     int time = solver->get_Time();
     delete(solver);
     cout<<my_path<<endl;
-    cout<<"Encuentra la ruta en: "<< time<<" ns"<<endl;
+    cout<<"Encuentra la ruta en: "<< time<<" us"<<endl;
     return 0;
 }
 
@@ -71,16 +71,16 @@ void print_maze(int(*maze)[10]){
 int A_star_test(){
 
     // Declarar un laberinto
-    int maze[][10] = { {0,0,1,0,0,0,0,0,0,0},
-                       {0,0,1,0,0,0,0,0,0,0},
-                       {0,0,1,0,0,0,0,0,0,0},
-                       {0,1,0,0,0,1,1,0,0,0},
-                       {0,0,1,0,0,0,1,0,0,0},
-                       {0,0,0,0,0,0,0,0,0,1},
-                       {0,0,0,1,0,0,0,0,0,1},
-                       {0,0,0,1,0,0,0,0,0,1},
-                       {0,0,0,1,0,0,1,1,0,0},
-                       {0,0,0,1,0,0,0,1,0,0}};
+    int maze[][10] = { {0,0,1,0,0,0,0,0,1,0},
+                       {0,0,1,0,1,1,1,0,1,0},
+                       {0,1,1,0,0,0,0,0,1,0},
+                       {0,1,0,0,1,1,1,0,0,0},
+                       {0,0,1,0,1,0,1,0,0,0},
+                       {0,0,0,0,1,0,0,0,1,1},
+                       {1,1,0,1,1,0,1,1,1,1},
+                       {0,0,0,1,0,0,1,0,0,1},
+                       {0,0,0,1,0,0,1,0,1,0},
+                       {0,0,0,1,0,0,0,0,1,0}};
 
     // Ejecutar el algoritmo A*
     A_star* solver = new A_star();
@@ -93,6 +93,6 @@ int A_star_test(){
 
     // Muestra en consola la ruta encontrada
     cout<<my_Path<<endl;
-    cout<<"Encuentra la ruta en: "<<time<<" ns"<<endl;
+    cout<<"Encuentra la ruta en: "<<time<<" us"<<endl;
     return 0;
 }
