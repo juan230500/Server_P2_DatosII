@@ -45,6 +45,8 @@ public:
     void setFuerzaTroncoSuperior(unsigned short value);
     unsigned short getFuerzaTroncoInferior() const;
     void setFuerzaTroncoInferior(unsigned short value);
+    unsigned short getResistencia() const;
+    void setResistencia(unsigned short value);
 };
 
 #endif // GLADIADOR_H

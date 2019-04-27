@@ -29,7 +29,8 @@ SOURCES += \
         mainwindow.cpp \
     Pathfinding/a_star.cpp \
     Pathfinding/Backtracking.cpp \
-    Objetos/gladiador.cpp
+    Objetos/gladiador.cpp \
+    poblacion.cpp
 
 HEADERS += \
         mainwindow.h\
@@ -39,7 +40,8 @@ HEADERS += \
     Data_Structures/lista.hpp \
     Pathfinding/a_star.hpp \
     Pathfinding/Backtracking.hpp \
-    Objetos/gladiador.h
+    Objetos/gladiador.h \
+    poblacion.h
 
 FORMS += \
         mainwindow.ui
