@@ -27,19 +27,21 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    Pathfinding/a_star.cpp \
-    Pathfinding/Backtracking.cpp \
-    Objetos/gladiador.cpp
+        Algoritmos/Pathfinding/a_star.cpp \
+        Algoritmos/Pathfinding/Backtracking.cpp \
+        Algoritmos/Genético/alg_genetico.cpp \
+        Objetos/gladiador.cpp
 
 HEADERS += \
         mainwindow.h\
-    Data_Structures/nodo.hpp \
-    Data_Structures/nodo_def.h \
-    Data_Structures/lista_def.h \
-    Data_Structures/lista.hpp \
-    Pathfinding/a_star.hpp \
-    Pathfinding/Backtracking.hpp \
-    Objetos/gladiador.h
+        Data_Structures/nodo.hpp \
+        Data_Structures/nodo_def.h \
+        Data_Structures/lista_def.h \
+        Data_Structures/lista.hpp \
+        Algoritmos/Pathfinding/a_star.hpp \
+        Algoritmos/Pathfinding/Backtracking.hpp \
+        Algoritmos/Genético/alg_genetico.hpp \
+        Objetos/gladiador.h
 
 FORMS += \
         mainwindow.ui
