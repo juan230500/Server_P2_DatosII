@@ -60,12 +60,16 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a> &#124;
-<a href="#pub-static-methods">Métodos públicos estáticos</a> &#124;
 <a href="classBacktracking-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase Backtracking</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The Pathfinding class.  
+ <a href="classBacktracking.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Backtracking_8hpp_source.html">Backtracking.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos públicos</h2></td></tr>
@@ -73,45 +77,38 @@ Métodos públicos</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBacktracking.html#a9afe4ead7d455ef7bd132f21470a20d3">Backtracking</a> ()</td></tr>
 <tr class="memdesc:a9afe4ead7d455ef7bd132f21470a20d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
 <tr class="separator:a9afe4ead7d455ef7bd132f21470a20d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Métodos públicos estáticos</h2></td></tr>
-<tr class="memitem:a200f7e90470627fdbe3711f62f3b3e63"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBacktracking.html#a200f7e90470627fdbe3711f62f3b3e63">solve_Backtracking</a> (int(*maze)[10])</td></tr>
-<tr class="memdesc:a200f7e90470627fdbe3711f62f3b3e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementacion del algoritmo de busqueda <a class="el" href="classBacktracking.html">Backtracking</a>.  <a href="#a200f7e90470627fdbe3711f62f3b3e63">Más...</a><br /></td></tr>
-<tr class="separator:a200f7e90470627fdbe3711f62f3b3e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f2b4a9984c636a6278692a86c940108"><td class="memItemLeft" align="right" valign="top"><a id="a2f2b4a9984c636a6278692a86c940108"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>solve_Bt_aux</b> (int(*maze)[10], int x, int y, vector&lt; string &gt; path)</td></tr>
-<tr class="separator:a2f2b4a9984c636a6278692a86c940108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810da9a8a45d1033af045fc73ad71977"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBacktracking.html#a810da9a8a45d1033af045fc73ad71977">Backtracking_Search</a> (int(*maze)[10])</td></tr>
+<tr class="memdesc:a810da9a8a45d1033af045fc73ad71977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementacion del algoritmo de busqueda <a class="el" href="classBacktracking.html" title="The Pathfinding class. ">Backtracking</a>.  <a href="#a810da9a8a45d1033af045fc73ad71977">Más...</a><br /></td></tr>
+<tr class="separator:a810da9a8a45d1033af045fc73ad71977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57a7140df590e056367aea916e51be07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBacktracking.html#a57a7140df590e056367aea916e51be07">Backtracking_Solver</a> (int(*maze)[10], int x, int y, <a class="el" href="classLista.html">Lista</a>&lt; string &gt; *path)</td></tr>
+<tr class="memdesc:a57a7140df590e056367aea916e51be07"><td class="mdescLeft">&#160;</td><td class="mdescRight">solve_Bt  <a href="#a57a7140df590e056367aea916e51be07">Más...</a><br /></td></tr>
+<tr class="separator:a57a7140df590e056367aea916e51be07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03adc4ac181c64a517747fdb98bf56ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBacktracking.html#a03adc4ac181c64a517747fdb98bf56ce">get_Time</a> ()</td></tr>
+<tr class="memdesc:a03adc4ac181c64a517747fdb98bf56ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_Time  <a href="#a03adc4ac181c64a517747fdb98bf56ce">Más...</a><br /></td></tr>
+<tr class="separator:a03adc4ac181c64a517747fdb98bf56ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
-<div class="textblock">
-<p class="definition">Definición en la línea <a class="el" href="Backtracking_8hpp_source.html#l00014">14</a> del archivo <a class="el" href="Backtracking_8hpp_source.html">Backtracking.hpp</a>.</p>
+<div class="textblock"><p>The Pathfinding class. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="Backtracking_8hpp_source.html#l00026">26</a> del archivo <a class="el" href="Backtracking_8hpp_source.html">Backtracking.hpp</a>.</p>
 </div><h2 class="groupheader">Documentación de las funciones miembro</h2>
-<a id="a200f7e90470627fdbe3711f62f3b3e63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a200f7e90470627fdbe3711f62f3b3e63">&#9670;&nbsp;</a></span>solve_Backtracking()</h2>
+<a id="a810da9a8a45d1033af045fc73ad71977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a810da9a8a45d1033af045fc73ad71977">&#9670;&nbsp;</a></span>Backtracking_Search()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string Backtracking::solve_Backtracking </td>
+          <td class="memname">string Backtracking::Backtracking_Search </td>
           <td>(</td>
           <td class="paramtype">int(*)&#160;</td>
           <td class="paramname"><em>maze</em>[10]</td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implementacion del algoritmo de busqueda <a class="el" href="classBacktracking.html">Backtracking</a>. </p>
+<p>Implementacion del algoritmo de busqueda <a class="el" href="classBacktracking.html" title="The Pathfinding class. ">Backtracking</a>. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">maze</td><td>Laberinto sobre el que se realiza la busqueda. </td></tr>
@@ -120,7 +117,90 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>solve_Bt_aux</
 </dl>
 <dl class="section return"><dt>Devuelve</dt><dd>[out] Ruta encontrada para salir del laberinto. </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Backtracking_8cpp_source.html#l00004">4</a> del archivo <a class="el" href="Backtracking_8cpp_source.html">Backtracking.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="Backtracking_8cpp_source.html#l00015">15</a> del archivo <a class="el" href="Backtracking_8cpp_source.html">Backtracking.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a57a7140df590e056367aea916e51be07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57a7140df590e056367aea916e51be07">&#9670;&nbsp;</a></span>Backtracking_Solver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Backtracking::Backtracking_Solver </td>
+          <td>(</td>
+          <td class="paramtype">int(*)&#160;</td>
+          <td class="paramname"><em>maze</em>[10], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLista.html">Lista</a>&lt; string &gt; *&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>solve_Bt </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">path</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd></dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="Backtracking_8cpp_source.html#l00027">27</a> del archivo <a class="el" href="Backtracking_8cpp_source.html">Backtracking.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a03adc4ac181c64a517747fdb98bf56ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03adc4ac181c64a517747fdb98bf56ce">&#9670;&nbsp;</a></span>get_Time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Backtracking::get_Time </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get_Time </p>
+<dl class="section return"><dt>Devuelve</dt><dd></dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="Backtracking_8hpp_source.html#l00069">69</a> del archivo <a class="el" href="Backtracking_8hpp_source.html">Backtracking.hpp</a>.</p>
 
 </div>
 </div>

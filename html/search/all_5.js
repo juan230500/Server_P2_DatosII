@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lista',['Lista',['../classLista.html',1,'Lista&lt; T &gt;'],['../classLista.html#adce924e21607848663132290be1a959d',1,'Lista::Lista()']]]
+  ['insert',['insert',['../classLista.html#a2f4629f329197b429ce288a19a90616f',1,'Lista']]]
 ];

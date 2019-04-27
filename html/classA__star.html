@@ -77,20 +77,49 @@ Métodos públicos</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#ac57f0ad72c333af530c61c80abc3b5fc">A_star</a> ()</td></tr>
 <tr class="memdesc:ac57f0ad72c333af530c61c80abc3b5fc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classA__star.html" title="A_star. Implementación del algoritmo de búsqueda A*. ">A_star</a> constructor. <br /></td></tr>
 <tr class="separator:ac57f0ad72c333af530c61c80abc3b5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a920332c1d70ce7ae546305873963106c"><td class="memItemLeft" align="right" valign="top"><a id="a920332c1d70ce7ae546305873963106c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#a920332c1d70ce7ae546305873963106c">A_star_Search</a> (int maze[][10], pos src)</td></tr>
-<tr class="memdesc:a920332c1d70ce7ae546305873963106c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A_star_Search. Metodo inicial que se encarga de llamar al método de búqueda recursivo. <br /></td></tr>
-<tr class="separator:a920332c1d70ce7ae546305873963106c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5291ab0048452b27f5f375e7470f5a9e"><td class="memItemLeft" align="right" valign="top"><a id="a5291ab0048452b27f5f375e7470f5a9e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#a5291ab0048452b27f5f375e7470f5a9e">A_star_Solver</a> (int maze[][10], pos src)</td></tr>
-<tr class="memdesc:a5291ab0048452b27f5f375e7470f5a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A_star_Solver. Método auxiliar para resolver el laberinto. <br /></td></tr>
-<tr class="separator:a5291ab0048452b27f5f375e7470f5a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9863424c7274af574a2018fbb209e490"><td class="memItemLeft" align="right" valign="top"><a id="a9863424c7274af574a2018fbb209e490"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#a9863424c7274af574a2018fbb209e490">A_star_Search</a> (int maze[][COL], pos src)</td></tr>
+<tr class="memdesc:a9863424c7274af574a2018fbb209e490"><td class="mdescLeft">&#160;</td><td class="mdescRight">A_star_Search. Metodo inicial que se encarga de llamar al método de búqueda recursivo. <br /></td></tr>
+<tr class="separator:a9863424c7274af574a2018fbb209e490"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa84ed3cc59d13a7a5deec58d2c6f6421"><td class="memItemLeft" align="right" valign="top"><a id="aa84ed3cc59d13a7a5deec58d2c6f6421"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#aa84ed3cc59d13a7a5deec58d2c6f6421">A_star_Solver</a> (int int_maze[][COL], <a class="el" href="structCelda.html">Celda</a> maze[][COL], pos src, bool lista_cerrada[ROW][COL])</td></tr>
+<tr class="memdesc:aa84ed3cc59d13a7a5deec58d2c6f6421"><td class="mdescLeft">&#160;</td><td class="mdescRight">A_star_Solver. Método auxiliar para resolver el laberinto. <br /></td></tr>
+<tr class="separator:aa84ed3cc59d13a7a5deec58d2c6f6421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4cabe494889f327748f1b83418d3a31"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#ad4cabe494889f327748f1b83418d3a31">get_Path</a> ()</td></tr>
+<tr class="memdesc:ad4cabe494889f327748f1b83418d3a31"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_Path. Función que retorna el path en formato "ij-i1j1-i2j2-..."  <a href="#ad4cabe494889f327748f1b83418d3a31">Más...</a><br /></td></tr>
+<tr class="separator:ad4cabe494889f327748f1b83418d3a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab1d12f4ba81a85ddf765ac9c9b9c596"><td class="memItemLeft" align="right" valign="top"><a id="aab1d12f4ba81a85ddf765ac9c9b9c596"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>get_Time</b> ()</td></tr>
+<tr class="separator:aab1d12f4ba81a85ddf765ac9c9b9c596"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
 <div class="textblock"><p><a class="el" href="classA__star.html" title="A_star. Implementación del algoritmo de búsqueda A*. ">A_star</a>. Implementación del algoritmo de búsqueda A*. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="a__star_8hpp_source.html#l00037">37</a> del archivo <a class="el" href="a__star_8hpp_source.html">a_star.hpp</a>.</p>
-</div><hr/>La documentación para esta clase fue generada a partir de los siguientes ficheros:<ul>
+<p class="definition">Definición en la línea <a class="el" href="a__star_8hpp_source.html#l00047">47</a> del archivo <a class="el" href="a__star_8hpp_source.html">a_star.hpp</a>.</p>
+</div><h2 class="groupheader">Documentación de las funciones miembro</h2>
+<a id="ad4cabe494889f327748f1b83418d3a31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cabe494889f327748f1b83418d3a31">&#9670;&nbsp;</a></span>get_Path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string A_star::get_Path </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get_Path. Función que retorna el path en formato "ij-i1j1-i2j2-..." </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Path en formato string </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="a__star_8cpp_source.html#l00595">595</a> del archivo <a class="el" href="a__star_8cpp_source.html">a_star.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación para esta clase fue generada a partir de los siguientes ficheros:<ul>
 <li>Pathfinding/<a class="el" href="a__star_8hpp_source.html">a_star.hpp</a></li>
 <li>Pathfinding/<a class="el" href="a__star_8cpp_source.html">a_star.cpp</a></li>
 </ul>
