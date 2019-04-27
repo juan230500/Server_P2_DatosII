@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <bits/stdc++.h>
 #include "poblacion.h"
+#include "tablero.h"
 
 using namespace std;
 
@@ -24,10 +25,10 @@ typedef pair<int,int> Pair;
 int main()
 {
    //lista_test();
-    Poblacion* P=new Poblacion(90);
-    P->print();
-    P->Ordenar();
-    P->print();
+    Tablero* T=new Tablero();
+    T->ColocarObstaculo(2,5,6);
+    T->ColocarObstaculo(3,3,3);
+    T->Print();
 //   cout<<"Backtracking:"<<endl;
 //   Backtracking_test();
 

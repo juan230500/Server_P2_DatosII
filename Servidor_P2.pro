@@ -30,7 +30,8 @@ SOURCES += \
     Pathfinding/a_star.cpp \
     Pathfinding/Backtracking.cpp \
     Objetos/gladiador.cpp \
-    poblacion.cpp
+    poblacion.cpp \
+    tablero.cpp
 
 HEADERS += \
         mainwindow.h\
@@ -41,7 +42,8 @@ HEADERS += \
     Pathfinding/a_star.hpp \
     Pathfinding/Backtracking.hpp \
     Objetos/gladiador.h \
-    poblacion.h
+    poblacion.h \
+    tablero.h
 
 FORMS += \
         mainwindow.ui
