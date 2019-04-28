@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <stdlib.h>
 #include <bits/stdc++.h>
+#include "poblacion.h"
 
 using namespace std;
 
@@ -23,11 +24,15 @@ typedef pair<int,int> Pair;
 int main()
 {
    //lista_test();
-   cout<<"Backtracking:"<<endl;
-   Backtracking_test();
+    Poblacion* P=new Poblacion(90);
+    P->print();
+    P->Ordenar();
+    P->print();
+//   cout<<"Backtracking:"<<endl;
+//   Backtracking_test();
 
-   cout<<"A*:"<<endl;
-   A_star_test();
+//   cout<<"A*:"<<endl;
+//   A_star_test();
    return 0;
 }
 

@@ -52,6 +52,16 @@ void Gladiador::setFuerzaTroncoInferior(unsigned short value)
     FuerzaTroncoInferior = value;
 }
 
+unsigned short Gladiador::getResistencia() const
+{
+    return Resistencia;
+}
+
+void Gladiador::setResistencia(unsigned short value)
+{
+    Resistencia = value;
+}
+
 Gladiador::Gladiador()
 {
     id=++idGlobal;
