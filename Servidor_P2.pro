@@ -30,7 +30,8 @@ SOURCES += \
         Algoritmos/Pathfinding/a_star.cpp \
         Algoritmos/Pathfinding/Backtracking.cpp \
         Algoritmos/Genético/alg_genetico.cpp \
-        Objetos/gladiador.cpp
+        Objetos/gladiador.cpp \
+    Algoritmos/Genético/poblacion.cpp
 
 HEADERS += \
         mainwindow.h\
@@ -41,7 +42,8 @@ HEADERS += \
         Algoritmos/Pathfinding/a_star.hpp \
         Algoritmos/Pathfinding/Backtracking.hpp \
         Algoritmos/Genético/alg_genetico.hpp \
-        Objetos/gladiador.h
+        Objetos/gladiador.h \
+    Algoritmos/Genético/poblacion.hpp
 
 FORMS += \
         mainwindow.ui

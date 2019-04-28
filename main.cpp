@@ -1,7 +1,7 @@
 // Bibliotecas
 #include "mainwindow.h"
-#include "Pathfinding/Backtracking.hpp"
-#include "Pathfinding/a_star.hpp"
+#include "Algoritmos/Pathfinding/Backtracking.hpp"
+#include "Algoritmos/Pathfinding/a_star.hpp"
 #include "Data_Structures/nodo.hpp"
 #include "Data_Structures/lista.hpp"
 
