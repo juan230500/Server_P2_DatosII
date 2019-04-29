@@ -7,7 +7,7 @@
 #include <bits/stdc++.h>
 #include <chrono>
 
-#include "../Data_Structures/lista.hpp"
+#include "../../Data_Structures/lista.hpp"
 
 // Esto se realiza para conocer cuánto tiempo le toma al algoritmo encontrar la ruta
 using Clock = std::chrono::steady_clock;

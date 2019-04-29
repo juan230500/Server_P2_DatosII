@@ -49,6 +49,9 @@ bool Backtracking::Backtracking_Solver(int (*maze)[10], int x, int y, Lista<stri
         // Verifica si maze[x][y] es una posicion valida
         if(is_safe_Bt(maze,x,y))
         {
+            cout<<""; // Time
+            cout<<""; // Time
+
             // Marcar x,y como parte del path
             path->push_back(to_string(x)+to_string(y)+"-" );
             maze[x][y] = 5;
