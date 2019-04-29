@@ -50,14 +50,7 @@ void Gen_Engine::Crossover(Poblacion *Poblacion,Lista<Gladiador*> *Next_Gen){
         default:
             break;
         }
-    }
-
-    //qDebug()<<" Resistencias del Cruce";
-    /*for(int i = 0; i < Next_Gen->size(); i++){
-        qDebug()<< "id:"<< Next_Gen->get_index(i)->getId()<<
-                   "Resistencia: "<<Next_Gen->get_index(i)->getResistencia();
-    }*/
-
+   }
 }
 
 // Ver información aquí: http://www.sc.ehu.es/ccwbayes/docencia/mmcc/docs/temageneticos.pdf
@@ -75,7 +68,22 @@ void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
 
         // Se selecciona un gen al azar
         int gen_mutado = rand()%3+1;
-        //qDebug()<<"Gen mutado:"<<gen_mutado;
+
+        /*************************************************
+         *                  JUSTIFICACIÓN
+         * ----------------------------------------------
+         * La mutación es un proceso mucho más importante
+         * que el cruce, pues es la que genera cambios en
+         * la nueva población y aumenta la probabilidad de
+         * mejora.
+         * Para esta mutación, el gen a mutar se escoge de
+         * forma aletoria al igual que el valor de muta-
+         * ción.
+         * La teoría lo explica como la alteración de un
+         * {bit} pero un bit en las representaciones bina-
+         * rias,  en este caso, cumplímos la teoría ya que
+         * estamos alterando un "bit" del gladiador.
+         *************************************************/
 
         // Se genera el valor de mutación
         int random = rand()%30+4;
@@ -116,11 +124,6 @@ void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
         }
     }
 
-    /*qDebug()<<" Resistencias de Mutación";
-    for(int i = 0; i < Next_Gen->size(); i++){
-        qDebug()<< "id:"<< Next_Gen->get_index(i)->getId()<<
-                   "Resistencia: "<<Next_Gen->get_index(i)->getResistencia();
-    }*/
 }
 
 // Inserta la nueva pobalción, eliminando a los más débiles

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['poblacion',['Poblacion',['../classPoblacion.html',1,'Poblacion'],['../classPoblacion.html#a1aeed20e389821391163681fd3ea6bf5',1,'Poblacion::Poblacion()']]],
   ['pop_5fback',['pop_back',['../classLista.html#a18834fa36fc1b1bef317ed2511f91c53',1,'Lista']]],
   ['pop_5ffront',['pop_front',['../classLista.html#a8d1431637c1a851f9e159b9f0e90d8dc',1,'Lista']]],
   ['print_5flista',['print_lista',['../classLista.html#a1b77ee4ec14dc7a6ecff872f9230686f',1,'Lista']]],
