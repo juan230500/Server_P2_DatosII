@@ -26,24 +26,25 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
         Algoritmos/Pathfinding/a_star.cpp \
         Algoritmos/Pathfinding/Backtracking.cpp \
-        Objetos/gladiador.cpp \
+        Game_Logic/gladiador.cpp \
+        Game_Logic/server.cpp \
         Algoritmos/Genético/poblacion.cpp \
-    Algoritmos/Genético/gen_Engine.cpp
+        Algoritmos/Genético/gen_Engine.cpp \
+
 
 HEADERS += \
-        mainwindow.h\
         Data_Structures/nodo.hpp \
         Data_Structures/nodo_def.h \
         Data_Structures/lista_def.h \
         Data_Structures/lista.hpp \
         Algoritmos/Pathfinding/a_star.hpp \
         Algoritmos/Pathfinding/Backtracking.hpp \
-        Objetos/gladiador.h \
+        Game_Logic/gladiador.h \
         Algoritmos/Genético/poblacion.hpp \
-    Algoritmos/Genético/gen_Engine.hpp
+        Algoritmos/Genético/gen_Engine.hpp \
+        Game_Logic/server.hpp
 
 FORMS += \
         mainwindow.ui

@@ -3,7 +3,9 @@
 
 // Bibliotecas
 #include <iostream>
-#include "../../Objetos/gladiador.h"
+
+#include "../../Game_Logic/gladiador.h"
+#include "../../Data_Structures/lista.hpp"
 
 class Poblacion
 {
@@ -22,7 +24,7 @@ public:
     void Ordenar();
     void print_Gladiadores();
     void print_Estadistica();
-    Gladiador* get_mejor_Gladiador();
+    Lista<Gladiador*> get_Mejores();
 
     Gladiador** get_poblacion(){
         return ArrayGladidadores;

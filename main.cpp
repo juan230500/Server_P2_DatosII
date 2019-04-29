@@ -1,17 +1,17 @@
 // Bibliotecas
-#include "mainwindow.h"
 #include "Algoritmos/Pathfinding/Backtracking.hpp"
 #include "Algoritmos/Pathfinding/a_star.hpp"
 #include "Data_Structures/nodo.hpp"
 #include "Data_Structures/lista.hpp"
 #include "Algoritmos/Genético/gen_Engine.hpp"
+#include "Algoritmos/Genético/poblacion.hpp"
+#include "qdebug.h"
 
 #include <QApplication>
 #include <iostream>
 #include <algorithm>
 #include <stdlib.h>
 #include <bits/stdc++.h>
-#include "Algoritmos/Genético/poblacion.hpp"
 #include <bitset>
 
 using namespace std;
@@ -34,10 +34,9 @@ int main(){
     cout<<binary<<endl;*/
 
 
-
     //lista_test();
     Poblacion* P = new Poblacion(90);
-    //P->Ordenar();
+    P->Ordenar();
     P->print_Estadistica();
 
     /*Lista<Gladiador*> *nextG = new Lista<Gladiador*>();
@@ -45,9 +44,18 @@ int main(){
         nextG->push_back(new Gladiador());
     }*/
 
-    //Gen_Engine::Crossover(P);
+    int gen = 1;
+
+    while(gen <= 50){
+        qDebug()<<"-------------------------------";
+        qDebug()<<"Generación: "<<gen;
+        Gen_Engine::Evolve(P);
+        P->Ordenar();
+
+        gen++;
+    }
+
     P->print_Estadistica();
-    //P->print_Gladiadores();
 
     //cout<<"Backtracking:"<<endl;
     //Backtracking_test();

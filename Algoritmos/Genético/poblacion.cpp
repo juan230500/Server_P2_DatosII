@@ -47,8 +47,12 @@ void Poblacion::Ordenar()
 
 
 // Retorna al mejor Gladiador de la población!
-Gladiador* Poblacion::get_mejor_Gladiador(){
-    return ArrayGladidadores[0];
+Lista<Gladiador*> Poblacion::get_Mejores(){
+    Lista<Gladiador*> Mejores;
+    for(int i = 0; i < 4; i++){
+        Mejores.push_back(ArrayGladidadores[i]);
+    }
+    return Mejores;
 }
 
 void Poblacion::print_Estadistica()
