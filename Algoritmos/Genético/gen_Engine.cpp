@@ -67,7 +67,7 @@ void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
         // #4. Se realiza una mutación sobre una característica del Gladiador al azar
 
         // Se selecciona un gen al azar
-        int gen_mutado = rand()%3+1;
+        int gen_mutado = rand()%5+1;
 
         /*************************************************
          *                  JUSTIFICACIÓN
@@ -86,7 +86,7 @@ void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
          *************************************************/
 
         // Se genera el valor de mutación
-        int random = rand()%30+4;
+        int random = rand()%30+5;
 
         switch (gen_mutado) {
         case 1:{

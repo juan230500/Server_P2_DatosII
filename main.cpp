@@ -46,16 +46,16 @@ int main(){
 
     int gen = 1;
 
-    while(gen <= 50){
+    while(gen <= 5){
         qDebug()<<"-------------------------------";
         qDebug()<<"Generación: "<<gen;
         Gen_Engine::Evolve(P);
         P->Ordenar();
-
+        P->print_Estadistica();
         gen++;
     }
 
-    P->print_Estadistica();
+
 
     //cout<<"Backtracking:"<<endl;
     //Backtracking_test();

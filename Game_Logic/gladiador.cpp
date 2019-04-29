@@ -11,10 +11,10 @@ Gladiador::Gladiador()
 {
     id=++idGlobal;
     Edad=rand()%40+21;
-    InteligenciaEmocional=rand()%101; //coeficiente
+    InteligenciaEmocional=rand()%30; //coeficiente
     CondicionFisica=rand()%16; //Test de Ruffier
-    FuerzaTroncoSuperior=rand()%101; //Newtons
-    FuerzaTroncoInferior=rand()%101; //Newtons
+    FuerzaTroncoSuperior=rand()%20; //Newtons
+    FuerzaTroncoInferior=rand()%20; //Newtons
 
     calc_Resistencia();
 }
