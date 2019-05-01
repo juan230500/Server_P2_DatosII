@@ -34,7 +34,6 @@ SOURCES += \
         Game_Logic/tablero.cpp \
         Algoritmos/Genético/poblacion.cpp \
         Algoritmos/Genético/gen_Engine.cpp \
-        mainwindow.cpp \
         traductorservidor.cpp
 
 
@@ -49,9 +48,8 @@ HEADERS += \
         Game_Logic/server.hpp \
         Algoritmos/Genético/poblacion.hpp \
         Algoritmos/Genético/gen_Engine.hpp \
-    Game_Logic/tablero.hpp
+    Game_Logic/tablero.hpp \
         Socket.h \
-        mainwindow.h \
         traductorservidor.h
 
 
