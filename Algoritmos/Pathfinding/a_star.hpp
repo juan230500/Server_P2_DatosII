@@ -113,6 +113,10 @@ public:
     int get_Time(){
         return this->_time;
     }
+
+    void clean_Path(){
+        _path = "";
+    }
 };
 
 #endif // A_STAR_H

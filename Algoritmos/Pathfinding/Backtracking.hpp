@@ -71,6 +71,10 @@ public:
         return this->_time;
     }
 
+    void clean_Path(){
+        _path = "";
+    }
+
 };
 
 #endif

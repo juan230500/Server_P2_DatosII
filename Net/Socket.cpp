@@ -50,7 +50,8 @@ string Socket::escuchar(int puerto)
 
             valread = read( new_socket , buffer, 1024);
 
-            string peticion=  string(buffer);
+            string peticion =  string(buffer);
+            close(server_fd);
             qDebug()<<"JASON  ENTRANTE "<<buffer;
             return buffer;
 

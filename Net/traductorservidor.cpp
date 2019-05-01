@@ -45,7 +45,9 @@ void traductorServidor::DeserializarInformacionIteracion3(string json,string *ob
     *obstaculos1=d["obstaculos"].GetString();
     *finalizacion=d["finalizacion"].GetBool();
 }
-void traductorServidor::DeserializarInfoDeSimulacion(string json,string *obstaculos,int atributosGladiador1[9],int atributosGladiador2[9],bool *finalizacion,int *AvanceGenetico,string *rutaA,string *rutaB)
+void traductorServidor::DeserializarInfoDeSimulacion(string json,string *obstaculos,int atributosGladiador1[9],
+                                                        int atributosGladiador2[9],bool *finalizacion,int *AvanceGenetico,
+                                                            string *rutaA,string *rutaB,string *muerte1,string *muerte2)
 {
     Document d;
     d.Parse(json.c_str());
@@ -58,15 +60,19 @@ void traductorServidor::DeserializarInfoDeSimulacion(string json,string *obstacu
      const char * obstac=d["obstaculos"].GetString();
     *rutaA=d["rutaA"].GetString();
     *rutaB=d["rutaB"].GetString();
+    *muerte1=d["muerte1"].GetString();
+    *muerte2=d["muerte2"].GetString();
     *obstaculos=d["obstaculos"].GetString();
     *finalizacion=d["finalizacion"].GetBool();
     *AvanceGenetico=d["AvanceGenetico"].GetInt();
 }
-string traductorServidor::SerializarInformacion(string obstaculos1 , int atributosGladiador1[9] , int atributosGladiador2[9], string rutaA,string rutaB, bool finalizacion, int AvanceGenetico)
+string traductorServidor::SerializarInformacion(string obstaculos1 , int atributosGladiador1[9] , int atributosGladiador2[9], string rutaA,string rutaB, bool finalizacion, int AvanceGenetico,string muerte1, string muerte2)
 {
 
     const char* json = "{\"AvanceGenetico\":0,"
                        "\"finalizacion\":true,"
+                       "\"muerte1\":\"abcdefghaaa\","
+                       "\"muerte2\":\"abcdefghaaa\","
                        "\"rutaA\":\"abcdefghaaa\","
                        "\"rutaB\":\"abcdefghaaa\","
                        "\"obstaculos\":\"abcdefghaaa\","
@@ -85,10 +91,14 @@ string traductorServidor::SerializarInformacion(string obstaculos1 , int atribut
         }
         const char * cstr = rutaA.c_str();
         const char * cstr1 = rutaB.c_str();
+        const char * cstr2 = muerte1.c_str();
+        const char * cstr3 = muerte2.c_str();
         const char * obstaculos = obstaculos1.c_str();
         d["obstaculos"].SetString((StringRef(obstaculos)));
         d["rutaA"].SetString((StringRef(cstr)));
         d["rutaB"].SetString((StringRef(cstr1)));
+        d["muerte1"].SetString((StringRef(cstr2)));
+        d["muerte2"].SetString((StringRef(cstr3)));
     }
     // cout<<"termine de serializar"<<endl;
     StringBuffer buffer;

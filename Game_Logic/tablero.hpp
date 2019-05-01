@@ -10,11 +10,12 @@ using namespace std;
 class Tablero
 {
 private:
-    int (*ArrayDatos)[10];
+
     string obstaculos;
 public:
 
     int (*Maze)[10];
+    int (*ArrayDatos)[10];
     void ColocarObstaculo(int id, int fila, int columna);
     void Limpiar();
     void Print();

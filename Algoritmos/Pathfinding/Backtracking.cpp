@@ -17,6 +17,7 @@ string Backtracking::Backtracking_Search(int (*maze)[10],int x, int y){
     // Se realiza una marca al inicio del algoritmo
     time_point<Clock> start = Clock::now();
     Lista<string> *path = new Lista<string>();
+    this->_path = "";
     if(!Backtracking_Solver(maze,x,y,path)){
         return this->_path;
     }
@@ -39,7 +40,7 @@ bool Backtracking::Backtracking_Solver(int (*maze)[10], int x, int y, Lista<stri
         {
             // Se agrega (x,y) al path
             path->push_back(to_string(x) + to_string(y) + "-");
-            maze[x][y] = 5;
+            //maze[x][y] = 5;
 
             // Se convierte la lista al string
             trace_path(path);
@@ -54,7 +55,7 @@ bool Backtracking::Backtracking_Solver(int (*maze)[10], int x, int y, Lista<stri
 
             // Marcar x,y como parte del path
             path->push_back(to_string(x)+to_string(y)+"-" );
-            maze[x][y] = 5;
+            //maze[x][y] = 5;
 
             // Moverse hacia adelante
             if (Backtracking_Solver(maze, x, y+1, path) == true)
@@ -92,7 +93,7 @@ bool Backtracking::Backtracking_Solver(int (*maze)[10], int x, int y, Lista<stri
             /* Si ninguno de estos movimientos, lleva a una solucion, realizar BACKTRACK:
                 desmarcar x,y como parte de la solucion */
             path->pop_back();
-            maze[x][y] = 0;
+            //maze[x][y] = 0;
             return false;
         }
 

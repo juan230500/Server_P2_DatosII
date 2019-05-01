@@ -11,6 +11,8 @@
 #include "tablero.hpp"
 
 #include <iostream>
+#include <boost/algorithm/string.hpp>
+#include <vector>
 #include "qdebug.h"
 
 using namespace std;
@@ -19,8 +21,8 @@ class Server
 {
 public:
     Server();
-    string recorrerRuta(string ruta, int resistencia, int matrizObstaculos[][10]);
     void Play();
+    string recorrerRuta(string ruta, int resistencia, int matrizObstaculos[][10]);
 };
 
 #endif // SERVER_HPP

@@ -77,23 +77,26 @@ Métodos públicos</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBacktracking.html#a9afe4ead7d455ef7bd132f21470a20d3">Backtracking</a> ()</td></tr>
 <tr class="memdesc:a9afe4ead7d455ef7bd132f21470a20d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
 <tr class="separator:a9afe4ead7d455ef7bd132f21470a20d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a810da9a8a45d1033af045fc73ad71977"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBacktracking.html#a810da9a8a45d1033af045fc73ad71977">Backtracking_Search</a> (int(*maze)[10])</td></tr>
-<tr class="memdesc:a810da9a8a45d1033af045fc73ad71977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementacion del algoritmo de busqueda <a class="el" href="classBacktracking.html" title="The Pathfinding class. ">Backtracking</a>.  <a href="#a810da9a8a45d1033af045fc73ad71977">Más...</a><br /></td></tr>
-<tr class="separator:a810da9a8a45d1033af045fc73ad71977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae70556b8e2bd460ebdbbd2bfe2c370a3"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBacktracking.html#ae70556b8e2bd460ebdbbd2bfe2c370a3">Backtracking_Search</a> (int(*maze)[10], int x, int y)</td></tr>
+<tr class="memdesc:ae70556b8e2bd460ebdbbd2bfe2c370a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementacion del algoritmo de busqueda <a class="el" href="classBacktracking.html" title="The Pathfinding class. ">Backtracking</a>.  <a href="#ae70556b8e2bd460ebdbbd2bfe2c370a3">Más...</a><br /></td></tr>
+<tr class="separator:ae70556b8e2bd460ebdbbd2bfe2c370a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57a7140df590e056367aea916e51be07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBacktracking.html#a57a7140df590e056367aea916e51be07">Backtracking_Solver</a> (int(*maze)[10], int x, int y, <a class="el" href="classLista.html">Lista</a>&lt; string &gt; *path)</td></tr>
 <tr class="memdesc:a57a7140df590e056367aea916e51be07"><td class="mdescLeft">&#160;</td><td class="mdescRight">solve_Bt  <a href="#a57a7140df590e056367aea916e51be07">Más...</a><br /></td></tr>
 <tr class="separator:a57a7140df590e056367aea916e51be07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03adc4ac181c64a517747fdb98bf56ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBacktracking.html#a03adc4ac181c64a517747fdb98bf56ce">get_Time</a> ()</td></tr>
 <tr class="memdesc:a03adc4ac181c64a517747fdb98bf56ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_Time  <a href="#a03adc4ac181c64a517747fdb98bf56ce">Más...</a><br /></td></tr>
 <tr class="separator:a03adc4ac181c64a517747fdb98bf56ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a484243c045d8502592e5c54edd60e428"><td class="memItemLeft" align="right" valign="top"><a id="a484243c045d8502592e5c54edd60e428"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clean_Path</b> ()</td></tr>
+<tr class="separator:a484243c045d8502592e5c54edd60e428"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
 <div class="textblock"><p>The Pathfinding class. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="Backtracking_8hpp_source.html#l00026">26</a> del archivo <a class="el" href="Backtracking_8hpp_source.html">Backtracking.hpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="Backtracking_8hpp_source.html#l00027">27</a> del archivo <a class="el" href="Backtracking_8hpp_source.html">Backtracking.hpp</a>.</p>
 </div><h2 class="groupheader">Documentación de las funciones miembro</h2>
-<a id="a810da9a8a45d1033af045fc73ad71977"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a810da9a8a45d1033af045fc73ad71977">&#9670;&nbsp;</a></span>Backtracking_Search()</h2>
+<a id="ae70556b8e2bd460ebdbbd2bfe2c370a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae70556b8e2bd460ebdbbd2bfe2c370a3">&#9670;&nbsp;</a></span>Backtracking_Search()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -102,8 +105,24 @@ Métodos públicos</h2></td></tr>
           <td class="memname">string Backtracking::Backtracking_Search </td>
           <td>(</td>
           <td class="paramtype">int(*)&#160;</td>
-          <td class="paramname"><em>maze</em>[10]</td><td>)</td>
+          <td class="paramname"><em>maze</em>[10], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -170,7 +189,7 @@ Métodos públicos</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Devuelve</dt><dd></dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Backtracking_8cpp_source.html#l00033">33</a> del archivo <a class="el" href="Backtracking_8cpp_source.html">Backtracking.cpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="Backtracking_8cpp_source.html#l00034">34</a> del archivo <a class="el" href="Backtracking_8cpp_source.html">Backtracking.cpp</a>.</p>
 
 </div>
 </div>
@@ -200,7 +219,7 @@ Métodos públicos</h2></td></tr>
 <p>get_Time </p>
 <dl class="section return"><dt>Devuelve</dt><dd></dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Backtracking_8hpp_source.html#l00069">69</a> del archivo <a class="el" href="Backtracking_8hpp_source.html">Backtracking.hpp</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="Backtracking_8hpp_source.html#l00070">70</a> del archivo <a class="el" href="Backtracking_8hpp_source.html">Backtracking.hpp</a>.</p>
 
 </div>
 </div>
