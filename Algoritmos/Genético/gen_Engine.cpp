@@ -78,7 +78,7 @@ void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
         Gladiador *G = Next_Gen->get_index(i);
 
         // #3. Se calcula la probabilidad de mutación
-        int _probabilidad = rand()%6;
+        int _probabilidad = rand()%12;
 
         // #4. Se realiza una mutación sobre una característica del Gladiador al azar
         if(_probabilidad == 0){
@@ -176,7 +176,7 @@ void Gen_Engine::Invertion(Lista<Gladiador*> *Next_Gen){
         Gladiador *G = Next_Gen->get_index(i);
 
         // #3. Se calcula la probabilidad de inversión
-        int _probabilidad = rand()%6;
+        int _probabilidad = rand()%18;
 
         // #4. Se realiza una inversión sobre una característica del Gladiador al azar
         if(_probabilidad == 0){

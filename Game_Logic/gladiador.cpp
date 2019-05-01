@@ -10,11 +10,11 @@ unsigned short int Gladiador::idGlobal=0;
 Gladiador::Gladiador()
 {
     id=++idGlobal;
-    Edad=rand()%40+21;
-    InteligenciaEmocional=rand()%30; //coeficiente
-    CondicionFisica=rand()%16; //Test de Ruffier
-    FuerzaTroncoSuperior=rand()%20; //Newtons
-    FuerzaTroncoInferior=rand()%20; //Newtons
+    Edad=rand()%20+21;
+    InteligenciaEmocional=rand()%20; //coeficiente
+    CondicionFisica=rand()%12; //Test de Ruffier
+    FuerzaTroncoSuperior=rand()%10; //Newtons
+    FuerzaTroncoInferior=rand()%10; //Newtons
 
     calc_Resistencia();
 }

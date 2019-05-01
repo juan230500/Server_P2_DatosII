@@ -84,7 +84,7 @@ void Server::Play(){
     // #8. Se instancia el Socket
     Socket *canal = &Socket::getInstance();
 
-    int cnt = 5;
+    int cnt = 3;
     while(cnt < 10){
 
         canal->escuchar(8082);
@@ -96,6 +96,15 @@ void Server::Play(){
 
         // #10. Enviar la información
         canal->enviar(json,8081,"192.168.100.9");
+
+        // Si retorna string vacío es porque ya terminó
+        if(pos1 == "" ){
+            qDebug()<<" G1 ha llegado!";
+            break;
+        } else if(pos2 == ""){
+            qDebug()<<" G2 ha llegado!";
+            break;
+        }
 
         // Se agregan nuevos obstáculos
         Maze->ColocarObstaculo(2,cnt,cnt);
@@ -112,6 +121,9 @@ void Server::Play(){
         Gen_Engine::Evolve(Pob_1);
         Gen_Engine::Evolve(Pob_2);
 
+        Pob_1->Ordenar();
+        Pob_2->Ordenar();
+
         // Escoger nuevos representantes
         G1 = Pob_1->get_Mejor();
         G2 = Pob_2->get_Mejor();
@@ -122,11 +134,7 @@ void Server::Play(){
         pos1 = recorrerRuta(A_star_Path,G1->getResistencia(),Maze->ArrayDatos);
         pos2 = recorrerRuta(Backtracking_Path,G2->getResistencia(),Maze->ArrayDatos);
 
-        // Si retorna string vacío es porque ya terminó
-        if(pos1 == "" || pos2 == ""){
-            qDebug()<<" Alguno ha llegado!";
-            break;
-        }
+
     }
 }
 
