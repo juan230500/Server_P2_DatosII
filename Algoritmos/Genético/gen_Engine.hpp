@@ -18,9 +18,13 @@ class Gen_Engine
     //! \param Poblacion: Población sobre la cual se aplica el cruce en algoritmo genético.
     static void Crossover(Poblacion *Poblacion,Lista<Gladiador*> *Next_Gen);
 
-    //! \brief Lleva a cab una mutación/inversión sobre los individuos hijos.
-    //! \param Poblacion: Población sobre la cual se aplica la mutación/inversión en algoritmo genético.
+    //! \brief Lleva a cab una mutación sobre los individuos hijos.
+    //! \param Poblacion: Población sobre la cual se aplica la mutación en algoritmo genético.
     static void Mutation(Lista<Gladiador*> *Next_Gen);
+
+    //! \brief Lleva a cab una inversión sobre los individuos hijos.
+    //! \param Poblacion: Población sobre la cual se aplica la inversión en algoritmo genético.
+    static void Invertion(Lista<Gladiador*> *Next_Gen);
 
     //! \brief Método que ingresa a los nuevos individuos a la población, y elimina a los débiles.
     //! \param Poblacion: Población original.

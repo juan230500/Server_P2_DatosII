@@ -11,6 +11,7 @@
 #include <iostream>
 #include <algorithm>
 #include <stdlib.h>
+#include <time.h>
 #include <bits/stdc++.h>
 #include <bitset>
 
@@ -24,25 +25,12 @@ void lista_test();
 
 int main(){
 
-    /*string binary = bitset<8>(3).to_string();
-    cout<<binary<<endl;
 
-    unsigned long dec = bitset<8>(binary).to_ulong();
-    cout<<dec<<endl;
+    srand (time(NULL));
 
-    binary.replace(5,1,"1"); // Así cambia las cosas en el binario
-    cout<<binary<<endl;*/
-
-
-    //lista_test();
     Poblacion* P = new Poblacion(90);
     P->Ordenar();
     P->print_Estadistica();
-
-    /*Lista<Gladiador*> *nextG = new Lista<Gladiador*>();
-    for(int i = 0; i < 10; i++){
-        nextG->push_back(new Gladiador());
-    }*/
 
     int gen = 1;
 

@@ -59,6 +59,34 @@ void Gladiador::print(){
     qDebug()<<"Resistencia: "<<Resistencia;
 }
 
+//-------------------------------------------------------------------
+
+int manipular_ADN(int p1_ADN,int p2_ADN){
+
+    // #1. Pasar los enteros a binario, para tratarlos como material genético básico.
+    string p1_BIN = bitset<8>(p1_ADN).to_string();
+    string p2_BIN = bitset<8>(p2_ADN).to_string();
+
+    // #2. Tomar el punto de cruce como el 4 (3).
+    p1_BIN = p1_BIN.substr(0,4);
+    p2_BIN = p2_BIN.substr(4,4);
+
+    // #3. Cruzar los genes de los padres.
+    string h_BIN = p1_BIN+p2_BIN;
+    unsigned int h_ADN = boost::numeric_cast<int>(bitset<8>(h_BIN).to_ulong());
+
+
+    qDebug()<<"    ALTERACION DEL GENOMA    ";
+    qDebug()<<">> P1:"<<p1_BIN.c_str()<<" : "<<p1_ADN;
+    qDebug()<<">> P2:"<<p2_BIN.c_str()<<" : "<<p2_ADN;
+    qDebug()<<">> H:"<<h_BIN.c_str()<<" : "<<h_ADN;
+    qDebug()<<"------------------------------";
+
+    return h_ADN;
+}
+
+//-------------------------------------------------------------------
+
 // Esta una sobre carga al operador + ,es la funcion que me permite
 // cruzar dos gladiadores de manera que se sumen sus atributos.
 Gladiador* Gladiador::operator+(const Gladiador &P){
@@ -71,15 +99,14 @@ Gladiador* Gladiador::operator+(const Gladiador &P){
 
     // Se escoge un tipo de cruce
     int punto_cruce = rand()%4+1;
-    //qDebug()<<punto_cruce;
 
-    unsigned short int Edad;
-    unsigned short int InteligenciaEmocional;
-    unsigned short int CondicionFisica;
-    unsigned short int FuerzaTroncoSuperior;
-    unsigned short int FuerzaTroncoInferior;
+    unsigned short int Edad = manipular_ADN(this->getEdad(),P.getEdad());
+    unsigned short int InteligenciaEmocional = manipular_ADN(this->getInteligenciaEmocional(),P.getInteligenciaEmocional());
+    unsigned short int CondicionFisica = manipular_ADN(this->getCondicionFisica(),P.getCondicionFisica());
+    unsigned short int FuerzaTroncoSuperior = manipular_ADN(this->getFuerzaTroncoSuperior(),P.getFuerzaTroncoSuperior());
+    unsigned short int FuerzaTroncoInferior = manipular_ADN(this->getFuerzaTroncoInferior(),P.getFuerzaTroncoInferior());
 
-    switch (punto_cruce) {
+    /*switch (punto_cruce) {
     // Punto cruce {0,0,0,1,1}
     case 1:{
 
@@ -121,7 +148,7 @@ Gladiador* Gladiador::operator+(const Gladiador &P){
     }
     default:
         break;
-    }
+    }*/
 
     return new Gladiador(Edad,InteligenciaEmocional,CondicionFisica,FuerzaTroncoSuperior,FuerzaTroncoInferior);
 }

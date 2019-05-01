@@ -53,6 +53,20 @@ void Gen_Engine::Crossover(Poblacion *Poblacion,Lista<Gladiador*> *Next_Gen){
    }
 }
 
+//----------------------------------------------------------------------
+int mutate(int value, int gen){
+
+    string val_BIN = bitset<8>(value).to_string();
+
+    string gen_val = val_BIN.substr(gen,1);
+
+    val_BIN = (gen_val.compare("0") == 0) ? val_BIN.replace(gen,1,"1"):val_BIN.replace(gen,1,"0");
+    value = boost::numeric_cast<int>(bitset<8>(val_BIN).to_ulong());
+
+    return value;
+}
+//----------------------------------------------------------------------
+
 // Ver información aquí: http://www.sc.ehu.es/ccwbayes/docencia/mmcc/docs/temageneticos.pdf
 // La mutación se realiza sobre cada Hijo
 void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
@@ -63,68 +77,169 @@ void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
         Gladiador *G = Next_Gen->get_index(i);
 
         // #3. Se calcula la probabilidad de mutación
+        int _probabilidad = rand()%6;
 
         // #4. Se realiza una mutación sobre una característica del Gladiador al azar
+        if(_probabilidad == 0){
 
-        // Se selecciona un gen al azar
-        int gen_mutado = rand()%5+1;
+            qDebug()<<">> Habrá una mutación!";
 
-        /*************************************************
-         *                  JUSTIFICACIÓN
-         * ----------------------------------------------
-         * La mutación es un proceso mucho más importante
-         * que el cruce, pues es la que genera cambios en
-         * la nueva población y aumenta la probabilidad de
-         * mejora.
-         * Para esta mutación, el gen a mutar se escoge de
-         * forma aletoria al igual que el valor de muta-
-         * ción.
-         * La teoría lo explica como la alteración de un
-         * {bit} pero un bit en las representaciones bina-
-         * rias,  en este caso, cumplímos la teoría ya que
-         * estamos alterando un "bit" del gladiador.
-         *************************************************/
+            /*************************************************
+             *                  JUSTIFICACIÓN
+             * ----------------------------------------------
+             * La mutación es un proceso mucho más importante
+             * que el cruce, pues es la que genera cambios en
+             * la nueva población y aumenta la probabilidad de
+             * mejora.
+             * Para esta mutación, el gen a mutar se escoge de
+             * forma aletoria al igual que el valor de muta-
+             * ción.
+             * La teoría lo explica como la alteración de un
+             * {bit} pero un bit en las representaciones bina-
+             * rias,  en este caso, cumplímos la teoría ya que
+             * estamos alterando un "bit" del gladiador.
+             *************************************************/
 
-        // Se genera el valor de mutación
-        int random = rand()%30+5;
+            // Se selecciona un gen al azar
+            int gen_mutado = rand()%5+1;
 
-        switch (gen_mutado) {
-        case 1:{
-            unsigned short int Edad = G->getEdad()+random;
-            G->setEdad(Edad);
-            G->calc_Resistencia();
-            break;
-        }
-        case 2:{
-            unsigned short int IE = G->getInteligenciaEmocional()+random;
-            G->setInteligenciaEmocional(IE);
-            G->calc_Resistencia();
-            break;
-        }
-        case 3:{
-            unsigned short int CF = G->getCondicionFisica()+random;
-            G->setCondicionFisica(CF);
-            G->calc_Resistencia();
-            break;
-        }
-        case 4:{
-            unsigned short int FTS = G->getFuerzaTroncoSuperior()+random;
-            G->setFuerzaTroncoSuperior(FTS);
-            G->calc_Resistencia();
-            break;
-        }
-        case 5:{
-            unsigned short int FTI = G->getFuerzaTroncoInferior()+random;
-            G->setFuerzaTroncoInferior(FTI);
-            G->calc_Resistencia();
-            break;
-        }
-        default:
-            break;
+            // Se genera el valor de mutación
+            int random_gen = rand()%5;
+
+            switch (gen_mutado) {
+            case 1:{
+                unsigned short int Edad = mutate(G->getEdad(),random_gen);
+                G->setEdad(Edad);
+                G->calc_Resistencia();
+                break;
+            }
+            case 2:{
+                unsigned short int IE = mutate(G->getInteligenciaEmocional(),random_gen);
+                G->setInteligenciaEmocional(IE);
+                G->calc_Resistencia();
+                break;
+            }
+            case 3:{
+                unsigned short int CF = mutate(G->getCondicionFisica(),random_gen);
+                G->setCondicionFisica(CF);
+                G->calc_Resistencia();
+                break;
+            }
+            case 4:{
+                unsigned short int FTS = mutate(G->getFuerzaTroncoSuperior(),random_gen);
+                G->setFuerzaTroncoSuperior(FTS);
+                G->calc_Resistencia();
+                break;
+            }
+            case 5:{
+                unsigned short int FTI = mutate(G->getFuerzaTroncoInferior(),random_gen);
+                G->setFuerzaTroncoInferior(FTI);
+                G->calc_Resistencia();
+                break;
+            }
+            default:
+                break;
+            }
         }
     }
-
 }
+
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+int invert(int value){
+
+    string val_BIN = bitset<8>(value).to_string();
+    int gen = rand()%6;
+
+    string gen_invert = val_BIN.substr(gen,3);
+
+    for(int i = 0; i < 3; i++){
+        string gen_val = gen_invert.substr(i,1);
+        gen_invert = (gen_val.compare("0") == 0) ? gen_invert.replace(i,1,"1"):gen_invert.replace(i,1,"0");
+    }
+
+    val_BIN = val_BIN.replace(gen,3,gen_invert);
+    value = boost::numeric_cast<int>(bitset<8>(val_BIN).to_ulong());
+
+    return value;
+}
+//----------------------------------------------------------------------
+
+// Ver información aquí: http://www.sc.ehu.es/ccwbayes/docencia/mmcc/docs/temageneticos.pdf
+// La mutación se realiza sobre cada Hijo
+void Gen_Engine::Invertion(Lista<Gladiador*> *Next_Gen){
+
+    // La mutación se realiza sobre cada hijo
+    for(int i = 0; i < Next_Gen->size();i++){
+
+        Gladiador *G = Next_Gen->get_index(i);
+
+        // #3. Se calcula la probabilidad de inversión
+        int _probabilidad = rand()%6;
+
+        // #4. Se realiza una inversión sobre una característica del Gladiador al azar
+        if(_probabilidad == 0){
+
+            qDebug()<<">> Habrá una inversión!";
+
+            /*************************************************
+             *                  JUSTIFICACIÓN
+             * ----------------------------------------------
+             * La mutación es un proceso mucho más importante
+             * que el cruce, pues es la que genera cambios en
+             * la nueva población y aumenta la probabilidad de
+             * mejora.
+             * Para esta mutación, el gen a mutar se escoge de
+             * forma aletoria al igual que el valor de muta-
+             * ción.
+             * La teoría lo explica como la alteración de un
+             * {bit} pero un bit en las representaciones bina-
+             * rias,  en este caso, cumplímos la teoría ya que
+             * estamos alterando un "bit" del gladiador.
+             *************************************************/
+
+            // Se selecciona un gen al azar
+            int gen_mutado = rand()%5+1;
+
+            switch (gen_mutado) {
+            case 1:{
+                unsigned short int Edad = invert(G->getEdad());
+                G->setEdad(Edad);
+                G->calc_Resistencia();
+                break;
+            }
+            case 2:{
+                unsigned short int IE = invert(G->getInteligenciaEmocional());
+                G->setInteligenciaEmocional(IE);
+                G->calc_Resistencia();
+                break;
+            }
+            case 3:{
+                unsigned short int CF = invert(G->getCondicionFisica());
+                G->setCondicionFisica(CF);
+                G->calc_Resistencia();
+                break;
+            }
+            case 4:{
+                unsigned short int FTS = invert(G->getFuerzaTroncoSuperior());
+                G->setFuerzaTroncoSuperior(FTS);
+                G->calc_Resistencia();
+                break;
+            }
+            case 5:{
+                unsigned short int FTI = invert(G->getFuerzaTroncoInferior());
+                G->setFuerzaTroncoInferior(FTI);
+                G->calc_Resistencia();
+                break;
+            }
+            default:
+                break;
+            }
+        }
+    }
+}
+
+//----------------------------------------------------------------------
 
 // Inserta la nueva pobalción, eliminando a los más débiles
 void Gen_Engine::seleccion_Natural(Poblacion *_Poblacion, Lista<Gladiador*> *Next_Gen){
@@ -146,6 +261,7 @@ void Gen_Engine::Evolve(Poblacion *Poblacion){
 
     // #2. Mutación de los hijos
     Mutation(Next_Gen);
+    Invertion(Next_Gen);
 
     // #3. Inserción y Reducción
     seleccion_Natural(Poblacion,Next_Gen);
