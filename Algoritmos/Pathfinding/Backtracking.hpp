@@ -1,4 +1,5 @@
-
+#ifndef BACKTRACKING_H
+#define BACKTRACKING_H
 // Bibliotecas
 #include <iostream>
 #include <vector>
@@ -51,7 +52,7 @@ public:
     //! @brief Implementacion del algoritmo de busqueda Backtracking.
     //! @param[in] maze: Laberinto sobre el que se realiza la busqueda.
     //! @return[out] Ruta encontrada para salir del laberinto.
-   string Backtracking_Search(int (*maze)[10]);
+    string Backtracking_Search(int (*maze)[10],int x, int y);
 
     //!
     //! \brief solve_Bt
@@ -71,3 +72,5 @@ public:
     }
 
 };
+
+#endif

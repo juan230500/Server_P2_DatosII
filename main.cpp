@@ -6,6 +6,7 @@
 #include "Algoritmos/Genético/gen_Engine.hpp"
 #include "Algoritmos/Genético/poblacion.hpp"
 #include "Game_Logic/tablero.hpp"
+#include "Game_Logic/server.hpp"
 
 #include "qdebug.h"
 #include <QApplication>
@@ -29,8 +30,11 @@ int main(){
 
     srand (time(NULL));
 
+    Server *server = new Server();
+    server->Play();
+
     /* PRUEBAS GENETICOS */
-    Poblacion* P = new Poblacion(90);
+    /*Poblacion* P = new Poblacion(90);
     P->Ordenar();
     P->print_Estadistica();
 
@@ -44,7 +48,7 @@ int main(){
         P->Ordenar();
         P->print_Estadistica();
         gen++;
-    }
+    }*/
 
     /* PRUEBAS PATHFINDING */
     //cout<<"Backtracking:"<<endl;
@@ -72,7 +76,7 @@ int Backtracking_test(){
                        {0,0,0,1,0,0,0,0,1,0}};
 
     Backtracking* solver = new Backtracking();
-    string my_path = solver->Backtracking_Search(maze);
+    string my_path = solver->Backtracking_Search(maze,5,1);
     int time = solver->get_Time();
     delete(solver);
     cout<<my_path<<endl;
@@ -108,7 +112,7 @@ int A_star_test(){
 
     // Ejecutar el algoritmo A*
     A_star* solver = new A_star();
-    solver->A_star_Search(maze,make_pair(0,0));
+    solver->A_star_Search(maze,5,1);
 
     // Obtener la ruta como String
     string my_Path = solver->get_Path();

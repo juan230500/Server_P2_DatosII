@@ -3,7 +3,8 @@
 void Tablero::ColocarObstaculo(int id, int fila, int columna)
 {
     this->ArrayDatos[fila][columna]=id;
-
+    this->Maze[fila][columna]=id;
+    obstaculos += to_string(fila) +to_string(columna)+to_string(id) +"-";
     if (id==1){
         int filaMenor=fila-1;
         int filaMayor=fila+1;
@@ -82,6 +83,7 @@ void Tablero::Print()
     qDebug().noquote()<<S;
 }
 
-Tablero::Tablero()
-{
+Tablero::Tablero(){
+    ArrayDatos = (int(*)[10]) calloc(10,sizeof(*ArrayDatos));
+    Maze = (int(*)[10]) calloc(10,sizeof(*ArrayDatos));
 }

@@ -12,12 +12,12 @@ Backtracking::Backtracking(){
  * -------------------------------*/
 
 // Metodo inicial de la funcion
-string Backtracking::Backtracking_Search(int (*maze)[10]){
+string Backtracking::Backtracking_Search(int (*maze)[10],int x, int y){
 
     // Se realiza una marca al inicio del algoritmo
     time_point<Clock> start = Clock::now();
     Lista<string> *path = new Lista<string>();
-    if(!Backtracking_Solver(maze,0,0,path)){
+    if(!Backtracking_Solver(maze,x,y,path)){
         return this->_path;
     }
     // Se realiza una marca al final del algoritmo

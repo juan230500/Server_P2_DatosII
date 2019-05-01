@@ -97,7 +97,7 @@ public:
     //!
     //! \brief A_star_Search. Metodo inicial que se encarga de llamar al método de búqueda recursivo.
     //!
-    void A_star_Search(int maze[][COL],pos src);
+    void A_star_Search(int maze[][COL],int x,int y);
 
     //!
     //! \brief A_star_Solver. Método auxiliar para resolver el laberinto.

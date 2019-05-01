@@ -25,7 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        Socket.cpp \
+        Net/Socket.cpp \
+        Net/traductorservidor.cpp \
         main.cpp \
         Algoritmos/Pathfinding/a_star.cpp \
         Algoritmos/Pathfinding/Backtracking.cpp \
@@ -34,7 +35,7 @@ SOURCES += \
         Game_Logic/tablero.cpp \
         Algoritmos/Genético/poblacion.cpp \
         Algoritmos/Genético/gen_Engine.cpp \
-        traductorservidor.cpp
+
 
 
 HEADERS += \
@@ -48,9 +49,9 @@ HEADERS += \
         Game_Logic/server.hpp \
         Algoritmos/Genético/poblacion.hpp \
         Algoritmos/Genético/gen_Engine.hpp \
-    Game_Logic/tablero.hpp \
-        Socket.h \
-        traductorservidor.h
+        Game_Logic/tablero.hpp \
+        Net/Socket.h \
+        Net/traductorservidor.h
 
 
 FORMS += \

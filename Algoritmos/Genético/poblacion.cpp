@@ -9,6 +9,8 @@ Poblacion::Poblacion(int tam)
         this->ArrayGladidadores[i]=new Gladiador();
     }
     this->tam=tam;
+
+    Ordenar();
 }
 
 /* -------------------------------
@@ -67,6 +69,16 @@ void Poblacion::print_Estadistica()
     }
     sum/=tam;
     qDebug()<<"PROMEDIO:"<<sum;
+}
+
+void Poblacion::calc_prom(){
+    Gladiador* G;
+    float sum=0;
+    for (int i=0;i<tam;i++){
+        G=this->ArrayGladidadores[i];
+        sum+=G->getResistencia();
+    }
+    this->res_prom = sum/tam;
 }
 
 void Poblacion::print_Gladiadores(){

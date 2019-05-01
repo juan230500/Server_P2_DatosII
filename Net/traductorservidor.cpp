@@ -13,8 +13,8 @@ string traductorServidor::SerializarInformacionIteracion3(string obstaculos1, st
                        "\"rutaA\":\"abcdefghaaa\","
                        "\"rutaB\":\"abcdefghaaa\","
                        "\"obstaculos\":\"abcdefghaaa\","
-                       "\"atributosGladiador1\":[0,2,0,0,0,0,0,0,0],"
-                       "\"atributosGladiador2\":[0,2,0,0,0,0,0,0,0],"
+                       "\"atributosGladiador1\":[0,2,0,0,0,0,0,0,0,0],"
+                       "\"atributosGladiador2\":[0,2,0,0,0,0,0,0,0,0],"
                        "\"ganador\":\"\"}";
     Document d;
     d.Parse(json);
@@ -50,7 +50,7 @@ void traductorServidor::DeserializarInfoDeSimulacion(string json,string *obstacu
     Document d;
     d.Parse(json.c_str());
    // cout << "ya parsee"<<endl;
-    for (int i=0;i<9;i++){
+    for (int i=0;i<10;i++){
         atributosGladiador1[i]= d["atributosGladiador1"].GetArray()[i].GetInt();
          atributosGladiador2[i]=d["atributosGladiador2"].GetArray()[i].GetInt();
     }
@@ -70,8 +70,8 @@ string traductorServidor::SerializarInformacion(string obstaculos1 , int atribut
                        "\"rutaA\":\"abcdefghaaa\","
                        "\"rutaB\":\"abcdefghaaa\","
                        "\"obstaculos\":\"abcdefghaaa\","
-                       "\"atributosGladiador1\":[0,2,0,0,0,0,0,0,0],"
-                       "\"atributosGladiador2\":[0,2,0,0,0,0,0,0,0],"
+                       "\"atributosGladiador1\":[0,2,0,0,0,0,0,0,0,0],"
+                       "\"atributosGladiador2\":[0,2,0,0,0,0,0,0,0,0],"
                        "\"ganador\":\"\"}";
     Document d;
     d.Parse(json);
@@ -79,7 +79,7 @@ string traductorServidor::SerializarInformacion(string obstaculos1 , int atribut
     d["finalizacion"].SetBool(finalizacion);
     if (!finalizacion) {
         string stmp;
-        for(int i=0;i<9;i++){
+        for(int i=0;i<10;i++){
             d["atributosGladiador1"].GetArray()[i]=atributosGladiador1[i];
             d["atributosGladiador2"].GetArray()[i]=atributosGladiador2[i];
         }

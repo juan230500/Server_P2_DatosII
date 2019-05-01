@@ -13,6 +13,9 @@ private:
 
     Gladiador* ArrayGladidadores[90]; //!<
     int tam;//!<
+    int res_prom; //!<
+
+    void calc_prom();
 
 public:
 
@@ -22,9 +25,16 @@ public:
 
     //! \brief Ordenar
     void Ordenar();
+
     void print_Gladiadores();
+
     void print_Estadistica();
+
     Lista<Gladiador*> get_Mejores();
+
+    Gladiador* get_Mejor(){
+        return ArrayGladidadores[0];
+    }
 
     Gladiador** get_poblacion(){
         return ArrayGladidadores;
@@ -32,6 +42,11 @@ public:
 
     int get_PobSize(){
         return sizeof(ArrayGladidadores)/sizeof(ArrayGladidadores[0]);
+    }
+
+    int get_Prom(){
+        calc_prom();
+        return res_prom;
     }
 
 };
