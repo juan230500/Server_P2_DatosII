@@ -19,7 +19,7 @@ class Server
 {
 public:
     Server();
-
+    string recorrerRuta(string ruta, int resistencia, int matrizObstaculos[][10]);
     void Play();
 };
 

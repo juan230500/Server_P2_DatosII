@@ -74,3 +74,15 @@ void Server::Play(){
     G2_info[9] = t_G2;
 
 }
+
+string Server::recorrerRuta(string ruta, int resistencia, int matrizObstaculos[][10]){
+    vector<string> vectorRuta;
+    boost::split(vectorRuta, ruta, boost::is_any_of("-"));
+    for(int indice = 0, size = vectorRuta.size(); indice < size; indice++){
+        string posiciones = vectorRuta[indice];
+        int fila = stoi(posiciones.substr(0,1));
+        int col = stoi(posiciones.substr(1,1));
+        resistencia += matrizObstaculos[fila][col];
+        if(resistencia <= 0) return posiciones;
+    }return "";
+}
