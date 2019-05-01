@@ -30,6 +30,7 @@ SOURCES += \
         Algoritmos/Pathfinding/Backtracking.cpp \
         Game_Logic/gladiador.cpp \
         Game_Logic/server.cpp \
+        Game_Logic/tablero.cpp \
         Algoritmos/Genético/poblacion.cpp \
         Algoritmos/Genético/gen_Engine.cpp \
 
@@ -42,9 +43,11 @@ HEADERS += \
         Algoritmos/Pathfinding/a_star.hpp \
         Algoritmos/Pathfinding/Backtracking.hpp \
         Game_Logic/gladiador.h \
+        Game_Logic/server.hpp \
         Algoritmos/Genético/poblacion.hpp \
         Algoritmos/Genético/gen_Engine.hpp \
-        Game_Logic/server.hpp
+    Game_Logic/tablero.hpp
+
 
 FORMS += \
         mainwindow.ui

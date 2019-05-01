@@ -44,7 +44,8 @@ void Gladiador::calc_Resistencia(){
     +FuerzaTroncoSuperior/20 //0-5
     +FuerzaTroncoInferior/20 //0-5
     +InteligenciaEmocional/20 //0-5
-    +5-CondicionFisica/3; //0-5
+    +CondicionFisica/3; //0-5
+
 }
 
 void Gladiador::print(){
@@ -73,15 +74,14 @@ int manipular_ADN(int p1_ADN,int p2_ADN){
 
     // #3. Cruzar los genes de los padres.
     string h_BIN = p1_BIN+p2_BIN;
-    unsigned int h_ADN = boost::numeric_cast<int>(bitset<8>(h_BIN).to_ulong());
+    int h_ADN = boost::numeric_cast<int>(bitset<8>(h_BIN).to_ulong());
 
 
-    qDebug()<<"    ALTERACION DEL GENOMA    ";
+    /*qDebug()<<"    ALTERACION DEL GENOMA    ";
     qDebug()<<">> P1:"<<p1_BIN.c_str()<<" : "<<p1_ADN;
     qDebug()<<">> P2:"<<p2_BIN.c_str()<<" : "<<p2_ADN;
     qDebug()<<">> H:"<<h_BIN.c_str()<<" : "<<h_ADN;
-    qDebug()<<"------------------------------";
-
+    qDebug()<<"------------------------------";*/
     return h_ADN;
 }
 

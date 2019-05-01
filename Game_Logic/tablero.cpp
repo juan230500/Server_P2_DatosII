@@ -1,4 +1,4 @@
-#include "tablero.h"
+#include "tablero.hpp"
 
 void Tablero::ColocarObstaculo(int id, int fila, int columna)
 {

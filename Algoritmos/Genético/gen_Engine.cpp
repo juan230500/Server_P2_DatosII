@@ -12,6 +12,7 @@ void Gen_Engine::Crossover(Poblacion *Poblacion,Lista<Gladiador*> *Next_Gen){
     // #2. Se CRUZAN los Padres para generar una poblacion de 10 individuos
     for(int hijo = 0; hijo < 6; hijo++){
 
+
         /*********************************************************
          ¿ Cuantas distintas combinaciones se pueden
            hacer con 4 padres?
@@ -265,4 +266,5 @@ void Gen_Engine::Evolve(Poblacion *Poblacion){
 
     // #3. Inserción y Reducción
     seleccion_Natural(Poblacion,Next_Gen);
+
 }

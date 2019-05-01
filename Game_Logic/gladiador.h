@@ -18,7 +18,7 @@ private:
 
     // UNSIGNED solo guardará valores positivos
     // SHORT
-    unsigned short int static idGlobal;
+
 
     unsigned short int id; // Identificación del gladiador
     unsigned short int Edad; // Edad del gladiador
@@ -32,6 +32,7 @@ private:
     unsigned short int ProbabilidadSupervivencia;
     unsigned short int GeneracionesSupervivencia;
 public:
+    unsigned short int static idGlobal;
 
     //! @brief Constructor
     Gladiador();

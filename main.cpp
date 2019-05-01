@@ -5,8 +5,9 @@
 #include "Data_Structures/lista.hpp"
 #include "Algoritmos/Genético/gen_Engine.hpp"
 #include "Algoritmos/Genético/poblacion.hpp"
-#include "qdebug.h"
+#include "Game_Logic/tablero.hpp"
 
+#include "qdebug.h"
 #include <QApplication>
 #include <iostream>
 #include <algorithm>
@@ -28,11 +29,13 @@ int main(){
 
     srand (time(NULL));
 
+    /* PRUEBAS GENETICOS */
     Poblacion* P = new Poblacion(90);
     P->Ordenar();
     P->print_Estadistica();
 
-    int gen = 1;
+
+    int gen = 2;
 
     while(gen <= 5){
         qDebug()<<"-------------------------------";
@@ -43,8 +46,7 @@ int main(){
         gen++;
     }
 
-
-
+    /* PRUEBAS PATHFINDING */
     //cout<<"Backtracking:"<<endl;
     //Backtracking_test();
 
