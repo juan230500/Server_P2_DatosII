@@ -83,61 +83,119 @@ void Server::Play(){
 
     // #8. Se instancia el Socket
     Socket *canal = &Socket::getInstance();
-
+    int turno=1;
     int cnt = 3;
     while(cnt < 10){
+        if (turno==3){
+            //canal->escuchar(8082);
+            // #9. Crear un objeto traductor
+            traductorServidor *traductor = new traductorServidor();
+           // canal->escuchar(8082);
+            string muerte1="";
+            string muerte2="";
+            // Se calculan las nuevas rutas
+            _AStar->A_star_Search(Maze->Maze,0,0);
+            A_star_Path = _AStar->get_Path();
+            Backtracking_Path = _Backtracking->Backtracking_Search(Maze->Maze,0,0);
+            while(muerte1==""&&muerte2==""){
+                 canal->escuchar(8082);
+                resistenciaGladiador1Global=G1->getResistencia();
+                resistenciaGladiador2Global=G2->getResistencia();
+                // #6. Tomar el tiempo que duró c/ Gladiador encontrando su ruta
+                int t_G1 = _AStar->get_Time();
+                int t_G2 = _Backtracking->get_Time();
+                G1_info[9] = t_G1;
+                G2_info[9] = t_G2;
+                // Se agregan nuevos obstáculos
+                Maze->ColocarObstaculo(2,cnt,cnt);
+                cnt++;
+                obstaculos = Maze->get_obstaculos();
+                // Se recorre la ruta de nuevo
+                pos1 = recorrerRutaIteracion3(A_star_Path,resistenciaGladiador1Global,Maze->ArrayDatos);
+                pos2 = recorrerRutaIteracion3(Backtracking_Path,resistenciaGladiador2Global,Maze->ArrayDatos);
+                string json = traductor->SerializarInformacion(obstaculos,G1_info,G2_info,
+                                                               A_star_Path,Backtracking_Path,false,20,pos1,pos2);
+                canal->enviar(json,8081,"192.168.100.9");
 
-        canal->escuchar(8082);
+                //########## Aqui lo que hago es serializar la ruta para moverme en el primer paso de la ruta###############
+                //A_star_Path = A_star_Path.substr(0, A_star_Path.size()-1);
+                vector<string> vectorRuta;
+                boost::split(vectorRuta, A_star_Path, boost::is_any_of("-"));
+                string posiciones = vectorRuta[1];
+                int fila = stoi(posiciones.substr(0,1));
+                int col = stoi(posiciones.substr(1,1));
+                // ahora con el backtracking
+                //Backtracking_Path = Backtracking_Path.substr(0, Backtracking_Path.size()-1);
+                vector<string> vectorRuta2;
+                boost::split(vectorRuta2, Backtracking_Path, boost::is_any_of("-"));
+                string posiciones2 = vectorRuta2[1];
+                int fila2 = stoi(posiciones2.substr(0,1));
+                int col2 = stoi(posiciones2.substr(1,1));
+                _AStar->A_star_Search(Maze->Maze,fila,col);
+                A_star_Path = _AStar->get_Path();
+                Backtracking_Path = _Backtracking->Backtracking_Search(Maze->Maze,fila2,col2);
 
-        // #9. Crear un objeto traductor
-        traductorServidor *traductor = new traductorServidor();
-        string json = traductor->SerializarInformacion(obstaculos,G1_info,G2_info,
-                                                       A_star_Path,Backtracking_Path,false,20,pos1,pos2);
 
-        // #10. Enviar la información
-        canal->enviar(json,8081,"192.168.100.9");
-
-        // Si retorna string vacío es porque ya terminó
-        if(pos1 == "" ){
-            qDebug()<<" G1 ha llegado!";
-            break;
-        } else if(pos2 == ""){
-            qDebug()<<" G2 ha llegado!";
-            break;
         }
 
-        // Se agregan nuevos obstáculos
-        Maze->ColocarObstaculo(2,cnt,cnt);
-        cnt++;
-        obstaculos = Maze->get_obstaculos();
-
-        // Se calculan las nuevas rutas
-        _AStar->A_star_Search(Maze->Maze,0,0);
-        A_star_Path = _AStar->get_Path();
-        Backtracking_Path = _Backtracking->Backtracking_Search(Maze->Maze,0,0);
-
-        /*-----------------------------------*/
-        // Se aplica el genético
-        Gen_Engine::Evolve(Pob_1);
-        Gen_Engine::Evolve(Pob_2);
-
-        Pob_1->Ordenar();
-        Pob_2->Ordenar();
-
-        // Escoger nuevos representantes
-        G1 = Pob_1->get_Mejor();
-        G2 = Pob_2->get_Mejor();
-
-        /*-----------------------------------*/
-
-        // Se recorre la ruta de nuevo
-        pos1 = recorrerRuta(A_star_Path,G1->getResistencia(),Maze->ArrayDatos);
-        pos2 = recorrerRuta(Backtracking_Path,G2->getResistencia(),Maze->ArrayDatos);
-
-
     }
-}
+        else{
+            canal->escuchar(8082);
 
+            // #9. Crear un objeto traductor
+            traductorServidor *traductor = new traductorServidor();
+            string json = traductor->SerializarInformacion(obstaculos,G1_info,G2_info,
+                                                           A_star_Path,Backtracking_Path,false,20,pos1,pos2);
+
+            // #10. Enviar la información
+            canal->enviar(json,8081,"192.168.100.9");
+
+            // Si retorna string vacío es porque ya terminó
+            if(pos1 == "" ){
+                qDebug()<<" G1 ha llegado!";
+                break;
+            } else if(pos2 == ""){
+                qDebug()<<" G2 ha llegado!";
+                break;
+            }
+
+            // Se agregan nuevos obstáculos
+            Maze->ColocarObstaculo(2,cnt,cnt);
+            cnt++;
+            obstaculos = Maze->get_obstaculos();
+
+            // Se calculan las nuevas rutas
+            _AStar->A_star_Search(Maze->Maze,0,0);
+            A_star_Path = _AStar->get_Path();
+            Backtracking_Path = _Backtracking->Backtracking_Search(Maze->Maze,0,0);
+
+            /*-----------------------------------*/
+            // Se aplica el genético
+            Gen_Engine::Evolve(Pob_1);
+            Gen_Engine::Evolve(Pob_2);
+
+            Pob_1->Ordenar();
+            Pob_2->Ordenar();
+
+            // Escoger nuevos representantes
+            G1 = Pob_1->get_Mejor();
+            G2 = Pob_2->get_Mejor();
+
+            /*-----------------------------------*/
+
+            // Se recorre la ruta de nuevo
+            pos1 = recorrerRuta(A_star_Path,G1->getResistencia(),Maze->ArrayDatos);
+            pos2 = recorrerRuta(Backtracking_Path,G2->getResistencia(),Maze->ArrayDatos);
+
+        /*-----------------------------------*/
+            /*Esto es para aumentar el turno 3 */
+             turno++;
+
+        }
+        //esto es para la iteracion 3
+
+  }
+}
 // -----------------------------------------------------------------------------------
 string Server::recorrerRuta(string ruta, int resistencia, int (*matrizObstaculos)[10]){
     qDebug()<<">> Resistencia del MOP:"<<resistencia;
@@ -151,4 +209,19 @@ string Server::recorrerRuta(string ruta, int resistencia, int (*matrizObstaculos
         resistencia += matrizObstaculos[fila][col];
         if(resistencia <= 0) return posiciones;
     }return "";
+}
+string Server::recorrerRutaIteracion3(string ruta, int resistencia, int (*matrizObstaculos)[10]){
+    qDebug()<<">> Resistencia del MOP:"<<resistencia;
+    ruta = ruta.substr(0, ruta.size()-1);
+    vector<string> vectorRuta;
+    boost::split(vectorRuta, ruta, boost::is_any_of("-"));
+    string posiciones = vectorRuta[0];
+    int fila = stoi(posiciones.substr(0,1));
+    int col = stoi(posiciones.substr(1,1));
+    resistencia += matrizObstaculos[fila][col];
+    if(resistencia <= 0) return posiciones;
+    else{
+    return "";
+    }
+
 }

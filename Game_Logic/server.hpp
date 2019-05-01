@@ -19,10 +19,15 @@ using namespace std;
 
 class Server
 {
+private:
+    int resistenciaGladiador1Global=0;
+    int resistenciaGladiador2Global=0;
+
 public:
     Server();
     void Play();
     string recorrerRuta(string ruta, int resistencia, int matrizObstaculos[][10]);
+    string recorrerRutaIteracion3(string ruta, int resistencia, int (*matrizObstaculos)[10]);
 };
 
 #endif // SERVER_HPP
