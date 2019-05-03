@@ -28,6 +28,7 @@ public:
     void Play();
     string recorrerRuta(string ruta, int resistencia, int matrizObstaculos[][10]);
     string recorrerRutaIteracion3(string ruta, int resistencia, int (*matrizObstaculos)[10]);
+    void obstaculosAleatorios(Tablero* maze);
 };
 
 #endif // SERVER_HPP
