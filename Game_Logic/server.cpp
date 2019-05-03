@@ -51,25 +51,20 @@ void Server::Play(){
 
     Poblacion *Pob_1 = new Poblacion(90);
     Poblacion *Pob_2 = new Poblacion(90);
-    Gladiador *G1;
-    Gladiador *G2;
-    int G1_info[10];
-    int G2_info[10];
+    Gladiador *G1, *G2;
+    int G1_info[10], G2_info[10];
     // HASTA ESTE PUNTO NO SE HA PUESTO EL TIEMPO -> Gn_info[9]
     // #4. Generar un tablero
     Tablero *Maze = new Tablero();
-    string obstaculos;
     // #5. Calcular la primer ruta de c/ Gladiador
-    string A_star_Path, Backtracking_Path;
+    string A_star_Path, Backtracking_Path, obstaculos;
     A_star *_AStar = new A_star();
     Backtracking *_Backtracking = new Backtracking();
-    string pos1;
-    string pos2;
+    string pos1 = "0", pos2 = "0";
     // #8. Se instancia el Socket
     Socket *canal = &Socket::getInstance();
     int turno=1;
-    int cnt = 3;
-    while(cnt < 10){
+    while(pos1 != "" && pos2 != ""){
         if (turno==3){
             //canal->escuchar(8082);
             // #9. Crear un objeto traductor
@@ -99,7 +94,7 @@ void Server::Play(){
                 pos2 = recorrerRutaIteracion3(Backtracking_Path,resistenciaGladiador2Global,Maze->ArrayDatos);
                 string json = traductor->SerializarInformacion(obstaculos,G1_info,G2_info,
                                                                A_star_Path,Backtracking_Path,false,20,pos1,pos2);
-                canal->enviar(json,8081,"192.168.42.227");
+                canal->enviar(json,8081,"192.168.0.15");
 
                 //########## Aqui lo que hago es serializar la ruta para moverme en el primer paso de la ruta###############
                 //A_star_Path = A_star_Path.substr(0, A_star_Path.size()-1);
@@ -169,7 +164,7 @@ void Server::Play(){
                                                            A_star_Path,Backtracking_Path,false,20,pos1,pos2);
 
             // #10. Enviar la información
-            canal->enviar(json,8081,"192.168.42.227");
+            canal->enviar(json,8081,"192.168.0.15");
 
             // Si retorna string vacío es porque ya terminó
             if(pos1 == "" ){
@@ -199,7 +194,7 @@ void Server::Play(){
 // -----------------------------------------------------------------------------------
 string Server::recorrerRuta(string ruta, int resistencia, int (*matrizObstaculos)[10]){
     qDebug()<<">> Resistencia del MOP:"<<resistencia;
-    qDebug()<<"RUTAAAAAA:"<<ruta;
+    qDebug()<<"RUTAAAAAA:"<<QString::fromStdString(ruta);
     ruta = ruta.substr(0, ruta.size()-1);
     vector<string> vectorRuta;
     boost::split(vectorRuta, ruta, boost::is_any_of("-"));
