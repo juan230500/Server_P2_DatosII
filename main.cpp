@@ -41,7 +41,7 @@ int main(){
 
     int gen = 2;
 
-    while(gen <= 5){
+    while(gen <= 10){
         qDebug()<<"-------------------------------";
         qDebug()<<"Generación: "<<gen;
         Gen_Engine::Evolve(P);
