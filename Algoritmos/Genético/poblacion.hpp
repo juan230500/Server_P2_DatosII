@@ -28,7 +28,7 @@ public:
 
     void print_Gladiadores();
 
-    void print_Estadistica();
+    void print_Estadistica(int generacion,int N);
 
     Lista<Gladiador*> get_Mejores();
 

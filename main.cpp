@@ -30,25 +30,28 @@ int main(){
 
     srand (time(NULL));
 
-    Server *server = new Server();
-    server->Play();
+    //Server *server = new Server();
+    //server->Play();
 
     /* PRUEBAS GENETICOS */
-    /*Poblacion* P = new Poblacion(90);
+
+
+    int obs = 3; // Inician solo 3 obstáculos
+    int gen = 1;
+
+    Poblacion* P = new Poblacion(90);
     P->Ordenar();
-    P->print_Estadistica();
-
-
-    int gen = 2;
+    P->print_Estadistica(1,obs);
 
     while(gen <= 10){
         qDebug()<<"-------------------------------";
-        qDebug()<<"Generación: "<<gen;
         Gen_Engine::Evolve(P);
         P->Ordenar();
-        P->print_Estadistica();
+        obs +=3;
+        P->print_Estadistica(gen,obs);
         gen++;
-    }*/
+
+    }
 
     /* PRUEBAS PATHFINDING */
     //cout<<"Backtracking:"<<endl;

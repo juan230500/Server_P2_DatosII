@@ -48,6 +48,23 @@ void Gladiador::calc_Resistencia(){
 
 }
 
+// Realiza el cálculo de probabilidades por sobrevivir que tiene el gladiador
+int Gladiador::calc_ProbSupervivencia(int pos){
+    ProbabilidadSupervivencia = ((Resistencia)*100*(90-pos)/(900));
+    return this->ProbabilidadSupervivencia;
+}
+
+// Realiza el cálculo de la cantidad de generaciones que se espera que el gladiador continúe en la población
+int Gladiador::calc_GenSupervivencia(int pos){
+
+    // Son 90 gladiadores y c/iteración se agregan 6
+    // Según su posición en la lista se puede conocer cuántas generaciones
+    // le quedan.
+    this->GeneracionesSupervivencia = (90-pos)/6 +1;
+    return GeneracionesSupervivencia;
+}
+
+// Imprime las stats del gladiador en consola
 void Gladiador::print(){
     qDebug()<<"ID: "<<id;
     qDebug()<<"=====================";
@@ -76,12 +93,6 @@ int manipular_ADN(int p1_ADN,int p2_ADN){
     string h_BIN = p1_BIN+p2_BIN;
     int h_ADN = boost::numeric_cast<int>(bitset<8>(h_BIN).to_ulong());
 
-
-    /*qDebug()<<"    ALTERACION DEL GENOMA    ";
-    qDebug()<<">> P1:"<<p1_BIN.c_str()<<" : "<<p1_ADN;
-    qDebug()<<">> P2:"<<p2_BIN.c_str()<<" : "<<p2_ADN;
-    qDebug()<<">> H:"<<h_BIN.c_str()<<" : "<<h_ADN;
-    qDebug()<<"------------------------------";*/
     return h_ADN;
 }
 
@@ -91,64 +102,11 @@ int manipular_ADN(int p1_ADN,int p2_ADN){
 // cruzar dos gladiadores de manera que se sumen sus atributos.
 Gladiador* Gladiador::operator+(const Gladiador &P){
 
-    /*unsigned short int Edad=(this->Edad+P.getEdad())/2;
-    unsigned short int InteligenciaEmocional=(this->InteligenciaEmocional+P.getInteligenciaEmocional())/2;
-    unsigned short int CondicionFisica=(this->CondicionFisica+P.getCondicionFisica())/2;
-    unsigned short int FuerzaTroncoSuperior=(this->FuerzaTroncoSuperior+P.getFuerzaTroncoSuperior())/2;
-    unsigned short int FuerzaTroncoInferior=(this->FuerzaTroncoInferior+P.getFuerzaTroncoInferior())/2;*/
-
-    // Se escoge un tipo de cruce
-    int punto_cruce = rand()%4+1;
-
     unsigned short int Edad = manipular_ADN(this->getEdad(),P.getEdad());
     unsigned short int InteligenciaEmocional = manipular_ADN(this->getInteligenciaEmocional(),P.getInteligenciaEmocional());
     unsigned short int CondicionFisica = manipular_ADN(this->getCondicionFisica(),P.getCondicionFisica());
     unsigned short int FuerzaTroncoSuperior = manipular_ADN(this->getFuerzaTroncoSuperior(),P.getFuerzaTroncoSuperior());
     unsigned short int FuerzaTroncoInferior = manipular_ADN(this->getFuerzaTroncoInferior(),P.getFuerzaTroncoInferior());
-
-    /*switch (punto_cruce) {
-    // Punto cruce {0,0,0,1,1}
-    case 1:{
-
-        Edad = this->getEdad();
-        InteligenciaEmocional = this->getInteligenciaEmocional();
-        CondicionFisica = this->getCondicionFisica();
-        FuerzaTroncoSuperior = P.getFuerzaTroncoSuperior();
-        FuerzaTroncoInferior = P.getFuerzaTroncoInferior();
-        break;
-    }
-    // Punto cruce {1,1,1,0,0}
-    case 2:{
-
-        Edad = P.getEdad();
-        InteligenciaEmocional = P.getInteligenciaEmocional();
-        CondicionFisica = P.getCondicionFisica();
-        FuerzaTroncoSuperior = this->getFuerzaTroncoSuperior();
-        FuerzaTroncoInferior = this->getFuerzaTroncoInferior();
-        break;
-    }
-    // Intercalado A {1,0,1,0,1}
-    case 3:{
-        Edad = this->getEdad();
-        InteligenciaEmocional = P.getInteligenciaEmocional();
-        CondicionFisica = this->getCondicionFisica();
-        FuerzaTroncoSuperior = P.getFuerzaTroncoSuperior();
-        FuerzaTroncoInferior = this->getFuerzaTroncoInferior();
-        break;
-    }
-    // Intercalado B {0,1,0,1,0}
-    case 4:{
-        Edad = P.getEdad();
-        InteligenciaEmocional = this->getInteligenciaEmocional();
-        CondicionFisica = P.getCondicionFisica();
-        FuerzaTroncoSuperior = this->getFuerzaTroncoSuperior();
-        FuerzaTroncoInferior = P.getFuerzaTroncoInferior();
-
-        break;
-    }
-    default:
-        break;
-    }*/
 
     return new Gladiador(Edad,InteligenciaEmocional,CondicionFisica,FuerzaTroncoSuperior,FuerzaTroncoInferior);
 }

@@ -57,15 +57,19 @@ Lista<Gladiador*> Poblacion::get_Mejores(){
     return Mejores;
 }
 
-void Poblacion::print_Estadistica()
+void Poblacion::print_Estadistica(int generacion, int N)
 {
     qDebug()<<"RESUMEN: RESISTENCIA DE POBLACION";
+    qDebug()<<"Generación: "<<generacion;
+    qDebug()<<"Obstaculos: "<<N;
     Gladiador* G;
     float sum=0;
     for (int i=0;i<tam;i++){
         G=this->ArrayGladidadores[i];
         sum+=G->getResistencia();
-        qDebug()<<i<<") id: "<<G->getId()<<"Resistencia: "<<G->getResistencia();
+        int prob = G->calc_ProbSupervivencia(i);
+        int expected_Gen = G->calc_GenSupervivencia(i);
+        qDebug()<<i<<") id: "<<G->getId()<<"| Resistencia: "<<G->getResistencia() << "| Expectativa:"<< expected_Gen << "| Prob Sup:"<<prob <<"%";
     }
     sum/=tam;
     qDebug()<<"PROMEDIO:"<<sum;

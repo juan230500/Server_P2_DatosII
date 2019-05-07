@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <math.h>
 #include <bitset>
 #include "qdebug.h"
 #include <QString>
@@ -29,8 +30,9 @@ private:
 
     unsigned short int Resistencia; //Vida
 
-    unsigned short int ProbabilidadSupervivencia;
-    unsigned short int GeneracionesSupervivencia;
+    int ProbabilidadSupervivencia;
+    int GeneracionesSupervivencia;
+
 public:
     unsigned short int static idGlobal;
 
@@ -52,11 +54,16 @@ public:
     /***************************************
      *            METODOS UTIL             *
      ***************************************/
+
     void print();
 
     Gladiador* operator+(const Gladiador& b);
 
     void calc_Resistencia();
+
+    int calc_ProbSupervivencia(int num_obstaculos);
+
+    int calc_GenSupervivencia(int pos);
 
     /***************************************
      *         GETTERS & SETTER            *

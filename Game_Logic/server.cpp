@@ -22,6 +22,7 @@ void generate_Info(Gladiador *G1, int info[]){
 }
 
 void Server::obstaculosAleatorios(Tablero* maze){
+
     Backtracking *_Backtracking = new Backtracking();
     string Backtracking_Path;
     string verificacion;
@@ -48,22 +49,27 @@ void Server::obstaculosAleatorios(Tablero* maze){
 void Server::Play(){
 
     // #1. Generar las dos poblaciones iniciales
-
     Poblacion *Pob_1 = new Poblacion(90);
     Poblacion *Pob_2 = new Poblacion(90);
+
     Gladiador *G1, *G2;
     int G1_info[10], G2_info[10];
-    // HASTA ESTE PUNTO NO SE HA PUESTO EL TIEMPO -> Gn_info[9]
+
     // #4. Generar un tablero
     Tablero *Maze = new Tablero();
+
     // #5. Calcular la primer ruta de c/ Gladiador
     string A_star_Path, Backtracking_Path, obstaculos;
+
     A_star *_AStar = new A_star();
     Backtracking *_Backtracking = new Backtracking();
+
     string pos1 = "0", pos2 = "0";
+
     // #8. Se instancia el Socket
     Socket *canal = &Socket::getInstance();
     int turno=1;
+
     while(pos1 != "" && pos2 != ""){
         if (turno==3){
             //canal->escuchar(8082);
