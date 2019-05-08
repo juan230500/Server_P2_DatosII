@@ -12,7 +12,7 @@ Backtracking::Backtracking(){
  * -------------------------------*/
 
 // Metodo inicial de la funcion
-string Backtracking::Backtracking_Search(int (*maze)[10],int x, int y){
+string Backtracking::Backtracking_Search(int (*maze)[COL],int x, int y){
 
     // Se realiza una marca al inicio del algoritmo
     time_point<Clock> start = Clock::now();
@@ -30,7 +30,7 @@ string Backtracking::Backtracking_Search(int (*maze)[10],int x, int y){
 }
 
 // Limpia la ruta encontrada del laberinto
-void reset_maze(int (*maze)[10]){
+void reset_maze(int (*maze)[COL]){
 
     // Cambia los 5s por 0s
     for(int row = 0; row < 10;row++){
@@ -43,10 +43,10 @@ void reset_maze(int (*maze)[10]){
 }
 
 // Metodo recursivo de Backtracking
-bool Backtracking::Backtracking_Solver(int (*maze)[10], int x, int y, Lista<string> *path){
+bool Backtracking::Backtracking_Solver(int (*maze)[COL], int x, int y, Lista<string> *path){
 
     // Si (x,y) es la salida return true
-    if(x == 9 && y == 9 && is_safe_Bt(maze,x,y))
+    if(x == ROW-1 && y == COL-1 && is_safe_Bt(maze,x,y))
     {
         // Se agrega (x,y) al path
         path->push_back(to_string(x) + to_string(y) + "-");
@@ -123,9 +123,9 @@ bool Backtracking::Backtracking_Solver(int (*maze)[10], int x, int y, Lista<stri
  * -------------------------------*/
 
 // Metodo que valida si la posicion es valida
-bool Backtracking::is_safe_Bt(int (*maze)[10],int x, int y){
+bool Backtracking::is_safe_Bt(int (*maze)[COL],int x, int y){
     // Si (x,y) se encuentra fuera del laberinto return False
-    if(x >= 0 && x < 10 && y >= 0 && y < 10 && maze[x][y] == 0){
+    if(x >= 0 && x < ROW && y >= 0 && y < COL && maze[x][y] == 0){
         return true;
     }
     return false;

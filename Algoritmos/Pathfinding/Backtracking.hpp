@@ -14,6 +14,9 @@ using std::chrono::time_point;
 using std::chrono::duration_cast;
 using std::chrono::microseconds;
 
+#define ROW 10
+#define COL 10
+
 using namespace std;
 
 /*-------------------- NOTA ----------------------------
@@ -22,7 +25,7 @@ using namespace std;
   -----------------------------------------------------*/
 
 //!
-//! \brief The Pathfinding class
+//! \brief Algoritmo de PathFinding Backtracking
 //!
 class Backtracking{
 
@@ -30,18 +33,15 @@ class Backtracking{
 
     int _time; //!< Tiempo que tarda el algoritmo en encontrar la ruta
 
-    //!
-    //! \brief is_safe
-    //! \param x
-    //! \param y
-    //! \return
-    //!
-    bool is_safe_Bt(int (*maze)[10],int x, int y);
 
-    //!
-    //! \brief print_solution
-    //! \param path
-    //!
+    //! \brief Función que determina si la posición en el tablero es permitida
+    //! \param [in] x : Posición x de la casilla
+    //! \param [in] y : Posición y de la casilla
+    //! \return
+    bool is_safe_Bt(int (*maze)[COL],int x, int y);
+
+    //! \brief Convierte el path de lista a string para su uso en JSON y Recorridos
+    //! \param path: Lista con las posiciones que componen la ruta a la salida
     void trace_path(Lista<string> *path);
 
 public:
@@ -52,25 +52,21 @@ public:
     //! @brief Implementacion del algoritmo de busqueda Backtracking.
     //! @param[in] maze: Laberinto sobre el que se realiza la busqueda.
     //! @return[out] Ruta encontrada para salir del laberinto.
-    string Backtracking_Search(int (*maze)[10],int x, int y);
+    string Backtracking_Search(int (*maze)[COL],int x, int y);
 
-    //!
-    //! \brief solve_Bt
-    //! \param x
-    //! \param y
-    //! \param path
-    //! \return
-    //!
-    bool Backtracking_Solver(int (*maze)[10], int x, int y, Lista<string> *path);
 
-    //!
-    //! \brief get_Time
-    //! \return
-    //!
+    //! \brief Función recursiva que ejecuta el Backtracking
+    //! \param [in] x : Posición x de la casilla
+    //! \param [in] y : Posición y de la casilla
+    //! \param [in] path : Lista con las posiciones que componen la ruta a la salida
+    bool Backtracking_Solver(int (*maze)[COL], int x, int y, Lista<string> *path);
+
+    //! \brief Retorna el tiempo que se tardó en encontrar la ruta de salida
     int get_Time(){
         return this->_time;
     }
 
+    //! \brief Limpia el path para volver a utilizarlo nuevamente
     void clean_Path(){
         _path = "";
     }

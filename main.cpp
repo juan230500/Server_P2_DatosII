@@ -38,7 +38,7 @@ int main(){
 
     /* PRUEBAS PATHFINDING */
     //cout<<"Backtracking:"<<endl;
-    //Backtracking_test();
+    Backtracking_test();
 
     //cout<<"A*:"<<endl;
     //A_star_test();
@@ -65,13 +65,28 @@ int Backtracking_test(){
     Backtracking* solver = new Backtracking();
     string my_path = solver->Backtracking_Search(tablero->Maze,0,0);
     int time = solver->get_Time();
-    delete(solver);
+
 
     print_maze(tablero->Maze);
     cout<<endl;
 
     cout<<my_path<<endl;
     cout<<"Encuentra la ruta en: "<< time<<" us"<<endl;
+
+    tablero->ColocarObstaculo(1,9,2);
+    tablero->ColocarObstaculo(2,1,5);
+    tablero->ColocarObstaculo(3,4,2);
+    tablero->ColocarObstaculo(3,3,8);
+
+    my_path = solver->Backtracking_Search(tablero->Maze,0,0);
+    time = solver->get_Time();
+
+    print_maze(tablero->Maze);
+    cout<<endl;
+
+    cout<<my_path<<endl;
+    cout<<"Encuentra la ruta en: "<< time<<" us"<<endl;
+
     return 0;
 }
 
