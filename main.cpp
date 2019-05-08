@@ -34,11 +34,11 @@ int main(){
     //server->Play();
 
     /* PRUEBAS GENETICOS */
-    //algoritmo_Genetico();
+    algoritmo_Genetico();
 
     /* PRUEBAS PATHFINDING */
     //cout<<"Backtracking:"<<endl;
-    Backtracking_test();
+    //Backtracking_test();
 
     //cout<<"A*:"<<endl;
     //A_star_test();
