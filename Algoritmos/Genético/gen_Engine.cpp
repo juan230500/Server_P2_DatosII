@@ -77,7 +77,7 @@ void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
 
         Gladiador *G = Next_Gen->get_index(i);
 
-        // #3. Se calcula la probabilidad de mutación:: P = 1/7 = 0,14 % de Posibilidades de entrar
+        // #3. Se calcula la probabilidad de mutación:: P = 1/5 = 0,2 % de Posibilidades de entrar
         int _probabilidad = rand()%4;
 
         // #4. Se realiza una mutación sobre una característica del Gladiador al azar
@@ -104,7 +104,7 @@ void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
             // Se selecciona un gen al azar
             int gen_mutado = rand()%5+1;
 
-            // Se genera el valor de mutación
+            // Se genera el valor de mutación dentro de los primeros 4 bits
             int random_gen = rand()%4;
 
             switch (gen_mutado) {
