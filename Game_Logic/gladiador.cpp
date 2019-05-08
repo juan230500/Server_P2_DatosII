@@ -50,7 +50,7 @@ void Gladiador::calc_Resistencia(){
 
 // Realiza el cálculo de probabilidades por sobrevivir que tiene el gladiador
 int Gladiador::calc_ProbSupervivencia(int pos){
-    ProbabilidadSupervivencia = ((Resistencia)*100*(90-pos)/(900));
+    ProbabilidadSupervivencia = (100*(90-pos)/(90));
     return this->ProbabilidadSupervivencia;
 }
 
