@@ -13,8 +13,8 @@ string traductorServidor::SerializarInformacionIteracion3(string obstaculos1, st
                        "\"rutaA\":\"abcdefghaaa\","
                        "\"rutaB\":\"abcdefghaaa\","
                        "\"obstaculos\":\"abcdefghaaa\","
-                       "\"atributosGladiador1\":[0,2,0,0,0,0,0,0,0,0,0],"
-                       "\"atributosGladiador2\":[0,2,0,0,0,0,0,0,0,0,0],"
+                       "\"atributosGladiador1\":[0,2,0,0,0,0,0,0,0,0],"
+                       "\"atributosGladiador2\":[0,2,0,0,0,0,0,0,0,0],"
                        "\"ganador\":\"\"}";
     Document d;
     d.Parse(json);
@@ -46,13 +46,13 @@ void traductorServidor::DeserializarInformacionIteracion3(string json,string *ob
     *finalizacion=d["finalizacion"].GetBool();
 }
 void traductorServidor::DeserializarInfoDeSimulacion(string json,string *obstaculos,int atributosGladiador1[11],
-                                                        int atributosGladiador2[11],bool *finalizacion,int *AvanceGenetico,
+                                                        int atributosGladiador2[11],bool *finalizacion,float *AvanceGenetico1,float *AvanceGenetico2,
                                                             string *rutaA,string *rutaB,string *muerte1,string *muerte2)
 {
     Document d;
     d.Parse(json.c_str());
    // cout << "ya parsee"<<endl;
-    for (int i=0;i<11;i++){
+    for (int i=0;i<10;i++){
         atributosGladiador1[i]= d["atributosGladiador1"].GetArray()[i].GetInt();
          atributosGladiador2[i]=d["atributosGladiador2"].GetArray()[i].GetInt();
     }
@@ -64,28 +64,32 @@ void traductorServidor::DeserializarInfoDeSimulacion(string json,string *obstacu
     *muerte2=d["muerte2"].GetString();
     *obstaculos=d["obstaculos"].GetString();
     *finalizacion=d["finalizacion"].GetBool();
-    *AvanceGenetico=d["AvanceGenetico"].GetInt();
+    *AvanceGenetico1=d["AvanceGenetico1"].GetFloat();
+    *AvanceGenetico1=d["AvanceGenetico2"].GetFloat();
+
 }
-string traductorServidor::SerializarInformacion(string obstaculos1 , int atributosGladiador1[11] , int atributosGladiador2[11], string rutaA,string rutaB, bool finalizacion, int AvanceGenetico,string muerte1, string muerte2)
+string traductorServidor::SerializarInformacion(string obstaculos1 , int atributosGladiador1[11] , int atributosGladiador2[11], string rutaA,string rutaB, bool finalizacion, float AvanceGenetico1,float AvanceGenetico2,string muerte1, string muerte2)
 {
 
-    const char* json = "{\"AvanceGenetico\":0,"
+    const char* json = "{\"AvanceGenetico1\":0,"
+                       "\"AvanceGenetico2\":0,"
                        "\"finalizacion\":true,"
                        "\"muerte1\":\"abcdefghaaa\","
                        "\"muerte2\":\"abcdefghaaa\","
                        "\"rutaA\":\"abcdefghaaa\","
                        "\"rutaB\":\"abcdefghaaa\","
                        "\"obstaculos\":\"abcdefghaaa\","
-                       "\"atributosGladiador1\":[0,2,0,0,0,0,0,0,0,0,0,0],"
-                       "\"atributosGladiador2\":[0,2,0,0,0,0,0,0,0,0,0,0],"
+                       "\"atributosGladiador1\":[0,2,0,0,0,0,0,0,0,0,0],"
+                       "\"atributosGladiador2\":[0,2,0,0,0,0,0,0,0,0,0],"
                        "\"ganador\":\"\"}";
     Document d;
     d.Parse(json);
-    d["AvanceGenetico"].SetInt(AvanceGenetico);
+    d["AvanceGenetico1"].SetFloat(AvanceGenetico1);
+    d["AvanceGenetico2"].SetFloat(AvanceGenetico2);
     d["finalizacion"].SetBool(finalizacion);
     if (!finalizacion) {
         string stmp;
-        for(int i=0;i<11;i++){
+        for(int i=0;i<10;i++){
             d["atributosGladiador1"].GetArray()[i]=atributosGladiador1[i];
             d["atributosGladiador2"].GetArray()[i]=atributosGladiador2[i];
         }

@@ -97,7 +97,7 @@ void Server::Play(){
                 if(muerte1 != "") terminoJ1 = true;
                 if(muerte2 != "") terminoJ2 = true;
                 string json = traductor->SerializarInformacion(obstaculos,G1_info,G2_info,
-                                                               A_star_Path,Backtracking_Path,false,20,muerte1,muerte2);
+                                                               A_star_Path,Backtracking_Path,false,20,20,muerte1,muerte2);
                 canal->enviar(json,8081,"172.18.184.24");
 
                 //########## Aqui lo que hago es serializar la ruta para moverme en el primer paso de la ruta###############
@@ -172,7 +172,7 @@ void Server::Play(){
             // #9. Crear un objeto traductor
             traductorServidor *traductor = new traductorServidor();
             string json = traductor->SerializarInformacion(obstaculos,G1_info,G2_info,
-                                                           A_star_Path,Backtracking_Path,false,20,pos1,pos2);
+                                                           A_star_Path,Backtracking_Path,false,20,20,pos1,pos2);
 
             // #10. Enviar la información
             canal->enviar(json,8081,"172.18.184.24");
