@@ -12,7 +12,7 @@
 #include <boost/numeric/conversion/cast.hpp>
 
 using namespace std;
-// Un gladiador es el CROMOSOMA del ALGORITMO GENETICO
+//! Un gladiador es el CROMOSOMA del ALGORITMO GENETICO
 class Gladiador
 {
 private:

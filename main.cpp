@@ -24,81 +24,69 @@ void print_maze(int(*maze)[10]);
 int Backtracking_test();
 int A_star_test();
 void lista_test();
+void algoritmo_Genetico();
 
 int main(){
 
-//    Tablero* tablero = new Tablero();
-//    Backtracking *_Backtracking = new Backtracking();
-//    string ruta;
-//    tablero->ColocarObstaculo(1,4,6);
-//    tablero->ColocarObstaculo(2,8,9);
-//    tablero->ColocarObstaculo(3,6,7);
-
-//    for(int i = 0; i < 10;i++){
-//        for(int j = 0; j<10;j++){
-//            cout<<tablero->Maze[i][j]<<" ";
-//        }
-//        cout<<endl;
-//    }
-    //ruta = _Backtracking->Backtracking_Search(tablero->Maze,0,0);
-    //cout<<ruta<<endl;
-
-
-    //return 0;
-
     srand (time(NULL));
 
-    Server *server = new Server();
-    server->Play();
+    //Server *server = new Server();
+    //server->Play();
 
     /* PRUEBAS GENETICOS */
-    /*Poblacion* P = new Poblacion(90);
-    P->Ordenar();
-    P->print_Estadistica();
-
-
-    int gen = 2;
-
-    while(gen <= 5){
-        qDebug()<<"-------------------------------";
-        qDebug()<<"Generación: "<<gen;
-        Gen_Engine::Evolve(P);
-        P->Ordenar();
-        P->print_Estadistica();
-        gen++;
-    }*/
+    //algoritmo_Genetico();
 
     /* PRUEBAS PATHFINDING */
-//    cout<<"Backtracking:"<<endl;
-//    Backtracking_test();
+    //cout<<"Backtracking:"<<endl;
+    Backtracking_test();
 
     //cout<<"A*:"<<endl;
     //A_star_test();
+
     return 0;
 }
 
-/*
- * Funcion que se encarga de  realizar una prueba al algoritmo Backtracking
- */
+//Funcion que se encarga de  realizar una prueba al algoritmo Backtracking
 int Backtracking_test(){
-    // Declarar la matriz que se usara como laberinto
-    int maze[][10] = { {0,0,1,0,0,0,0,0,1,0},
-                       {0,0,1,0,1,1,1,0,1,0},
-                       {0,1,1,0,0,0,0,0,1,0},
-                       {0,1,0,0,1,1,1,0,0,0},
-                       {0,0,1,0,1,0,1,0,0,0},
-                       {0,0,0,0,1,0,0,0,1,1},
-                       {1,1,0,1,1,0,1,1,1,1},
-                       {0,0,0,1,0,0,1,0,0,1},
-                       {0,0,0,1,0,0,1,0,1,0},
-                       {0,0,0,1,0,0,0,0,1,0}};
 
+    // 1. Declarar la matriz que se usara como laberinto
+    Tablero* tablero = new Tablero();
+
+    // 2. Insertar obstáculos en el tablero
+    tablero->ColocarObstaculo(1,0,2);
+    tablero->ColocarObstaculo(2,1,2);
+    tablero->ColocarObstaculo(3,1,1);
+    tablero->ColocarObstaculo(3,2,2);
+
+    print_maze(tablero->Maze);
+    cout<<endl;
+
+    // Ya hay un método que limpia el laberinto para volver a ser utilizado
     Backtracking* solver = new Backtracking();
-    string my_path = solver->Backtracking_Search(maze,5,1);
+    string my_path = solver->Backtracking_Search(tablero->Maze,0,0);
     int time = solver->get_Time();
-    delete(solver);
+
+
+    print_maze(tablero->Maze);
+    cout<<endl;
+
     cout<<my_path<<endl;
     cout<<"Encuentra la ruta en: "<< time<<" us"<<endl;
+
+    tablero->ColocarObstaculo(1,9,2);
+    tablero->ColocarObstaculo(2,1,5);
+    tablero->ColocarObstaculo(3,4,2);
+    tablero->ColocarObstaculo(3,3,8);
+
+    my_path = solver->Backtracking_Search(tablero->Maze,0,0);
+    time = solver->get_Time();
+
+    print_maze(tablero->Maze);
+    cout<<endl;
+
+    cout<<my_path<<endl;
+    cout<<"Encuentra la ruta en: "<< time<<" us"<<endl;
+
     return 0;
 }
 
@@ -141,4 +129,22 @@ int A_star_test(){
     cout<<my_Path<<endl;
     cout<<"Encuentra la ruta en: "<<time<<" us"<<endl;
     return 0;
+}
+
+// Función de prueba del Algoritmo genético
+void algoritmo_Genetico(){
+    int gen = 1, obst = 3;
+    Poblacion* P = new Poblacion(90);
+    P->Ordenar();
+    P->print_Estadistica(1,3);
+
+    while(gen <= 10){
+        gen++;
+        obst+=3; // Cada iteración se agregan 3 obstáculos nuevos
+        qDebug()<<"-------------------------------";
+        qDebug()<<"Generación: "<<gen;
+        Gen_Engine::Evolve(P);
+        P->Ordenar();
+        P->print_Estadistica(gen,obst);
+    }
 }
