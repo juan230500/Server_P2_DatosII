@@ -89,6 +89,11 @@ bool Backtracking::Backtracking_Solver(int (*maze)[COL], int x, int y, Lista<str
         if (Backtracking_Solver(maze, x-1, y, path))
             return true;
 
+        /* Si ninguna de estas lleva a una solucion entonces
+               intenta moverse en hacia atras */
+        if(Backtracking_Solver(maze,x,y-1,path)){
+            return true;
+        }
 
         /* Si ninguna de estas lleva a una solucion entonces
                intenta moverse en diagonal hacia abajo */
@@ -102,11 +107,7 @@ bool Backtracking::Backtracking_Solver(int (*maze)[COL], int x, int y, Lista<str
             return true;
         }
 
-        /* Si ninguna de estas lleva a una solucion entonces
-               intenta moverse en hacia atras */
-        if(Backtracking_Solver(maze,x,y-1,path)){
-            return true;
-        }
+
 
         /* Si ninguno de estos movimientos, lleva a una solucion, realizar BACKTRACK:
                 desmarcar x,y como parte de la solucion */
