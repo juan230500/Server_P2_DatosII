@@ -33,9 +33,9 @@ void Server::obstaculosAleatorios(Tablero* maze){
         uniform_int_distribution<> dis2(0,9);
         fila = dis2(gen);
         col = dis2(gen);
-        maze->Maze[fila][col] = tipo;
         if((fila == 0 && col == 0) || (fila == 9 && col == 9)) cont--;
         else{
+            maze->Maze[fila][col] = tipo;
             Backtracking_Path = _Backtracking->Backtracking_Search(maze->Maze,0,0);
             maze->Maze[fila][col] = 0;
             if(Backtracking_Path != "") maze->ColocarObstaculo(tipo, fila, col);
