@@ -21,14 +21,14 @@ void generate_Info(Gladiador *G1, int info[]){
 
 }
 
-void Server::obstaculosAleatorios(Tablero* maze){
+void Server::obstaculosAleatorios(Tablero* maze, int maxTipo){
     Backtracking *_Backtracking = new Backtracking();
     string Backtracking_Path = "0";
     int tipo, fila, col;
     random_device rd;
     mt19937 gen(rd());
     for(int cont = 0; cont < CANTNUEVOSOBSTACULOS; cont++){
-        uniform_int_distribution<> dis1(1,3);
+        uniform_int_distribution<> dis1(1,maxTipo);
         tipo = dis1(gen);
         uniform_int_distribution<> dis2(0,9);
         fila = dis2(gen);
@@ -42,6 +42,41 @@ void Server::obstaculosAleatorios(Tablero* maze){
             else cont--;
         }
     }
+}
+
+void Server::moverObstaculos(Tablero* maze){
+    Backtracking *_Backtracking = new Backtracking();
+    string obstaculosAnteriores = maze->get_obstaculos();
+    vector<string> vectorObstaculos;
+    boost::split(vectorObstaculos, obstaculosAnteriores, boost::is_any_of("-"));
+    string posActual, Backtracking_Path;
+    int movFila, movCol, fila, col, tipo;
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis1(-1,1);
+    maze->Limpiar();
+    for(int i = 0; i < vectorObstaculos.size()-1; i++){
+        movFila = dis1(gen);
+        movCol = dis1(gen);
+        posActual = vectorObstaculos[i];
+        cout<<posActual<<endl;
+        fila = stoi(posActual.substr(0,1));
+        col = stoi(posActual.substr(1,1));
+        tipo = stoi(posActual.substr(2,1));
+        fila = fila + movFila;
+        col = col + movCol;
+        if(fila > 9) fila = 0;
+        if(fila < 0) fila = 9;
+        if(col > 9) col = 0;
+        if(col < 0) col = 9;
+        cout<<fila<<" "<<col<<" "<<tipo<<endl;
+        maze->Maze[fila][col] = tipo;
+        Backtracking_Path = _Backtracking->Backtracking_Search(maze->Maze,0,0);
+        maze->Maze[fila][col] = 0;
+        if(Backtracking_Path != "") maze->ColocarObstaculo(tipo, fila, col);
+        else i--;
+    }
+
 }
 
 void Server::Play(){
@@ -63,7 +98,9 @@ void Server::Play(){
     // #8. Se instancia el Socket
     Socket *canal = &Socket::getInstance();
     int turno=1;
+    int maxTipoObstaculos = 3;
     while(pos1 != "" && pos2 != ""){
+        if(turno == 3) maxTipoObstaculos = 2;
         if (turno%3 == 0){
             //canal->escuchar(8082);
             // #9. Crear un objeto traductor
@@ -73,6 +110,9 @@ void Server::Play(){
             bool terminoJ2 = false;
             string muerte1 = "";
             string muerte2 = "";
+            cout << "ENTRA1" << endl;
+            moverObstaculos(Maze);
+            cout << "ENTRA2" << endl;
             // Se calculan las nuevas rutas
             _AStar->A_star_Search(Maze->Maze,0,0);
             A_star_Path = _AStar->get_Path();
@@ -88,8 +128,6 @@ void Server::Play(){
                 G1_info[9] = t_G1;
                 G2_info[9] = t_G2;
                 // Se agregan nuevos obstáculos
-                //Maze->ColocarObstaculo(2,cnt,cnt);
-                //cnt++;
                 obstaculos = Maze->get_obstaculos();
                 // Se recorre la ruta de nuevo
                 muerte1 = recorrerRutaIteracion3(A_star_Path,0,Maze->ArrayDatos);
@@ -100,7 +138,7 @@ void Server::Play(){
                                                                A_star_Path,Backtracking_Path,false,
                                                                Pob_1->get_Prom(),Pob_2->get_Prom(),muerte1,muerte2);
                 canal->enviar(json,8081,"192.168.100.17");
-
+                moverObstaculos(Maze);
                 //########## Aqui lo que hago es serializar la ruta para moverme en el primer paso de la ruta###############
                 //A_star_Path = A_star_Path.substr(0, A_star_Path.size()-1);
                 vector<string> vectorRuta;
@@ -133,10 +171,8 @@ void Server::Play(){
             canal->escuchar(8082);
 
             // Se agregan nuevos obstáculos
-            //Maze->ColocarObstaculo(2,cnt,cnt);
-            //cnt++;
             qDebug()<<"PRINT1";
-            obstaculosAleatorios(Maze);
+            obstaculosAleatorios(Maze, maxTipoObstaculos);
             qDebug()<<"PRINT2";
             obstaculos = Maze->get_obstaculos();
             qDebug()<<">> Lista de obstaculos: "<<obstaculos.c_str();

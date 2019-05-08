@@ -27,14 +27,13 @@ void lista_test();
 void algoritmo_Genetico();
 
 int main(){
-
     srand (time(NULL));
 
-    //Server *server = new Server();
-    //server->Play();
+    Server *server = new Server();
+    server->Play();
 
     /* PRUEBAS GENETICOS */
-    algoritmo_Genetico();
+   // algoritmo_Genetico();
 
     /* PRUEBAS PATHFINDING */
     //cout<<"Backtracking:"<<endl;
