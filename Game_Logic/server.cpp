@@ -33,14 +33,14 @@ void Server::obstaculosAleatorios(Tablero* maze){
         uniform_int_distribution<> dis2(0,9);
         fila = dis2(gen);
         col = dis2(gen);
-//        maze->Maze[fila][col] = tipo;
-        maze->ColocarObstaculo(tipo, fila, col); //Linea temporal.
-        //Backtracking_Path = _Backtracking->Backtracking_Search(maze->Maze,0,0);
-//        if(Backtracking_Path != ""){
-//        }else{
-//            maze->Maze[fila][col] = 0;
-//            cont--;
-//        }
+        maze->Maze[fila][col] = tipo;
+        if((fila == 0 && col == 0) || (fila == 9 && col == 9)) cont--;
+        else{
+            Backtracking_Path = _Backtracking->Backtracking_Search(maze->Maze,0,0);
+            maze->Maze[fila][col] = 0;
+            if(Backtracking_Path != "") maze->ColocarObstaculo(tipo, fila, col);
+            else cont--;
+        }
     }
 }
 
@@ -77,11 +77,11 @@ void Server::Play(){
             _AStar->A_star_Search(Maze->Maze,0,0);
             A_star_Path = _AStar->get_Path();
             Backtracking_Path = _Backtracking->Backtracking_Search(Maze->Maze,0,0);
+            resistenciaGladiador1Global=G1->getResistencia();
+            resistenciaGladiador2Global=G2->getResistencia();
             while(!terminoJ1 || !terminoJ2){
                 qDebug()<<"Escuchando ciclo parcial";
                 canal->escuchar(8082);
-                resistenciaGladiador1Global=G1->getResistencia();
-                resistenciaGladiador2Global=G2->getResistencia();
                 // #6. Tomar el tiempo que duró c/ Gladiador encontrando su ruta
                 int t_G1 = _AStar->get_Time();
                 int t_G2 = _Backtracking->get_Time();
@@ -92,36 +92,40 @@ void Server::Play(){
                 //cnt++;
                 obstaculos = Maze->get_obstaculos();
                 // Se recorre la ruta de nuevo
-                muerte1 = recorrerRutaIteracion3(A_star_Path,&resistenciaGladiador1Global,Maze->ArrayDatos);
-                muerte2 = recorrerRutaIteracion3(Backtracking_Path,&resistenciaGladiador2Global,Maze->ArrayDatos);
+                muerte1 = recorrerRutaIteracion3(A_star_Path,0,Maze->ArrayDatos);
+                muerte2 = recorrerRutaIteracion3(Backtracking_Path,1,Maze->ArrayDatos);
                 if(muerte1 != "") terminoJ1 = true;
                 if(muerte2 != "") terminoJ2 = true;
                 string json = traductor->SerializarInformacion(obstaculos,G1_info,G2_info,
-                                                               A_star_Path,Backtracking_Path,false,20,20,muerte1,muerte2);
-                canal->enviar(json,8081,"172.18.184.24");
+                                                               A_star_Path,Backtracking_Path,false,
+                                                               Pob_1->get_Prom(),Pob_2->get_Prom(),muerte1,muerte2);
+                canal->enviar(json,8081,"192.168.100.17");
 
                 //########## Aqui lo que hago es serializar la ruta para moverme en el primer paso de la ruta###############
                 //A_star_Path = A_star_Path.substr(0, A_star_Path.size()-1);
                 vector<string> vectorRuta;
                 boost::split(vectorRuta, A_star_Path, boost::is_any_of("-"));
-                string posiciones = vectorRuta[1];
-                int fila = stoi(posiciones.substr(0,1));
-                int col = stoi(posiciones.substr(1,1));
+                if(vectorRuta.size() > 2){
+                    string posiciones = vectorRuta[1];
+                    int fila = stoi(posiciones.substr(0,1));
+                    int col = stoi(posiciones.substr(1,1));
+                    qDebug()<<"Llama A_star_Search() CicloParcial";
+                    _AStar->A_star_Search(Maze->Maze,fila,col);
+                    qDebug()<<"Llama _AStar->get_Path() CicloParcial";
+                    A_star_Path = _AStar->get_Path();
+                }
                 // ahora con el backtracking
                 //Backtracking_Path = Backtracking_Path.substr(0, Backtracking_Path.size()-1);
                 vector<string> vectorRuta2;
                 boost::split(vectorRuta2, Backtracking_Path, boost::is_any_of("-"));
-                string posiciones2 = vectorRuta2[1];
-                int fila2 = stoi(posiciones2.substr(0,1));
-                int col2 = stoi(posiciones2.substr(1,1));
-                qDebug()<<QString::number(fila)<<QString::number(col);
-                qDebug()<<"Llama A_star_Search() CicloParcial";
-                _AStar->A_star_Search(Maze->Maze,fila,col);
-                qDebug()<<"Llama _AStar->get_Path() CicloParcial";
-                A_star_Path = _AStar->get_Path();
-                qDebug()<<"Llama Bactracking_Search() CicloParcial";
-                Backtracking_Path = _Backtracking->Backtracking_Search(Maze->Maze,fila2,col2);
-                qDebug()<<"Sale Backtracking_Search() CicloParcial";
+                if(vectorRuta2.size() > 2){
+                    string posiciones2 = vectorRuta2[1];
+                    int fila2 = stoi(posiciones2.substr(0,1));
+                    int col2 = stoi(posiciones2.substr(1,1));
+                    qDebug()<<"Llama Bactracking_Search() CicloParcial";
+                    Backtracking_Path = _Backtracking->Backtracking_Search(Maze->Maze,fila2,col2);
+                    qDebug()<<"Sale Backtracking_Search() CicloParcial";
+                }
             }turno++;
         }
         else{
@@ -131,7 +135,9 @@ void Server::Play(){
             // Se agregan nuevos obstáculos
             //Maze->ColocarObstaculo(2,cnt,cnt);
             //cnt++;
+            qDebug()<<"PRINT1";
             obstaculosAleatorios(Maze);
+            qDebug()<<"PRINT2";
             obstaculos = Maze->get_obstaculos();
             qDebug()<<">> Lista de obstaculos: "<<obstaculos.c_str();
 
@@ -142,11 +148,6 @@ void Server::Play(){
             qDebug()<<"Llama Bactracking_Search()";
             Backtracking_Path = _Backtracking->Backtracking_Search(Maze->Maze,0,0);
             qDebug()<<"Sale Backtracking_Search()";
-
-
-            // #2. Devolver el promedio de resistencia de las poblaciones
-            int prom_P1 = Pob_1->get_Prom();
-            int prom_P2 = Pob_2->get_Prom();
 
             // #3. Seleccionar los gladiadores que atravesarán el laberinto
             G1 = Pob_1->get_Mejor();
@@ -172,10 +173,11 @@ void Server::Play(){
             // #9. Crear un objeto traductor
             traductorServidor *traductor = new traductorServidor();
             string json = traductor->SerializarInformacion(obstaculos,G1_info,G2_info,
-                                                           A_star_Path,Backtracking_Path,false,20,20,pos1,pos2);
+                                                           A_star_Path,Backtracking_Path,false,
+                                                           Pob_1->get_Prom(),Pob_2->get_Prom(),pos1,pos2);
 
             // #10. Enviar la información
-            canal->enviar(json,8081,"172.18.184.24");
+            canal->enviar(json,8081,"192.168.100.17");
             // Si retorna string vacío es porque ya terminó
             if(pos1 == "" ){
                 qDebug()<<" G1 ha llegado!";
@@ -187,11 +189,11 @@ void Server::Play(){
 
             /*-----------------------------------*/
             // Se aplica el genético
-//            Gen_Engine::Evolve(Pob_1);
-//            Gen_Engine::Evolve(Pob_2);
+            Gen_Engine::Evolve(Pob_1);
+            Gen_Engine::Evolve(Pob_2);
 
-//            Pob_1->Ordenar();
-//            Pob_2->Ordenar();
+            Pob_1->Ordenar();
+            Pob_2->Ordenar();
 
             /*-----------------------------------*/
 
@@ -203,8 +205,6 @@ void Server::Play(){
 }
 // -----------------------------------------------------------------------------------
 string Server::recorrerRuta(string ruta, int resistencia, int (*matrizObstaculos)[10]){
-    qDebug()<<">> Resistencia del MOP:"<<resistencia;
-    qDebug()<<"RUTAAAAAA:"<<QString::fromStdString(ruta);
     ruta = ruta.substr(0, ruta.size()-1);
     vector<string> vectorRuta;
     boost::split(vectorRuta, ruta, boost::is_any_of("-"));
@@ -216,21 +216,18 @@ string Server::recorrerRuta(string ruta, int resistencia, int (*matrizObstaculos
         if(resistencia <= 0) return posiciones;
     }return "";
 }
-string Server::recorrerRutaIteracion3(string ruta, int* resistencia, int (*matrizObstaculos)[10]){
-    qDebug()<<">> Resistencia del MOP:"<<*resistencia;
+string Server::recorrerRutaIteracion3(string ruta, int id, int (*matrizObstaculos)[10]){
     ruta = ruta.substr(0, ruta.size()-1);
     vector<string> vectorRuta;
     boost::split(vectorRuta, ruta, boost::is_any_of("-"));
     string posiciones = vectorRuta[0];
     int fila = stoi(posiciones.substr(0,1));
     int col = stoi(posiciones.substr(1,1));
-    *resistencia += matrizObstaculos[fila][col];
-    if(*resistencia <= 0){
-        qDebug()<<">> POSICION MUERTE:"<<QString::fromStdString(posiciones);
+    int resistencia = (id == 0) ? resistenciaGladiador1Global:resistenciaGladiador2Global;
+    resistencia += matrizObstaculos[fila][col];
+    (id == 0) ? resistenciaGladiador1Global = resistencia : resistenciaGladiador2Global = resistencia;
+    if(resistencia <= 0){
         return posiciones;
     }
-    else{
     return "";
-    }
-
 }

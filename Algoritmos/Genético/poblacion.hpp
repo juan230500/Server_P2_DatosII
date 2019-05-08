@@ -15,8 +15,8 @@ class Poblacion
 private:
 
     Gladiador* ArrayGladidadores[TAM]; //!< Array que almacena los gladiadores
-    int tam;//!< Tamaño de la población
-    int res_prom; //!< Promedio de la Resistencia de la Población
+    float tam;//!< Tamaño de la población
+    float res_prom; //!< Promedio de la Resistencia de la Población
 
     //! \brief Calcula el promedio de la resistencia de la Población
     void calc_prom();
@@ -54,7 +54,7 @@ public:
     }
 
     //! \brief Retorna el promedio de Resistencia de la Población
-    int get_Prom(){
+    float get_Prom(){
         calc_prom();
         return res_prom;
     }
