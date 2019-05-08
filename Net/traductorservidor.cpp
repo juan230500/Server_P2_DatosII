@@ -45,8 +45,8 @@ void traductorServidor::DeserializarInformacionIteracion3(string json,string *ob
     *obstaculos1=d["obstaculos"].GetString();
     *finalizacion=d["finalizacion"].GetBool();
 }
-void traductorServidor::DeserializarInfoDeSimulacion(string json,string *obstaculos,int atributosGladiador1[11],
-                                                        int atributosGladiador2[11],bool *finalizacion,float *AvanceGenetico1,float *AvanceGenetico2,
+void traductorServidor::DeserializarInfoDeSimulacion(string json,string *obstaculos,int atributosGladiador1[10],
+                                                        int atributosGladiador2[10],bool *finalizacion,float *AvanceGenetico1,float *AvanceGenetico2,
                                                             string *rutaA,string *rutaB,string *muerte1,string *muerte2)
 {
     Document d;
@@ -68,7 +68,7 @@ void traductorServidor::DeserializarInfoDeSimulacion(string json,string *obstacu
     *AvanceGenetico1=d["AvanceGenetico2"].GetFloat();
 
 }
-string traductorServidor::SerializarInformacion(string obstaculos1 , int atributosGladiador1[11] , int atributosGladiador2[11], string rutaA,string rutaB, bool finalizacion, float AvanceGenetico1,float AvanceGenetico2,string muerte1, string muerte2)
+string traductorServidor::SerializarInformacion(string obstaculos1 , int atributosGladiador1[10] , int atributosGladiador2[10], string rutaA,string rutaB, bool finalizacion, float AvanceGenetico1,float AvanceGenetico2,string muerte1, string muerte2)
 {
 
     const char* json = "{\"AvanceGenetico1\":0,"
