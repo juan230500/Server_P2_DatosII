@@ -27,35 +27,50 @@ void lista_test();
 
 int main(){
 
+//    Tablero* tablero = new Tablero();
+//    Backtracking *_Backtracking = new Backtracking();
+//    string ruta;
+//    tablero->ColocarObstaculo(1,4,6);
+//    tablero->ColocarObstaculo(2,8,9);
+//    tablero->ColocarObstaculo(3,6,7);
+
+//    for(int i = 0; i < 10;i++){
+//        for(int j = 0; j<10;j++){
+//            cout<<tablero->Maze[i][j]<<" ";
+//        }
+//        cout<<endl;
+//    }
+    //ruta = _Backtracking->Backtracking_Search(tablero->Maze,0,0);
+    //cout<<ruta<<endl;
+
+
+    //return 0;
 
     srand (time(NULL));
 
-    //Server *server = new Server();
-    //server->Play();
+    Server *server = new Server();
+    server->Play();
 
     /* PRUEBAS GENETICOS */
-
-
-    int obs = 3; // Inician solo 3 obstáculos
-    int gen = 1;
-
-    Poblacion* P = new Poblacion(90);
+    /*Poblacion* P = new Poblacion(90);
     P->Ordenar();
-    P->print_Estadistica(1,obs);
+    P->print_Estadistica();
 
-    while(gen <= 10){
+
+    int gen = 2;
+
+    while(gen <= 5){
         qDebug()<<"-------------------------------";
+        qDebug()<<"Generación: "<<gen;
         Gen_Engine::Evolve(P);
         P->Ordenar();
-        obs +=3;
-        P->print_Estadistica(gen,obs);
+        P->print_Estadistica();
         gen++;
-
-    }
+    }*/
 
     /* PRUEBAS PATHFINDING */
-    //cout<<"Backtracking:"<<endl;
-    //Backtracking_test();
+//    cout<<"Backtracking:"<<endl;
+//    Backtracking_test();
 
     //cout<<"A*:"<<endl;
     //A_star_test();

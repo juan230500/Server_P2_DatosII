@@ -63,7 +63,11 @@ int A_star::calc_H(int row, int col){
 // Además inicializa la lista de celdas visitadas.
 void A_star::A_star_Search(int maze[][COL], int x, int y){
 
-    this->_path = "";
+    this->_path = "";\
+    if(x == 9 && y == 9){
+        _path = "99-";
+        return;
+    }
     pos src = make_pair(x,y);
     if(!pos_valida(src.first,src.second)){
         cout<<"Posición inicial no válida!"<<endl;

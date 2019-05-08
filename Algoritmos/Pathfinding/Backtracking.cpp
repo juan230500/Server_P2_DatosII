@@ -36,7 +36,7 @@ bool Backtracking::Backtracking_Solver(int (*maze)[10], int x, int y, Lista<stri
 
 
     // Si (x,y) es la salida return true
-        if(x == 9 && y == 9)
+        if(x == 9 && y == 9 && is_safe_Bt(maze,x,y))
         {
             // Se agrega (x,y) al path
             path->push_back(to_string(x) + to_string(y) + "-");
