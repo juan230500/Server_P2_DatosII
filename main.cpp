@@ -33,7 +33,7 @@ int main(){
     server->Play();
 
     /* PRUEBAS GENETICOS */
-   // algoritmo_Genetico();
+    //algoritmo_Genetico();
 
     /* PRUEBAS PATHFINDING */
     //cout<<"Backtracking:"<<endl;
