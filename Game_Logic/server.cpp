@@ -44,7 +44,7 @@ void Server::obstaculosAleatorios(Tablero* maze, int maxTipo){
     }
 }
 
-void Server::moverObstaculos(Tablero* maze){
+void Server::moverObstaculos(Tablero* maze, int G1fila, int G1col, int G2fila, int G2col){
     Backtracking *_Backtracking = new Backtracking();
     string obstaculosAnteriores = maze->get_obstaculos();
     vector<string> vectorObstaculos;
@@ -55,11 +55,10 @@ void Server::moverObstaculos(Tablero* maze){
     mt19937 gen(rd());
     uniform_int_distribution<> dis1(-1,1);
     maze->Limpiar();
-    for(int i = 0; i < vectorObstaculos.size()-1; i++){
+    for(int cont = 0; cont < vectorObstaculos.size()-1; cont++){
         movFila = dis1(gen);
         movCol = dis1(gen);
-        posActual = vectorObstaculos[i];
-        cout<<posActual<<endl;
+        posActual = vectorObstaculos[cont];
         fila = stoi(posActual.substr(0,1));
         col = stoi(posActual.substr(1,1));
         tipo = stoi(posActual.substr(2,1));
@@ -69,12 +68,15 @@ void Server::moverObstaculos(Tablero* maze){
         if(fila < 0) fila = 9;
         if(col > 9) col = 0;
         if(col < 0) col = 9;
-        cout<<fila<<" "<<col<<" "<<tipo<<endl;
-        maze->Maze[fila][col] = tipo;
-        Backtracking_Path = _Backtracking->Backtracking_Search(maze->Maze,0,0);
-        maze->Maze[fila][col] = 0;
-        if(Backtracking_Path != "") maze->ColocarObstaculo(tipo, fila, col);
-        else i--;
+        if((fila == 0 && col == 0) || (fila == 9 && col == 9)) cont--;
+        else if((fila==G1fila && col==G1col) || (fila==G2fila && col==G2col)) cont--;
+        else{
+            maze->Maze[fila][col] = tipo;
+            Backtracking_Path = _Backtracking->Backtracking_Search(maze->Maze,0,0);
+            maze->Maze[fila][col] = 0;
+            if(Backtracking_Path != "") maze->ColocarObstaculo(tipo, fila, col);
+            else cont--;
+        }
     }
 
 }
@@ -96,6 +98,7 @@ void Server::Play(){
     Backtracking *_Backtracking = new Backtracking();
     string pos1 = "0", pos2 = "0";
     // #8. Se instancia el Socket
+    int fila,col,fila2,col2;
     Socket *canal = &Socket::getInstance();
     int turno=1;
     int maxTipoObstaculos = 3;
@@ -110,13 +113,6 @@ void Server::Play(){
             bool terminoJ2 = false;
             string muerte1 = "";
             string muerte2 = "";
-            cout << "ENTRA1" << endl;
-            moverObstaculos(Maze);
-            cout << "ENTRA2" << endl;
-            // Se calculan las nuevas rutas
-            _AStar->A_star_Search(Maze->Maze,0,0);
-            A_star_Path = _AStar->get_Path();
-            Backtracking_Path = _Backtracking->Backtracking_Search(Maze->Maze,0,0);
             resistenciaGladiador1Global=G1->getResistencia();
             resistenciaGladiador2Global=G2->getResistencia();
             while(!terminoJ1 || !terminoJ2){
@@ -129,41 +125,50 @@ void Server::Play(){
                 G2_info[9] = t_G2;
                 // Se agregan nuevos obstáculos
                 obstaculos = Maze->get_obstaculos();
+                qDebug()<<"OBSTACULOS PARCIAL";
+                qDebug()<<QString::fromStdString(obstaculos);
                 // Se recorre la ruta de nuevo
+                qDebug()<<"recorre ruta 1";
                 muerte1 = recorrerRutaIteracion3(A_star_Path,0,Maze->ArrayDatos);
+                qDebug()<<"recorre ruta 2";
                 muerte2 = recorrerRutaIteracion3(Backtracking_Path,1,Maze->ArrayDatos);
+                qDebug()<<"termina de recorrer rutas";
                 if(muerte1 != "") terminoJ1 = true;
                 if(muerte2 != "") terminoJ2 = true;
                 string json = traductor->SerializarInformacion(obstaculos,G1_info,G2_info,
                                                                A_star_Path,Backtracking_Path,false,
                                                                Pob_1->get_Prom(),Pob_2->get_Prom(),muerte1,muerte2);
-                canal->enviar(json,8081,"192.168.100.17");
-                moverObstaculos(Maze);
-                //########## Aqui lo que hago es serializar la ruta para moverme en el primer paso de la ruta###############
-                //A_star_Path = A_star_Path.substr(0, A_star_Path.size()-1);
+                canal->enviar(json,8081,"192.168.42.25");
+                qDebug()<< "ENTRA1" << endl;
+                moverObstaculos(Maze, fila, col, fila2, col2);
+                qDebug()<< "ENTRA2" << endl;
+
                 vector<string> vectorRuta;
                 boost::split(vectorRuta, A_star_Path, boost::is_any_of("-"));
                 if(vectorRuta.size() > 2){
                     string posiciones = vectorRuta[1];
-                    int fila = stoi(posiciones.substr(0,1));
-                    int col = stoi(posiciones.substr(1,1));
+                    fila = stoi(posiciones.substr(0,1));
+                    col = stoi(posiciones.substr(1,1));
+                    qDebug()<<"G1"<<to_string(fila).c_str()<<to_string(col).c_str();
                     qDebug()<<"Llama A_star_Search() CicloParcial";
                     _AStar->A_star_Search(Maze->Maze,fila,col);
                     qDebug()<<"Llama _AStar->get_Path() CicloParcial";
                     A_star_Path = _AStar->get_Path();
                 }
-                // ahora con el backtracking
-                //Backtracking_Path = Backtracking_Path.substr(0, Backtracking_Path.size()-1);
+
                 vector<string> vectorRuta2;
                 boost::split(vectorRuta2, Backtracking_Path, boost::is_any_of("-"));
+                qDebug()<<"TAMANIO BT: " << to_string(vectorRuta2.size()).c_str();
                 if(vectorRuta2.size() > 2){
                     string posiciones2 = vectorRuta2[1];
-                    int fila2 = stoi(posiciones2.substr(0,1));
-                    int col2 = stoi(posiciones2.substr(1,1));
+                    fila2 = stoi(posiciones2.substr(0,1));
+                    col2 = stoi(posiciones2.substr(1,1));
+                    qDebug()<<"G2"<<to_string(fila2).c_str()<<to_string(col2).c_str();
                     qDebug()<<"Llama Bactracking_Search() CicloParcial";
                     Backtracking_Path = _Backtracking->Backtracking_Search(Maze->Maze,fila2,col2);
                     qDebug()<<"Sale Backtracking_Search() CicloParcial";
                 }
+                qDebug()<<"SALE CICLO PARCIAL";
             }turno++;
         }
         else{
@@ -171,9 +176,7 @@ void Server::Play(){
             canal->escuchar(8082);
 
             // Se agregan nuevos obstáculos
-            qDebug()<<"PRINT1";
             obstaculosAleatorios(Maze, maxTipoObstaculos);
-            qDebug()<<"PRINT2";
             obstaculos = Maze->get_obstaculos();
             qDebug()<<">> Lista de obstaculos: "<<obstaculos.c_str();
 
@@ -213,7 +216,7 @@ void Server::Play(){
                                                            Pob_1->get_Prom(),Pob_2->get_Prom(),pos1,pos2);
 
             // #10. Enviar la información
-            canal->enviar(json,8081,"192.168.100.17");
+            canal->enviar(json,8081,"192.168.42.25");
             // Si retorna string vacío es porque ya terminó
             if(pos1 == "" ){
                 qDebug()<<" G1 ha llegado!";
@@ -227,7 +230,6 @@ void Server::Play(){
             // Se aplica el genético
             Gen_Engine::Evolve(Pob_1);
             Gen_Engine::Evolve(Pob_2);
-
             Pob_1->Ordenar();
             Pob_2->Ordenar();
 
@@ -236,6 +238,7 @@ void Server::Play(){
         /*-----------------------------------*/
             /*Esto es para aumentar el turno 3 */
              turno++;
+             qDebug()<<"SALE CICLO COMPLETO";
         }
     }
 }
@@ -253,6 +256,7 @@ string Server::recorrerRuta(string ruta, int resistencia, int (*matrizObstaculos
     }return "";
 }
 string Server::recorrerRutaIteracion3(string ruta, int id, int (*matrizObstaculos)[10]){
+    qDebug()<<QString::fromStdString("RUTA: " + ruta);
     ruta = ruta.substr(0, ruta.size()-1);
     vector<string> vectorRuta;
     boost::split(vectorRuta, ruta, boost::is_any_of("-"));

@@ -29,7 +29,7 @@ public:
     string recorrerRuta(string ruta, int resistencia, int matrizObstaculos[][10]);
     string recorrerRutaIteracion3(string ruta, int id, int (*matrizObstaculos)[10]);
     void obstaculosAleatorios(Tablero* maze, int maxTipo);
-    void moverObstaculos(Tablero* maze);
+    void moverObstaculos(Tablero* maze, int G1fila, int G1col, int G2fila, int G2col);
 };
 
 #endif // SERVER_HPP
