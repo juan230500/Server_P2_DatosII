@@ -25,7 +25,7 @@ private:
 
 public:
     Server();
-    void Play();
+    void Play(string ip);
     string recorrerRuta(string ruta, int resistencia, int matrizObstaculos[][10]);
     string recorrerRutaIteracion3(string ruta, int id, int (*matrizObstaculos)[10]);
     void obstaculosAleatorios(Tablero* maze, int maxTipo);
