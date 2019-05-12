@@ -68,7 +68,8 @@ void traductorServidor::DeserializarInfoDeSimulacion(string json,string *obstacu
     *AvanceGenetico1=d["AvanceGenetico2"].GetFloat();
 
 }
-string traductorServidor::SerializarInformacion(string obstaculos1 , int atributosGladiador1[10] , int atributosGladiador2[10], string rutaA,string rutaB, bool finalizacion, float AvanceGenetico1,float AvanceGenetico2,string muerte1, string muerte2)
+string traductorServidor::SerializarInformacion(string obstaculos1 , int atributosGladiador1[10] , int atributosGladiador2[10], string rutaA,string rutaB,
+                                                bool finalizacion, float AvanceGenetico1,float AvanceGenetico2,string muerte1, string muerte2, int ganador)
 {
 
     const char* json = "{\"AvanceGenetico1\":0,"
@@ -87,23 +88,22 @@ string traductorServidor::SerializarInformacion(string obstaculos1 , int atribut
     d["AvanceGenetico1"].SetFloat(AvanceGenetico1);
     d["AvanceGenetico2"].SetFloat(AvanceGenetico2);
     d["finalizacion"].SetBool(finalizacion);
-    if (!finalizacion) {
-        string stmp;
-        for(int i=0;i<10;i++){
-            d["atributosGladiador1"].GetArray()[i]=atributosGladiador1[i];
-            d["atributosGladiador2"].GetArray()[i]=atributosGladiador2[i];
-        }
-        const char * cstr = rutaA.c_str();
-        const char * cstr1 = rutaB.c_str();
-        const char * cstr2 = muerte1.c_str();
-        const char * cstr3 = muerte2.c_str();
-        const char * obstaculos = obstaculos1.c_str();
-        d["obstaculos"].SetString((StringRef(obstaculos)));
-        d["rutaA"].SetString((StringRef(cstr)));
-        d["rutaB"].SetString((StringRef(cstr1)));
-        d["muerte1"].SetString((StringRef(cstr2)));
-        d["muerte2"].SetString((StringRef(cstr3)));
+    string stmp;
+    for(int i=0;i<10;i++){
+        d["atributosGladiador1"].GetArray()[i]=atributosGladiador1[i];
+        d["atributosGladiador2"].GetArray()[i]=atributosGladiador2[i];
     }
+    const char * cstr = rutaA.c_str();
+    const char * cstr1 = rutaB.c_str();
+    const char * cstr2 = muerte1.c_str();
+    const char * cstr3 = muerte2.c_str();
+    const char * obstaculos = obstaculos1.c_str();
+    d["obstaculos"].SetString((StringRef(obstaculos)));
+    d["rutaA"].SetString((StringRef(cstr)));
+    d["rutaB"].SetString((StringRef(cstr1)));
+    d["muerte1"].SetString((StringRef(cstr2)));
+    d["muerte2"].SetString((StringRef(cstr3)));
+    d["ganador"].SetInt(ganador);
     // cout<<"termine de serializar"<<endl;
     StringBuffer buffer;
     Writer<StringBuffer> writer(buffer);
