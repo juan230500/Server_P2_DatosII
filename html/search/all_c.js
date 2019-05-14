@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['tablero',['Tablero',['../classTablero.html',1,'']]],
-  ['traductorservidor',['traductorServidor',['../classtraductorServidor.html',1,'']]]
+  ['recorrerruta',['recorrerRuta',['../classServer.html#a20cd9d80818b5613973477fead3df86f',1,'Server']]],
+  ['recorrerrutaiteracion3',['recorrerRutaIteracion3',['../classServer.html#a505f405a256ddb46e59a3e52fd841d2a',1,'Server']]],
+  ['remove',['remove',['../classLista.html#adf9cd4dfc2dec0d60c8037da96fe62ce',1,'Lista']]],
+  ['remove_5fat',['remove_at',['../classLista.html#afc9399b56345ab440e8d6014d82f39c5',1,'Lista']]]
 ];

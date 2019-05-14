@@ -66,35 +66,96 @@ $(function() {
 <div class="title">Referencia de la Clase Tablero</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementacion de la Zona de Intimidacion mediante un tablero.  
+ <a href="classTablero.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="tablero_8hpp_source.html">tablero.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos públicos</h2></td></tr>
-<tr class="memitem:aeb7669baadf147877e767d30e736336e"><td class="memItemLeft" align="right" valign="top"><a id="aeb7669baadf147877e767d30e736336e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ColocarObstaculo</b> (int id, int fila, int columna)</td></tr>
+<tr class="memitem:ab4912f28f1db392e1dd44ddc98bd4f59"><td class="memItemLeft" align="right" valign="top"><a id="ab4912f28f1db392e1dd44ddc98bd4f59"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTablero.html#ab4912f28f1db392e1dd44ddc98bd4f59">Tablero</a> ()</td></tr>
+<tr class="memdesc:ab4912f28f1db392e1dd44ddc98bd4f59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
+<tr class="separator:ab4912f28f1db392e1dd44ddc98bd4f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb7669baadf147877e767d30e736336e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTablero.html#aeb7669baadf147877e767d30e736336e">ColocarObstaculo</a> (int id, int fila, int columna)</td></tr>
+<tr class="memdesc:aeb7669baadf147877e767d30e736336e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coloca un nuevo obstaculo de tipo N, en la fila x, columna y.  <a href="#aeb7669baadf147877e767d30e736336e">Más...</a><br /></td></tr>
 <tr class="separator:aeb7669baadf147877e767d30e736336e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15970615cd21ae43ccc045dffe382ec4"><td class="memItemLeft" align="right" valign="top"><a id="a15970615cd21ae43ccc045dffe382ec4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Limpiar</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTablero.html#a15970615cd21ae43ccc045dffe382ec4">Limpiar</a> ()</td></tr>
+<tr class="memdesc:a15970615cd21ae43ccc045dffe382ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limpia la Zona colocando todas las casillas a 0. <br /></td></tr>
 <tr class="separator:a15970615cd21ae43ccc045dffe382ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a41d9c56e5afabf0a0caf0ab2659120"><td class="memItemLeft" align="right" valign="top"><a id="a7a41d9c56e5afabf0a0caf0ab2659120"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTablero.html#a7a41d9c56e5afabf0a0caf0ab2659120">get_obstaculos</a> ()</td></tr>
+<tr class="memdesc:a7a41d9c56e5afabf0a0caf0ab2659120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna el String con los obtaculos de la Zona. <br /></td></tr>
+<tr class="separator:a7a41d9c56e5afabf0a0caf0ab2659120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38f4a38b9ea8f8509b4a57e85705c7c4"><td class="memItemLeft" align="right" valign="top"><a id="a38f4a38b9ea8f8509b4a57e85705c7c4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Print</b> ()</td></tr>
 <tr class="separator:a38f4a38b9ea8f8509b4a57e85705c7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a41d9c56e5afabf0a0caf0ab2659120"><td class="memItemLeft" align="right" valign="top"><a id="a7a41d9c56e5afabf0a0caf0ab2659120"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>get_obstaculos</b> ()</td></tr>
-<tr class="separator:a7a41d9c56e5afabf0a0caf0ab2659120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributos públicos</h2></td></tr>
 <tr class="memitem:aad818f3edbdad480c1a494c33b4faff1"><td class="memItemLeft" align="right" valign="top"><a id="aad818f3edbdad480c1a494c33b4faff1"></a>
-int(*&#160;</td><td class="memItemRight" valign="bottom"><b>Maze</b> )[10]</td></tr>
+int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTablero.html#aad818f3edbdad480c1a494c33b4faff1">Maze</a> )[10]</td></tr>
+<tr class="memdesc:aad818f3edbdad480c1a494c33b4faff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zona con unicamente las posiciones de los obstaculos. <br /></td></tr>
 <tr class="separator:aad818f3edbdad480c1a494c33b4faff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf907bed4fba960de90c96135e92655b"><td class="memItemLeft" align="right" valign="top"><a id="abf907bed4fba960de90c96135e92655b"></a>
-int(*&#160;</td><td class="memItemRight" valign="bottom"><b>ArrayDatos</b> )[10]</td></tr>
+int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTablero.html#abf907bed4fba960de90c96135e92655b">ArrayDatos</a> )[10]</td></tr>
+<tr class="memdesc:abf907bed4fba960de90c96135e92655b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zona con los valores y rango de ataque de la Zona. <br /></td></tr>
 <tr class="separator:abf907bed4fba960de90c96135e92655b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
-<div class="textblock">
-<p class="definition">Definición en la línea <a class="el" href="tablero_8hpp_source.html#l00010">10</a> del archivo <a class="el" href="tablero_8hpp_source.html">tablero.hpp</a>.</p>
-</div><hr/>La documentación para esta clase fue generada a partir de los siguientes ficheros:<ul>
+<div class="textblock"><p>Implementacion de la Zona de Intimidacion mediante un tablero. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="tablero_8hpp_source.html#l00012">12</a> del archivo <a class="el" href="tablero_8hpp_source.html">tablero.hpp</a>.</p>
+</div><h2 class="groupheader">Documentación de las funciones miembro</h2>
+<a id="aeb7669baadf147877e767d30e736336e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb7669baadf147877e767d30e736336e">&#9670;&nbsp;</a></span>ColocarObstaculo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tablero::ColocarObstaculo </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fila</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>columna</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Coloca un nuevo obstaculo de tipo N, en la fila x, columna y. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">fila</td><td></td></tr>
+    <tr><td class="paramname">columna</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="tablero_8cpp_source.html#l00003">3</a> del archivo <a class="el" href="tablero_8cpp_source.html">tablero.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación para esta clase fue generada a partir de los siguientes ficheros:<ul>
 <li>Game_Logic/<a class="el" href="tablero_8hpp_source.html">tablero.hpp</a></li>
 <li>Game_Logic/<a class="el" href="tablero_8cpp_source.html">tablero.cpp</a></li>
 </ul>

@@ -5,6 +5,7 @@ Server::Server(){
 
 }
 
+//-----------------------------------------------------------------------------------
 
 void generate_Info(Gladiador *G1, int info[]){
 
@@ -20,6 +21,8 @@ void generate_Info(Gladiador *G1, int info[]){
     info[9] = 0; // Este comienza en 0 por default
 
 }
+
+//-----------------------------------------------------------------------------------
 
 void Server::obstaculosAleatorios(Tablero* maze, int maxTipo){
     Backtracking *_Backtracking = new Backtracking();
@@ -43,6 +46,8 @@ void Server::obstaculosAleatorios(Tablero* maze, int maxTipo){
         }
     }
 }
+
+//-----------------------------------------------------------------------------------
 
 void Server::moverObstaculos(Tablero* maze, int G1fila, int G1col, int G2fila, int G2col){
     Backtracking *_Backtracking = new Backtracking();
@@ -81,7 +86,10 @@ void Server::moverObstaculos(Tablero* maze, int G1fila, int G1col, int G2fila, i
 
 }
 
+//-----------------------------------------------------------------------------------
+
 void Server::Play(string ip){
+
     // #1. Generar las dos poblaciones iniciales
     Poblacion *Pob_1 = new Poblacion(90);
     Poblacion *Pob_2 = new Poblacion(90);
@@ -94,13 +102,16 @@ void Server::Play(string ip){
     A_star *_AStar = new A_star();
     Backtracking *_Backtracking = new Backtracking();
     string pos1 = "0", pos2 = "0";
+
     // #8. Se instancia el Socket
     Socket *canal = &Socket::getInstance();
     int turno=1;
     int maxTipoObstaculos = 3;
     int ganador=-1;
     while(pos1 != "" && pos2 != ""){
+
         if(turno == 3) maxTipoObstaculos = 2;
+
         if (turno%3 == 0){
             // #9. Crear un objeto traductor
             traductorServidor *traductor = new traductorServidor();
@@ -227,7 +238,9 @@ void Server::Play(string ip){
         }
     }
 }
+
 // -----------------------------------------------------------------------------------
+
 string Server::recorrerRuta(string ruta, int resistencia, int (*matrizObstaculos)[10]){
     vector<string> vectorRuta;
     boost::split(vectorRuta, ruta, boost::is_any_of("-"));
@@ -239,6 +252,9 @@ string Server::recorrerRuta(string ruta, int resistencia, int (*matrizObstaculos
         if(resistencia <= 0) return posiciones;
     }return "";
 }
+
+//------------------------------------------------------------------------------------
+
 string Server::recorrerRutaIteracion3(string ruta, int id, int (*matrizObstaculos)[10]){
     vector<string> vectorRuta;
     boost::split(vectorRuta, ruta, boost::is_any_of("-"));

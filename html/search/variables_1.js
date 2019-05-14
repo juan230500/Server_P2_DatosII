@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['begin_5f',['begin_',['../structMemoryStream.html#a91f0767b4f0ed2476d835e8344848a2f',1,'MemoryStream']]]
+  ['idglobal',['idGlobal',['../classGladiador.html#a2606798529262c483c8792fb3022d59a',1,'Gladiador']]]
 ];

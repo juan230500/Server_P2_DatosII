@@ -12,29 +12,27 @@
 #include <boost/numeric/conversion/cast.hpp>
 
 using namespace std;
+
 //! Un gladiador es el CROMOSOMA del ALGORITMO GENETICO
 class Gladiador
 {
 private:
 
-    // UNSIGNED solo guardará valores positivos
-    // SHORT
+    unsigned short int id; //!< Identificación del gladiador.
+    unsigned short int Edad; //!< Edad del gladiador.
+    unsigned short int InteligenciaEmocional; //!< coeficiente IQ del gladiador.
+    unsigned short int CondicionFisica; //!< Test de Ruffier. Condicón física del gladiador.
+    unsigned short int FuerzaTroncoSuperior; //!< Newtons. Fuerza superior del gladiador.
+    unsigned short int FuerzaTroncoInferior; //!< Newtons. Fuerza inferior del gladiador.
 
+    unsigned short int Resistencia; //!< Medida de resistencia, calculada segun los parametros anteriores.
 
-    unsigned short int id; // Identificación del gladiador
-    unsigned short int Edad; // Edad del gladiador
-    unsigned short int InteligenciaEmocional; // coeficiente IQ del gladiador
-    unsigned short int CondicionFisica; //Test de Ruffier. Condicón física del gladiador
-    unsigned short int FuerzaTroncoSuperior; //Newtons. Fuerza superior del gladiador
-    unsigned short int FuerzaTroncoInferior; //Newtons.
-
-    unsigned short int Resistencia; //Vida
-
-    int ProbabilidadSupervivencia;
-    int GeneracionesSupervivencia;
+    int ProbabilidadSupervivencia; //!< Probabilidad de supervivencia para la sgte generacion.
+    int GeneracionesSupervivencia; //!< Generaciones aproximadas de supervivencia del individuo.
 
 public:
-    unsigned short int static idGlobal;
+
+    unsigned short int static idGlobal; //!< ID del gladiador
 
     //! @brief Constructor
     Gladiador();
@@ -46,24 +44,32 @@ public:
     //! \param FuerzaTroncoSuperior
     //! \param FuerzaTroncoInferior
     Gladiador(unsigned short int Edad,
-    unsigned short int InteligenciaEmocional,
-    unsigned short int CondicionFisica,
-    unsigned short int FuerzaTroncoSuperior,
-    unsigned short int FuerzaTroncoInferior);
+              unsigned short int InteligenciaEmocional,
+              unsigned short int CondicionFisica,
+              unsigned short int FuerzaTroncoSuperior,
+              unsigned short int FuerzaTroncoInferior);
 
     /***************************************
      *            METODOS UTIL             *
      ***************************************/
 
-    void print();
-
+    //! \brief Sobrecarga del operador + para el cruce entre Gladiadores
+    //! \param Gladiador: Gladiador con el que se cruzara el individuo.
+    //! \return Un nuevo gladiador con la mezcla de las caracteristicas de ambos Padres
     Gladiador* operator+(const Gladiador& b);
 
+    //! \brief Realiza un calculo de la resistencia del individuo
     void calc_Resistencia();
 
+    //! \brief Calcula la probabilidad de supervivencia del individuo
+    //! \param num_obstaculos : Cantidad de obstaculos que hay en la Zona de Intimidacion
     int calc_ProbSupervivencia(int num_obstaculos);
 
+    //! \brief Calcula las generaciones aproximadas que el individuo permanecera en la poblacion
+    //! \param pos
     int calc_GenSupervivencia(int pos);
+
+    void print();
 
     /***************************************
      *         GETTERS & SETTER            *

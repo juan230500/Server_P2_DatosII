@@ -1,13 +1,10 @@
 var searchData=
 [
-  ['objectdata',['ObjectData',['../structGenericValue_1_1ObjectData.html',1,'GenericValue']]],
-  ['offset',['Offset',['../structParseResult.html#afbe762766ac21b2aae266105f1dfa643',1,'ParseResult']]],
-  ['operator_20booleantype',['operator BooleanType',['../structParseResult.html#abcd534680e4067ab797b1c6e930ac91c',1,'ParseResult']]],
-  ['operator_20const_20ch_20_2a',['operator const Ch *',['../structGenericStringRef.html#a4e652ee3a398d0eb8ece1835d15274d0',1,'GenericStringRef']]],
-  ['operator_20parseresult',['operator ParseResult',['../classGenericDocument.html#af9bb8eade3eae0c039161378e8d2923a',1,'GenericDocument']]],
-  ['operator_2a',['operator*',['../structinternal_1_1DiyFp.html#a9868841f824924cc385ad5163c9c85b3',1,'internal::DiyFp']]],
-  ['operator_2d',['operator-',['../classGenericMemberIterator.html#ae119ae8ed78dbd980f83d367f59a3c94',1,'GenericMemberIterator']]],
-  ['operator_3d',['operator=',['../classGenericValue.html#a9018a40d7c52efc00daf803c51d3236c',1,'GenericValue::operator=(GenericValue &amp;rhs) RAPIDJSON_NOEXCEPT'],['../classGenericValue.html#a386708557555e6389184de608af5e6a6',1,'GenericValue::operator=(StringRefType str) RAPIDJSON_NOEXCEPT'],['../classGenericPointer.html#a1d0174a6e72daa4024da9e08ce1e7951',1,'GenericPointer::operator=()']]],
-  ['ordenar',['Ordenar',['../classPoblacion.html#a0215eccf9a6d9862864cf38a7ace2b66',1,'Poblacion']]],
-  ['ownallocator_5f',['ownAllocator_',['../classGenericPointer.html#a99b51c07419ee17d57e97774d8ee63ab',1,'GenericPointer']]]
+  ['serializarinformacion',['SerializarInformacion',['../classtraductorServidor.html#a4cddc2251b1dbbc46ed52ae0ed08e81b',1,'traductorServidor']]],
+  ['serializarinformacioniteracion3',['SerializarInformacionIteracion3',['../classtraductorServidor.html#a2d4ecb29a21984a9c27b214149ce649e',1,'traductorServidor']]],
+  ['server',['Server',['../classServer.html',1,'Server'],['../classServer.html#ad5ec9462b520e59f7ea831e157ee5e59',1,'Server::Server()']]],
+  ['set_5fdato',['set_Dato',['../classNodo.html#a5ddc604f7d847ca4dcea251fdb9c5bf6',1,'Nodo']]],
+  ['set_5fnext',['set_Next',['../classNodo.html#a8a32462e4dbeb62cdb66790878864b83',1,'Nodo']]],
+  ['size',['size',['../classLista.html#a38a8d54e10ed9bbef62aefefc9d81365',1,'Lista']]],
+  ['socket',['Socket',['../classSocket.html',1,'']]]
 ];

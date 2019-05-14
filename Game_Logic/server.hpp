@@ -17,18 +17,40 @@
 
 using namespace std;
 
+//! \brief Servidor que lleva la logica del Juego
 class Server
 {
 private:
+
     int resistenciaGladiador1Global=0;
     int resistenciaGladiador2Global=0;
 
 public:
+
+    //! \brief Constructor
     Server();
+
+    //! \brief Funcion principal de simulacion
+    //! \param ip: IP Address
     void Play(string ip);
+
+    //! \brief Metodo que recorre la ruta que sigue un gladiador
+    //! \param ruta: Ruta de Salida
+    //! \param resistencia: Resistencia del Gladiador que recorre la Zona
+    //! \param matrizObstaculos: Matriz que debe recorrerse
     string recorrerRuta(string ruta, int resistencia, int matrizObstaculos[][10]);
+
+    //! \brief Recorre la Ruta en la 3er iteracion
+    //! \param ruta
+    //! \param id
     string recorrerRutaIteracion3(string ruta, int id, int (*matrizObstaculos)[10]);
+
+    //! \brief Metodo encargado de colocar tres obstaculos aleatorios
+    //! \param maze
+    //! \param maxTipo
     void obstaculosAleatorios(Tablero* maze, int maxTipo);
+
+    //! \brief Metodo ESPECIAL que mueve los obstaculos una posicion en la tercer iteracion`w
     void moverObstaculos(Tablero* maze, int G1fila, int G1col, int G2fila, int G2col);
 };
 
