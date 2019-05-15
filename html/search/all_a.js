@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['obstaculosaleatorios',['obstaculosAleatorios',['../classServer.html#a99579a76d359e5be5e84549947fa7f4e',1,'Server']]],
-  ['operator_2b',['operator+',['../classGladiador.html#a4b887cf281e230ee5a301e857fc5097b',1,'Gladiador']]],
-  ['ordenar',['Ordenar',['../classPoblacion.html#a0215eccf9a6d9862864cf38a7ace2b66',1,'Poblacion']]]
+  ['maze',['Maze',['../classTablero.html#aad818f3edbdad480c1a494c33b4faff1',1,'Tablero']]],
+  ['moverobstaculos',['moverObstaculos',['../classServer.html#a3e20e91785979f675a89e84771ddc0f7',1,'Server']]],
+  ['mutation',['Mutation',['../classGen__Engine.html#a5b564a82a6ffd642d9bd16fde8f01697',1,'Gen_Engine']]]
 ];

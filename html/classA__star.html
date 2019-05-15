@@ -60,6 +60,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pri-methods">Métodos privados</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="classA__star-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase A_star</div>  </div>
@@ -94,12 +96,137 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>get_Time</b> ()</td></
 <tr class="memitem:a7227434fa6eabd4a5feb182056455245"><td class="memItemLeft" align="right" valign="top"><a id="a7227434fa6eabd4a5feb182056455245"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clean_Path</b> ()</td></tr>
 <tr class="separator:a7227434fa6eabd4a5feb182056455245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:ad93774d73ab9d3eb59b394fe6b5a81f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#ad93774d73ab9d3eb59b394fe6b5a81f4">pos_valida</a> (int row, int col)</td></tr>
+<tr class="memdesc:ad93774d73ab9d3eb59b394fe6b5a81f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">pos_valida. Recibe la fila y col de una celda para indicar si es un posición permitida.  <a href="#ad93774d73ab9d3eb59b394fe6b5a81f4">Más...</a><br /></td></tr>
+<tr class="separator:ad93774d73ab9d3eb59b394fe6b5a81f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cd2e33ca04e4ed111e8d21b0446d632"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#a3cd2e33ca04e4ed111e8d21b0446d632">pos_desbloqueada</a> (int value)</td></tr>
+<tr class="memdesc:a3cd2e33ca04e4ed111e8d21b0446d632"><td class="mdescLeft">&#160;</td><td class="mdescRight">pos_bloqueada. Recibe un valor para saber si es un obstáculo.  <a href="#a3cd2e33ca04e4ed111e8d21b0446d632">Más...</a><br /></td></tr>
+<tr class="separator:a3cd2e33ca04e4ed111e8d21b0446d632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cbca614ef6c254bf036ca57b2d55352"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#a3cbca614ef6c254bf036ca57b2d55352">es_destino</a> (int row, int col)</td></tr>
+<tr class="memdesc:a3cbca614ef6c254bf036ca57b2d55352"><td class="mdescLeft">&#160;</td><td class="mdescRight">es_destino. Indica si una celda dada es el final del laberinto.  <a href="#a3cbca614ef6c254bf036ca57b2d55352">Más...</a><br /></td></tr>
+<tr class="separator:a3cbca614ef6c254bf036ca57b2d55352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc345edb8afaf684a082baebdccf2809"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#afc345edb8afaf684a082baebdccf2809">calc_H</a> (int row, int col)</td></tr>
+<tr class="memdesc:afc345edb8afaf684a082baebdccf2809"><td class="mdescLeft">&#160;</td><td class="mdescRight">calc_H. Función que calcula el parametro H de una celd con el método Mahattan  <a href="#afc345edb8afaf684a082baebdccf2809">Más...</a><br /></td></tr>
+<tr class="separator:afc345edb8afaf684a082baebdccf2809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafacbbdfd12aacd4799f092301edc102"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#aafacbbdfd12aacd4799f092301edc102">trace_path</a> (<a class="el" href="structCelda.html">Celda</a> cell_maze[][10])</td></tr>
+<tr class="memdesc:aafacbbdfd12aacd4799f092301edc102"><td class="mdescLeft">&#160;</td><td class="mdescRight">trace_path. Método encargado de mostrar la ruta encontrada  <a href="#aafacbbdfd12aacd4799f092301edc102">Más...</a><br /></td></tr>
+<tr class="separator:aafacbbdfd12aacd4799f092301edc102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:af5b63973011d81bc7d17e1584d30b7c1"><td class="memItemLeft" align="right" valign="top"><a id="af5b63973011d81bc7d17e1584d30b7c1"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#af5b63973011d81bc7d17e1584d30b7c1">_path</a></td></tr>
+<tr class="memdesc:af5b63973011d81bc7d17e1584d30b7c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ruta encontrada en formato string. <br /></td></tr>
+<tr class="separator:af5b63973011d81bc7d17e1584d30b7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d873b8f4a80c3eaa89ebd26d9a35234"><td class="memItemLeft" align="right" valign="top"><a id="a5d873b8f4a80c3eaa89ebd26d9a35234"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classA__star.html#a5d873b8f4a80c3eaa89ebd26d9a35234">_time</a></td></tr>
+<tr class="memdesc:a5d873b8f4a80c3eaa89ebd26d9a35234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiempo que tarda el algoritmo en encontrar la ruta. <br /></td></tr>
+<tr class="separator:a5d873b8f4a80c3eaa89ebd26d9a35234"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
 <div class="textblock"><p><a class="el" href="classA__star.html" title="A_star. Implementación del algoritmo de búsqueda A*. ">A_star</a>. Implementación del algoritmo de búsqueda A*. </p>
 
 <p class="definition">Definición en la línea <a class="el" href="a__star_8hpp_source.html#l00044">44</a> del archivo <a class="el" href="a__star_8hpp_source.html">a_star.hpp</a>.</p>
 </div><h2 class="groupheader">Documentación de las funciones miembro</h2>
+<a id="afc345edb8afaf684a082baebdccf2809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc345edb8afaf684a082baebdccf2809">&#9670;&nbsp;</a></span>calc_H()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int A_star::calc_H </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>calc_H. Función que calcula el parametro H de una celd con el método Mahattan </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>fila de la celda. </td></tr>
+    <tr><td class="paramname">col</td><td>columna de la celda. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>El valor H de la celda. </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="a__star_8cpp_source.html#l00032">32</a> del archivo <a class="el" href="a__star_8cpp_source.html">a_star.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3cbca614ef6c254bf036ca57b2d55352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cbca614ef6c254bf036ca57b2d55352">&#9670;&nbsp;</a></span>es_destino()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool A_star::es_destino </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>es_destino. Indica si una celda dada es el final del laberinto. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>fila de la celda. </td></tr>
+    <tr><td class="paramname">col</td><td>columna de la celda. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true si la celda es el final, false si no lo es. </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="a__star_8cpp_source.html#l00027">27</a> del archivo <a class="el" href="a__star_8cpp_source.html">a_star.cpp</a>.</p>
+
+</div>
+</div>
 <a id="ad4cabe494889f327748f1b83418d3a31"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad4cabe494889f327748f1b83418d3a31">&#9670;&nbsp;</a></span>get_Path()</h2>
 
@@ -119,6 +246,127 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clean_Path</b> ()</td
 <dl class="section return"><dt>Devuelve</dt><dd>Path en formato string </dd></dl>
 
 <p class="definition">Definición en la línea <a class="el" href="a__star_8cpp_source.html#l00614">614</a> del archivo <a class="el" href="a__star_8cpp_source.html">a_star.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3cd2e33ca04e4ed111e8d21b0446d632"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cd2e33ca04e4ed111e8d21b0446d632">&#9670;&nbsp;</a></span>pos_desbloqueada()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool A_star::pos_desbloqueada </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>pos_bloqueada. Recibe un valor para saber si es un obstáculo. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Valor que indica si es un obstáculo. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true si está bloqueada y false si no lo está. </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="a__star_8cpp_source.html#l00019">19</a> del archivo <a class="el" href="a__star_8cpp_source.html">a_star.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad93774d73ab9d3eb59b394fe6b5a81f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad93774d73ab9d3eb59b394fe6b5a81f4">&#9670;&nbsp;</a></span>pos_valida()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool A_star::pos_valida </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>pos_valida. Recibe la fila y col de una celda para indicar si es un posición permitida. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>fila de la celda. </td></tr>
+    <tr><td class="paramname">col</td><td>columna de la celda. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true si la celda es válida, false si no lo es. </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="a__star_8cpp_source.html#l00014">14</a> del archivo <a class="el" href="a__star_8cpp_source.html">a_star.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aafacbbdfd12aacd4799f092301edc102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafacbbdfd12aacd4799f092301edc102">&#9670;&nbsp;</a></span>trace_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void A_star::trace_path </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structCelda.html">Celda</a>&#160;</td>
+          <td class="paramname"><em>cell_maze</em>[][10]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>trace_path. Método encargado de mostrar la ruta encontrada </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell_maze</td><td>Matriz que implementa el laberinto de celdas </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="a__star_8cpp_source.html#l00583">583</a> del archivo <a class="el" href="a__star_8cpp_source.html">a_star.cpp</a>.</p>
 
 </div>
 </div>

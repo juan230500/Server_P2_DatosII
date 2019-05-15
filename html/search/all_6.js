@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['idglobal',['idGlobal',['../classGladiador.html#a2606798529262c483c8792fb3022d59a',1,'Gladiador']]],
-  ['insert',['insert',['../classLista.html#a2f4629f329197b429ce288a19a90616f',1,'Lista']]]
+  ['front',['front',['../classLista.html#a074423a499d9c9f62ac93ef82de1e711',1,'Lista']]],
+  ['fuerzatroncoinferior',['FuerzaTroncoInferior',['../classGladiador.html#acbac5373382be080523be276e39d5ed8',1,'Gladiador']]],
+  ['fuerzatroncosuperior',['FuerzaTroncoSuperior',['../classGladiador.html#a3f149cd3a3681271395a0a60a2279347',1,'Gladiador']]]
 ];

@@ -60,6 +60,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pri-methods">Métodos privados</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="classPoblacion-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase Poblacion</div>  </div>
@@ -70,10 +72,18 @@ $(function() {
  <a href="classPoblacion.html#details">Más...</a></p>
 
 <p><code>#include &lt;<a class="el" href="poblacion_8hpp_source.html">poblacion.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboración para Poblacion:</div>
+<div class="dyncontent">
+<div class="center"><img src="classPoblacion__coll__graph.png" border="0" usemap="#Poblacion_coll__map" alt="Collaboration graph"/></div>
+<map name="Poblacion_coll__map" id="Poblacion_coll__map">
+<area shape="rect" id="node2" href="classGladiador.html" title="Un gladiador es el CROMOSOMA del ALGORITMO GENETICO. " alt="" coords="6,5,83,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">significado de colores y flechas</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos públicos</h2></td></tr>
-<tr class="memitem:a1aeed20e389821391163681fd3ea6bf5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoblacion.html#a1aeed20e389821391163681fd3ea6bf5">Poblacion</a> (int tam)</td></tr>
+<tr class="memitem:a1aeed20e389821391163681fd3ea6bf5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoblacion.html#a1aeed20e389821391163681fd3ea6bf5">Poblacion</a> (int <a class="el" href="classPoblacion.html#a1d193be8fac71c6c5ccbd4c51cf21248">tam</a>)</td></tr>
 <tr class="memdesc:a1aeed20e389821391163681fd3ea6bf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a1aeed20e389821391163681fd3ea6bf5">Más...</a><br /></td></tr>
 <tr class="separator:a1aeed20e389821391163681fd3ea6bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0215eccf9a6d9862864cf38a7ace2b66"><td class="memItemLeft" align="right" valign="top"><a id="a0215eccf9a6d9862864cf38a7ace2b66"></a>
@@ -108,6 +118,28 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoblacion.html#a73482e0df7e4f935e2feb42de35714e6">get_Prom</a> ()</td></tr>
 <tr class="memdesc:a73482e0df7e4f935e2feb42de35714e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna el promedio de Resistencia de la Población. <br /></td></tr>
 <tr class="separator:a73482e0df7e4f935e2feb42de35714e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:a46e70e9d55022234ad9642f6495d26fc"><td class="memItemLeft" align="right" valign="top"><a id="a46e70e9d55022234ad9642f6495d26fc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoblacion.html#a46e70e9d55022234ad9642f6495d26fc">calc_prom</a> ()</td></tr>
+<tr class="memdesc:a46e70e9d55022234ad9642f6495d26fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula el promedio de la resistencia de la Población. <br /></td></tr>
+<tr class="separator:a46e70e9d55022234ad9642f6495d26fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:a6287a406942f15fa709fad696daa8cb0"><td class="memItemLeft" align="right" valign="top"><a id="a6287a406942f15fa709fad696daa8cb0"></a>
+<a class="el" href="classGladiador.html">Gladiador</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoblacion.html#a6287a406942f15fa709fad696daa8cb0">ArrayGladidadores</a> [TAM]</td></tr>
+<tr class="memdesc:a6287a406942f15fa709fad696daa8cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array que almacena los gladiadores. <br /></td></tr>
+<tr class="separator:a6287a406942f15fa709fad696daa8cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d193be8fac71c6c5ccbd4c51cf21248"><td class="memItemLeft" align="right" valign="top"><a id="a1d193be8fac71c6c5ccbd4c51cf21248"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoblacion.html#a1d193be8fac71c6c5ccbd4c51cf21248">tam</a></td></tr>
+<tr class="memdesc:a1d193be8fac71c6c5ccbd4c51cf21248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tamaño de la población. <br /></td></tr>
+<tr class="separator:a1d193be8fac71c6c5ccbd4c51cf21248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71639bfd15c8437802c8705bb76841ee"><td class="memItemLeft" align="right" valign="top"><a id="a71639bfd15c8437802c8705bb76841ee"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoblacion.html#a71639bfd15c8437802c8705bb76841ee">res_prom</a></td></tr>
+<tr class="memdesc:a71639bfd15c8437802c8705bb76841ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Promedio de la Resistencia de la Población. <br /></td></tr>
+<tr class="separator:a71639bfd15c8437802c8705bb76841ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
 <div class="textblock"><p>Implementación de una población de Gladiadores. </p>
