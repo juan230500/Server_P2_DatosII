@@ -106,6 +106,7 @@ void Server::Play(string ip){
 
     // #8. Se instancia el Socket
     Socket *canal = &Socket::getInstance();
+    traductorServidor *traductor = new traductorServidor();
     int turno=1;
     int maxTipoObstaculos = 3;
     int ganador=-1;
@@ -116,7 +117,6 @@ void Server::Play(string ip){
 
         if (turno%3 == 0){
             // #9. Crear un objeto traductor
-            traductorServidor *traductor = new traductorServidor();
             bool terminoJ1 = false, terminoJ2 = false;
             string muerte1 = "", muerte2 = "";
             resistenciaGladiador1Global=G1->getResistencia();
@@ -221,7 +221,6 @@ void Server::Play(string ip){
             else if(pos2 == "") ganador = 1;
 
             // #9. Crear un objeto traductor
-            traductorServidor *traductor = new traductorServidor();
             string json = traductor->SerializarInformacion(obstaculos,G1_info,G2_info,
                                                            A_star_Path,Backtracking_Path,false,
                                                            Pob_1->get_Prom(),Pob_2->get_Prom(),pos1,pos2,ganador);
@@ -238,6 +237,12 @@ void Server::Play(string ip){
 
             turno++;
         }
+    }
+    if(turno > 15){
+        string json = traductor->SerializarInformacion(obstaculos,G1_info,G2_info,
+                                                       A_star_Path,Backtracking_Path,false,
+                                                       Pob_1->get_Prom(),Pob_2->get_Prom(),pos1,pos2,2);
+        canal->enviar(json,8081,ip);
     }
 }
 
