@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['maze',['Maze',['../classTablero.html#aad818f3edbdad480c1a494c33b4faff1',1,'Tablero']]]
+  ['condicionfisica',['CondicionFisica',['../classGladiador.html#a4c145ddbd7f01622545221e9742a6a95',1,'Gladiador']]]
 ];

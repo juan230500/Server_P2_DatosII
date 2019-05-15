@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['recorrerruta',['recorrerRuta',['../classServer.html#a20cd9d80818b5613973477fead3df86f',1,'Server']]],
-  ['recorrerrutaiteracion3',['recorrerRutaIteracion3',['../classServer.html#a505f405a256ddb46e59a3e52fd841d2a',1,'Server']]],
-  ['remove',['remove',['../classLista.html#adf9cd4dfc2dec0d60c8037da96fe62ce',1,'Lista']]],
-  ['remove_5fat',['remove_at',['../classLista.html#afc9399b56345ab440e8d6014d82f39c5',1,'Lista']]]
+  ['obstaculos',['obstaculos',['../classTablero.html#abfed16616749fa3c57b8d314f2feeb8e',1,'Tablero']]],
+  ['obstaculosaleatorios',['obstaculosAleatorios',['../classServer.html#a99579a76d359e5be5e84549947fa7f4e',1,'Server']]],
+  ['operator_2b',['operator+',['../classGladiador.html#a4b887cf281e230ee5a301e857fc5097b',1,'Gladiador']]],
+  ['ordenar',['Ordenar',['../classPoblacion.html#a0215eccf9a6d9862864cf38a7ace2b66',1,'Poblacion']]]
 ];

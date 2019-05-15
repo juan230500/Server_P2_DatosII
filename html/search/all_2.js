@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['calc_5fgensupervivencia',['calc_GenSupervivencia',['../classGladiador.html#a27063c69045cb50a3f60304e692eac80',1,'Gladiador']]],
-  ['calc_5fprobsupervivencia',['calc_ProbSupervivencia',['../classGladiador.html#a70beb3fd03fb483b28edce301ff39eaf',1,'Gladiador']]],
-  ['calc_5fresistencia',['calc_Resistencia',['../classGladiador.html#a397c18b5eff6c1a718e7206ec6141e65',1,'Gladiador']]],
-  ['celda',['Celda',['../structCelda.html',1,'']]],
-  ['clean_5fpath',['clean_Path',['../classBacktracking.html#a484243c045d8502592e5c54edd60e428',1,'Backtracking']]],
-  ['colocarobstaculo',['ColocarObstaculo',['../classTablero.html#aeb7669baadf147877e767d30e736336e',1,'Tablero']]],
-  ['contains',['contains',['../classLista.html#aab3f2efa76f4887ffc4a75f69e42f7b9',1,'Lista']]]
+  ['backtracking',['Backtracking',['../classBacktracking.html',1,'Backtracking'],['../classBacktracking.html#a9afe4ead7d455ef7bd132f21470a20d3',1,'Backtracking::Backtracking()']]],
+  ['backtracking_5fsearch',['Backtracking_Search',['../classBacktracking.html#a4974fd818a4877ef7d7052ce6f5f2949',1,'Backtracking']]],
+  ['backtracking_5fsolver',['Backtracking_Solver',['../classBacktracking.html#a7305924e1d94d86402d1266b68791362',1,'Backtracking']]]
 ];

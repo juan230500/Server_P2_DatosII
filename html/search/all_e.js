@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['tablero',['Tablero',['../classTablero.html',1,'Tablero'],['../classTablero.html#ab4912f28f1db392e1dd44ddc98bd4f59',1,'Tablero::Tablero()']]],
-  ['traductorservidor',['traductorServidor',['../classtraductorServidor.html',1,'traductorServidor'],['../classtraductorServidor.html#acbb3197d72a05d94d6d31244c0d830d7',1,'traductorServidor::traductorServidor()']]]
+  ['recorrerruta',['recorrerRuta',['../classServer.html#a20cd9d80818b5613973477fead3df86f',1,'Server']]],
+  ['recorrerrutaiteracion3',['recorrerRutaIteracion3',['../classServer.html#a505f405a256ddb46e59a3e52fd841d2a',1,'Server']]],
+  ['remove',['remove',['../classLista.html#adf9cd4dfc2dec0d60c8037da96fe62ce',1,'Lista']]],
+  ['remove_5fat',['remove_at',['../classLista.html#afc9399b56345ab440e8d6014d82f39c5',1,'Lista']]],
+  ['remove_5fswapping',['remove_swapping',['../classLista.html#a234352eb647f331ec0174bbeac9ee8ef',1,'Lista']]],
+  ['res_5fprom',['res_prom',['../classPoblacion.html#a71639bfd15c8437802c8705bb76841ee',1,'Poblacion']]],
+  ['resistencia',['Resistencia',['../classGladiador.html#a373f084b8829a2204f53a1b91207ad1c',1,'Gladiador']]]
 ];
