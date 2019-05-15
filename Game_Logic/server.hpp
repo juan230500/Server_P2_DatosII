@@ -50,6 +50,8 @@ public:
     //! \param maxTipo
     void obstaculosAleatorios(Tablero* maze, int maxTipo);
 
+    bool verificarObstaculo(int fila, int col, vector<string> obstaculosActuales);
+
     //! \brief Metodo ESPECIAL que mueve los obstaculos una posicion en la tercer iteracion`w
     void moverObstaculos(Tablero* maze, int G1fila, int G1col, int G2fila, int G2col);
 };

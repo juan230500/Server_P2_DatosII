@@ -30,13 +30,18 @@ void Server::obstaculosAleatorios(Tablero* maze, int maxTipo){
     int tipo, fila, col;
     random_device rd;
     mt19937 gen(rd());
+    string obstaculosActuales = maze->get_obstaculos();
+    obstaculosActuales = obstaculosActuales.substr(0, obstaculosActuales.size()-1);
+    vector<string> vectorObstaculos;
+    boost::split(vectorObstaculos, obstaculosActuales, boost::is_any_of("-"));
     for(int cont = 0; cont < CANTNUEVOSOBSTACULOS; cont++){
         uniform_int_distribution<> dis1(1,maxTipo);
         tipo = dis1(gen);
         uniform_int_distribution<> dis2(0,9);
         fila = dis2(gen);
         col = dis2(gen);
-        if((fila == 0 && col == 0) || (fila == 9 && col == 9)) cont--;
+        bool obstaculoExiste = verificarObstaculo(fila, col, vectorObstaculos);
+        if((fila == 0 && col == 0) || (fila == 9 && col == 9) || obstaculoExiste) cont--;
         else{
             maze->Maze[fila][col] = tipo;
             Backtracking_Path = _Backtracking->Backtracking_Search(maze->Maze,0,0);
@@ -45,6 +50,20 @@ void Server::obstaculosAleatorios(Tablero* maze, int maxTipo){
             else cont--;
         }
     }
+}
+
+bool Server::verificarObstaculo(int fila, int col, vector<string> obstaculosActuales){
+    int cantObstaculos = obstaculosActuales.size();
+    string posicion, filaObs, colObs;
+    for(int indice = 0; indice < cantObstaculos; indice++){
+        posicion = obstaculosActuales[indice];
+        qDebug() << posicion.c_str();
+        if(posicion != ""){
+            filaObs = posicion.substr(0,1);
+            colObs = posicion.substr(1,1);
+            if(fila == stoi(filaObs) && col == stoi(colObs)) return true;
+        }
+    }return false;
 }
 
 //-----------------------------------------------------------------------------------
