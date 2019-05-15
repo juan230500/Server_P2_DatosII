@@ -34,6 +34,10 @@ public:
 
     unsigned short int static idGlobal; //!< ID del gladiador
 
+    void static resetIdGlobal(){
+        idGlobal = 0;
+    }
+
     //! @brief Constructor
     Gladiador();
 

@@ -94,6 +94,7 @@ void Server::Play(string ip){
     Poblacion *Pob_1 = new Poblacion(90);
     Poblacion *Pob_2 = new Poblacion(90);
     Gladiador *G1, *G2;
+    Gladiador::resetIdGlobal();
     int G1_info[10], G2_info[10];
 
     // #4. Generar un tablero
@@ -108,7 +109,8 @@ void Server::Play(string ip){
     int turno=1;
     int maxTipoObstaculos = 3;
     int ganador=-1;
-    while(pos1 != "" && pos2 != ""){
+
+    while(pos1 != "" && pos2 != "" && turno <= 15){
 
         if(turno == 3) maxTipoObstaculos = 2;
 
