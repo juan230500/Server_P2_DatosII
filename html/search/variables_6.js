@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['length',['length',['../structGenericStringRef.html#a4a96d618744ad73f766a1551b1d517fe',1,'GenericStringRef::length()'],['../structGenericPointer_1_1Token.html#a67383574032a3289d34002bb2d95df6d',1,'GenericPointer::Token::length()']]]
+  ['id',['id',['../classGladiador.html#abf07ab7393f2b6dac17168c22eda92c9',1,'Gladiador']]],
+  ['idglobal',['idGlobal',['../classGladiador.html#a2606798529262c483c8792fb3022d59a',1,'Gladiador']]],
+  ['inteligenciaemocional',['InteligenciaEmocional',['../classGladiador.html#acc6ea07cadd83bc9556078d21fa33cda',1,'Gladiador']]]
 ];

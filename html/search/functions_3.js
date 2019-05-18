@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['empty',['empty',['../classLista.html#a4bc09d1ac5b71fdb4ca1b656b0fb8f44',1,'Lista']]],
-  ['evolve',['Evolve',['../classGen__Engine.html#a16ab7a9a7f550bd0b1708fbed14527f5',1,'Gen_Engine']]]
+  ['deserializarinfodesimulacion',['DeserializarInfoDeSimulacion',['../classtraductorServidor.html#a6dc25a5d554f6b73d4eadad2d0a4d42e',1,'traductorServidor']]],
+  ['deserializarinformacioniteracion3',['DeserializarInformacionIteracion3',['../classtraductorServidor.html#a82e228456d814200c9fc7983e1410480',1,'traductorServidor']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['inarray',['inArray',['../structWriter_1_1Level.html#aa009a2d675e98757c2997072aad78789',1,'Writer::Level']]],
-  ['index',['index',['../structGenericPointer_1_1Token.html#a0ce571cfe3f3da942a5912bb2cd24dcf',1,'GenericPointer::Token']]]
+  ['front',['front',['../classLista.html#a074423a499d9c9f62ac93ef82de1e711',1,'Lista']]],
+  ['fuerzatroncoinferior',['FuerzaTroncoInferior',['../classGladiador.html#acbac5373382be080523be276e39d5ed8',1,'Gladiador']]],
+  ['fuerzatroncosuperior',['FuerzaTroncoSuperior',['../classGladiador.html#a3f149cd3a3681271395a0a60a2279347',1,'Gladiador']]]
 ];

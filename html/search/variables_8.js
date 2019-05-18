@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ownallocator_5f',['ownAllocator_',['../classGenericPointer.html#a99b51c07419ee17d57e97774d8ee63ab',1,'GenericPointer']]]
+  ['obstaculos',['obstaculos',['../classTablero.html#abfed16616749fa3c57b8d314f2feeb8e',1,'Tablero']]]
 ];

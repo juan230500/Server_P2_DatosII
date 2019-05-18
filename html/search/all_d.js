@@ -1,13 +1,16 @@
 var searchData=
 [
-  ['objectdata',['ObjectData',['../structGenericValue_1_1ObjectData.html',1,'GenericValue']]],
-  ['offset',['Offset',['../structParseResult.html#afbe762766ac21b2aae266105f1dfa643',1,'ParseResult']]],
-  ['operator_20booleantype',['operator BooleanType',['../structParseResult.html#abcd534680e4067ab797b1c6e930ac91c',1,'ParseResult']]],
-  ['operator_20const_20ch_20_2a',['operator const Ch *',['../structGenericStringRef.html#a4e652ee3a398d0eb8ece1835d15274d0',1,'GenericStringRef']]],
-  ['operator_20parseresult',['operator ParseResult',['../classGenericDocument.html#af9bb8eade3eae0c039161378e8d2923a',1,'GenericDocument']]],
-  ['operator_2a',['operator*',['../structinternal_1_1DiyFp.html#a9868841f824924cc385ad5163c9c85b3',1,'internal::DiyFp']]],
-  ['operator_2d',['operator-',['../classGenericMemberIterator.html#ae119ae8ed78dbd980f83d367f59a3c94',1,'GenericMemberIterator']]],
-  ['operator_3d',['operator=',['../classGenericValue.html#a9018a40d7c52efc00daf803c51d3236c',1,'GenericValue::operator=(GenericValue &amp;rhs) RAPIDJSON_NOEXCEPT'],['../classGenericValue.html#a386708557555e6389184de608af5e6a6',1,'GenericValue::operator=(StringRefType str) RAPIDJSON_NOEXCEPT'],['../classGenericPointer.html#a1d0174a6e72daa4024da9e08ce1e7951',1,'GenericPointer::operator=()']]],
-  ['ordenar',['Ordenar',['../classPoblacion.html#a0215eccf9a6d9862864cf38a7ace2b66',1,'Poblacion']]],
-  ['ownallocator_5f',['ownAllocator_',['../classGenericPointer.html#a99b51c07419ee17d57e97774d8ee63ab',1,'GenericPointer']]]
+  ['play',['Play',['../classServer.html#a5c92664b1c72834ff87497fd9e4736fb',1,'Server']]],
+  ['poblacion',['Poblacion',['../classPoblacion.html',1,'Poblacion'],['../classPoblacion.html#a1aeed20e389821391163681fd3ea6bf5',1,'Poblacion::Poblacion()']]],
+  ['pop_5fback',['pop_back',['../classLista.html#a18834fa36fc1b1bef317ed2511f91c53',1,'Lista']]],
+  ['pop_5ffront',['pop_front',['../classLista.html#a8d1431637c1a851f9e159b9f0e90d8dc',1,'Lista']]],
+  ['pos_5fdesbloqueada',['pos_desbloqueada',['../classA__star.html#a3cd2e33ca04e4ed111e8d21b0446d632',1,'A_star']]],
+  ['pos_5fvalida',['pos_valida',['../classA__star.html#ad93774d73ab9d3eb59b394fe6b5a81f4',1,'A_star']]],
+  ['print_5festadistica',['print_Estadistica',['../classPoblacion.html#a582e1dfe19dcca11e89f90bc594fa9be',1,'Poblacion']]],
+  ['print_5fgladiadores',['print_Gladiadores',['../classPoblacion.html#a5914a90454235350f64c809a9a16c025',1,'Poblacion']]],
+  ['print_5flista',['print_lista',['../classLista.html#a1b77ee4ec14dc7a6ecff872f9230686f',1,'Lista']]],
+  ['print_5fnodo',['print_Nodo',['../classNodo.html#ad776f8c6e0da86aed44c50896ff0cbc4',1,'Nodo']]],
+  ['probabilidadsupervivencia',['ProbabilidadSupervivencia',['../classGladiador.html#a01223578c5c8472c80fc984c5eab845e',1,'Gladiador']]],
+  ['push_5fback',['push_back',['../classLista.html#a136919d14fc7cc81a96f7504321172e4',1,'Lista']]],
+  ['push_5ffront',['push_front',['../classLista.html#a527980f819e876fd48918f41d066b0df',1,'Lista']]]
 ];

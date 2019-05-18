@@ -60,31 +60,214 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="classServer-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase Server</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Servidor que lleva la logica del Juego.  
+ <a href="classServer.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="server_8hpp_source.html">server.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos públicos</h2></td></tr>
-<tr class="memitem:a63f91dde6f679f3d64a53c2482967cbc"><td class="memItemLeft" align="right" valign="top"><a id="a63f91dde6f679f3d64a53c2482967cbc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Play</b> ()</td></tr>
-<tr class="separator:a63f91dde6f679f3d64a53c2482967cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20cd9d80818b5613973477fead3df86f"><td class="memItemLeft" align="right" valign="top"><a id="a20cd9d80818b5613973477fead3df86f"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>recorrerRuta</b> (string ruta, int resistencia, int matrizObstaculos[][10])</td></tr>
+<tr class="memitem:ad5ec9462b520e59f7ea831e157ee5e59"><td class="memItemLeft" align="right" valign="top"><a id="ad5ec9462b520e59f7ea831e157ee5e59"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.html#ad5ec9462b520e59f7ea831e157ee5e59">Server</a> ()</td></tr>
+<tr class="memdesc:ad5ec9462b520e59f7ea831e157ee5e59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
+<tr class="separator:ad5ec9462b520e59f7ea831e157ee5e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c92664b1c72834ff87497fd9e4736fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.html#a5c92664b1c72834ff87497fd9e4736fb">Play</a> (string ip)</td></tr>
+<tr class="memdesc:a5c92664b1c72834ff87497fd9e4736fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funcion principal de simulacion.  <a href="#a5c92664b1c72834ff87497fd9e4736fb">Más...</a><br /></td></tr>
+<tr class="separator:a5c92664b1c72834ff87497fd9e4736fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20cd9d80818b5613973477fead3df86f"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.html#a20cd9d80818b5613973477fead3df86f">recorrerRuta</a> (string ruta, int resistencia, int matrizObstaculos[][10])</td></tr>
+<tr class="memdesc:a20cd9d80818b5613973477fead3df86f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo que recorre la ruta que sigue un gladiador.  <a href="#a20cd9d80818b5613973477fead3df86f">Más...</a><br /></td></tr>
 <tr class="separator:a20cd9d80818b5613973477fead3df86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a538196ae93b21be492f771030201a157"><td class="memItemLeft" align="right" valign="top"><a id="a538196ae93b21be492f771030201a157"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>recorrerRutaIteracion3</b> (string ruta, int *resistencia, int(*matrizObstaculos)[10])</td></tr>
-<tr class="separator:a538196ae93b21be492f771030201a157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5480a69a4cbde146eb5c3a841ba9a665"><td class="memItemLeft" align="right" valign="top"><a id="a5480a69a4cbde146eb5c3a841ba9a665"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>obstaculosAleatorios</b> (<a class="el" href="classTablero.html">Tablero</a> *maze)</td></tr>
-<tr class="separator:a5480a69a4cbde146eb5c3a841ba9a665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a505f405a256ddb46e59a3e52fd841d2a"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.html#a505f405a256ddb46e59a3e52fd841d2a">recorrerRutaIteracion3</a> (string ruta, int id, int(*matrizObstaculos)[10])</td></tr>
+<tr class="memdesc:a505f405a256ddb46e59a3e52fd841d2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recorre la Ruta en la 3er iteracion.  <a href="#a505f405a256ddb46e59a3e52fd841d2a">Más...</a><br /></td></tr>
+<tr class="separator:a505f405a256ddb46e59a3e52fd841d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99579a76d359e5be5e84549947fa7f4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.html#a99579a76d359e5be5e84549947fa7f4e">obstaculosAleatorios</a> (<a class="el" href="classTablero.html">Tablero</a> *maze, int maxTipo)</td></tr>
+<tr class="memdesc:a99579a76d359e5be5e84549947fa7f4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo encargado de colocar tres obstaculos aleatorios.  <a href="#a99579a76d359e5be5e84549947fa7f4e">Más...</a><br /></td></tr>
+<tr class="separator:a99579a76d359e5be5e84549947fa7f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e20e91785979f675a89e84771ddc0f7"><td class="memItemLeft" align="right" valign="top"><a id="a3e20e91785979f675a89e84771ddc0f7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.html#a3e20e91785979f675a89e84771ddc0f7">moverObstaculos</a> (<a class="el" href="classTablero.html">Tablero</a> *maze, int G1fila, int G1col, int G2fila, int G2col)</td></tr>
+<tr class="memdesc:a3e20e91785979f675a89e84771ddc0f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo ESPECIAL que mueve los obstaculos una posicion en la tercer iteracion`w. <br /></td></tr>
+<tr class="separator:a3e20e91785979f675a89e84771ddc0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:a2e298b248ce04b22ef13bf0ce44187ca"><td class="memItemLeft" align="right" valign="top"><a id="a2e298b248ce04b22ef13bf0ce44187ca"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>resistenciaGladiador1Global</b> =0</td></tr>
+<tr class="separator:a2e298b248ce04b22ef13bf0ce44187ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b504cd79cc07b9019664ee1ec02ac91"><td class="memItemLeft" align="right" valign="top"><a id="a3b504cd79cc07b9019664ee1ec02ac91"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>resistenciaGladiador2Global</b> =0</td></tr>
+<tr class="separator:a3b504cd79cc07b9019664ee1ec02ac91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
-<div class="textblock">
-<p class="definition">Definición en la línea <a class="el" href="server_8hpp_source.html#l00020">20</a> del archivo <a class="el" href="server_8hpp_source.html">server.hpp</a>.</p>
-</div><hr/>La documentación para esta clase fue generada a partir de los siguientes ficheros:<ul>
+<div class="textblock"><p>Servidor que lleva la logica del Juego. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="server_8hpp_source.html#l00021">21</a> del archivo <a class="el" href="server_8hpp_source.html">server.hpp</a>.</p>
+</div><h2 class="groupheader">Documentación de las funciones miembro</h2>
+<a id="a99579a76d359e5be5e84549947fa7f4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99579a76d359e5be5e84549947fa7f4e">&#9670;&nbsp;</a></span>obstaculosAleatorios()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Server::obstaculosAleatorios </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classTablero.html">Tablero</a> *&#160;</td>
+          <td class="paramname"><em>maze</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxTipo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Metodo encargado de colocar tres obstaculos aleatorios. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maze</td><td></td></tr>
+    <tr><td class="paramname">maxTipo</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="server_8cpp_source.html#l00027">27</a> del archivo <a class="el" href="server_8cpp_source.html">server.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5c92664b1c72834ff87497fd9e4736fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c92664b1c72834ff87497fd9e4736fb">&#9670;&nbsp;</a></span>Play()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Server::Play </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>ip</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funcion principal de simulacion. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip</td><td>IP Address </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="server_8cpp_source.html#l00091">91</a> del archivo <a class="el" href="server_8cpp_source.html">server.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a20cd9d80818b5613973477fead3df86f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20cd9d80818b5613973477fead3df86f">&#9670;&nbsp;</a></span>recorrerRuta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Server::recorrerRuta </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>ruta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>resistencia</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrizObstaculos</em>[][10]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Metodo que recorre la ruta que sigue un gladiador. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ruta</td><td>Ruta de Salida </td></tr>
+    <tr><td class="paramname">resistencia</td><td>Resistencia del <a class="el" href="classGladiador.html" title="Un gladiador es el CROMOSOMA del ALGORITMO GENETICO. ">Gladiador</a> que recorre la Zona </td></tr>
+    <tr><td class="paramname">matrizObstaculos</td><td>Matriz que debe recorrerse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="server_8cpp_source.html#l00246">246</a> del archivo <a class="el" href="server_8cpp_source.html">server.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a505f405a256ddb46e59a3e52fd841d2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a505f405a256ddb46e59a3e52fd841d2a">&#9670;&nbsp;</a></span>recorrerRutaIteracion3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Server::recorrerRutaIteracion3 </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>ruta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int(*)&#160;</td>
+          <td class="paramname"><em>matrizObstaculos</em>[10]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recorre la Ruta en la 3er iteracion. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ruta</td><td></td></tr>
+    <tr><td class="paramname">id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="server_8cpp_source.html#l00260">260</a> del archivo <a class="el" href="server_8cpp_source.html">server.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación para esta clase fue generada a partir de los siguientes ficheros:<ul>
 <li>Game_Logic/<a class="el" href="server_8hpp_source.html">server.hpp</a></li>
 <li>Game_Logic/<a class="el" href="server_8cpp_source.html">server.cpp</a></li>
 </ul>

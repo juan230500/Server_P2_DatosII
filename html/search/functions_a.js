@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['remove',['remove',['../classLista.html#adf9cd4dfc2dec0d60c8037da96fe62ce',1,'Lista']]],
-  ['remove_5fat',['remove_at',['../classLista.html#afc9399b56345ab440e8d6014d82f39c5',1,'Lista']]]
+  ['obstaculosaleatorios',['obstaculosAleatorios',['../classServer.html#a99579a76d359e5be5e84549947fa7f4e',1,'Server']]],
+  ['operator_2b',['operator+',['../classGladiador.html#a4b887cf281e230ee5a301e857fc5097b',1,'Gladiador']]],
+  ['ordenar',['Ordenar',['../classPoblacion.html#a0215eccf9a6d9862864cf38a7ace2b66',1,'Poblacion']]]
 ];

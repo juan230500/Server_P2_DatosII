@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['begin_5f',['begin_',['../structMemoryStream.html#a91f0767b4f0ed2476d835e8344848a2f',1,'MemoryStream']]]
+  ['arraydatos',['ArrayDatos',['../classTablero.html#abf907bed4fba960de90c96135e92655b',1,'Tablero']]],
+  ['arraygladidadores',['ArrayGladidadores',['../classPoblacion.html#a6287a406942f15fa709fad696daa8cb0',1,'Poblacion']]]
 ];

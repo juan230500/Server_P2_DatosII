@@ -30,7 +30,14 @@ int main(){
     srand (time(NULL));
 
     Server *server = new Server();
-    server->Play();
+    Socket* socket = &Socket::getInstance();
+    string ip = "192.168.100.17";
+    while (true) {
+        server->Play(ip);
+        delete server;
+        server = new Server();
+        socket->escuchar(8082);
+    }
 
     /* PRUEBAS GENETICOS */
     //algoritmo_Genetico();
