@@ -70,7 +70,7 @@ int mutate(int value, int gen){
 
 // Ver información aquí: http://www.sc.ehu.es/ccwbayes/docencia/mmcc/docs/temageneticos.pdf
 // La mutación se realiza sobre cada Hijo
-void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
+void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen,int probabilidad){
 
     // La mutación se realiza sobre cada hijo
     for(int i = 0; i < Next_Gen->size();i++){
@@ -78,7 +78,7 @@ void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
         Gladiador *G = Next_Gen->get_index(i);
 
         // #3. Se calcula la probabilidad de mutación:: P = 1/5 = 0,2 % de Posibilidades de entrar
-        int _probabilidad = rand()%4;
+        int _probabilidad = rand()%probabilidad;
 
         // #4. Se realiza una mutación sobre una característica del Gladiador al azar
         if(_probabilidad == 0){
@@ -102,37 +102,32 @@ void Gen_Engine::Mutation(Lista<Gladiador*> *Next_Gen){
              *************************************************/
 
             // Se selecciona un gen al azar
-            int gen_mutado = rand()%5+1;
+            int gen_mutado = rand()%4+1;
 
             // Se genera el valor de mutación dentro de los primeros 4 bits
             int random_gen = rand()%4;
 
             switch (gen_mutado) {
+
             case 1:{
-                unsigned short int Edad = mutate(G->getEdad(),random_gen);
-                G->setEdad(Edad);
-                G->calc_Resistencia();
-                break;
-            }
-            case 2:{
                 unsigned short int IE = mutate(G->getInteligenciaEmocional(),random_gen);
                 G->setInteligenciaEmocional(IE);
                 G->calc_Resistencia();
                 break;
             }
-            case 3:{
+            case 2:{
                 unsigned short int CF = mutate(G->getCondicionFisica(),random_gen);
                 G->setCondicionFisica(CF);
                 G->calc_Resistencia();
                 break;
             }
-            case 4:{
+            case 3:{
                 unsigned short int FTS = mutate(G->getFuerzaTroncoSuperior(),random_gen);
                 G->setFuerzaTroncoSuperior(FTS);
                 G->calc_Resistencia();
                 break;
             }
-            case 5:{
+            case 4:{
                 unsigned short int FTI = mutate(G->getFuerzaTroncoInferior(),random_gen);
                 G->setFuerzaTroncoInferior(FTI);
                 G->calc_Resistencia();
@@ -168,7 +163,7 @@ int invert(int value){
 
 // Ver información aquí: http://www.sc.ehu.es/ccwbayes/docencia/mmcc/docs/temageneticos.pdf
 // La mutación se realiza sobre cada Hijo
-void Gen_Engine::Invertion(Lista<Gladiador*> *Next_Gen){
+void Gen_Engine::Invertion(Lista<Gladiador*> *Next_Gen,int probabilidad){
 
     // La mutación se realiza sobre cada hijo
     for(int i = 0; i < Next_Gen->size();i++){
@@ -203,31 +198,26 @@ void Gen_Engine::Invertion(Lista<Gladiador*> *Next_Gen){
             int gen_mutado = rand()%5+1;
 
             switch (gen_mutado) {
+
             case 1:{
-                unsigned short int Edad = invert(G->getEdad());
-                G->setEdad(Edad);
-                G->calc_Resistencia();
-                break;
-            }
-            case 2:{
                 unsigned short int IE = invert(G->getInteligenciaEmocional());
                 G->setInteligenciaEmocional(IE);
                 G->calc_Resistencia();
                 break;
             }
-            case 3:{
+            case 2:{
                 unsigned short int CF = invert(G->getCondicionFisica());
                 G->setCondicionFisica(CF);
                 G->calc_Resistencia();
                 break;
             }
-            case 4:{
+            case 3:{
                 unsigned short int FTS = invert(G->getFuerzaTroncoSuperior());
                 G->setFuerzaTroncoSuperior(FTS);
                 G->calc_Resistencia();
                 break;
             }
-            case 5:{
+            case 4:{
                 unsigned short int FTI = invert(G->getFuerzaTroncoInferior());
                 G->setFuerzaTroncoInferior(FTI);
                 G->calc_Resistencia();
@@ -242,7 +232,7 @@ void Gen_Engine::Invertion(Lista<Gladiador*> *Next_Gen){
 
 //----------------------------------------------------------------------
 
-// Inserta la nueva pobalción, eliminando a los más débiles
+// Inserta la nueva población, eliminando a los más débiles
 void Gen_Engine::seleccion_Natural(Poblacion *_Poblacion, Lista<Gladiador*> *Next_Gen){
 
     int largo_poblacion = _Poblacion->get_PobSize(); // Este valor debe ser dinámico
@@ -254,17 +244,20 @@ void Gen_Engine::seleccion_Natural(Poblacion *_Poblacion, Lista<Gladiador*> *Nex
 }
 
 // Maneja el Proceso Evolutivo de una población
-void Gen_Engine::Evolve(Poblacion *Poblacion){
+void Gen_Engine::Evolve(Poblacion *Poblacion,int probabilidad){
 
     Lista<Gladiador*> *Next_Gen = new Lista<Gladiador*>();
     // #1. Seleccionar y Cruzar
     Crossover(Poblacion,Next_Gen);
 
     // #2. Mutación de los hijos
-    Mutation(Next_Gen);
-    Invertion(Next_Gen);
+    Mutation(Next_Gen,probabilidad);
+    Invertion(Next_Gen,probabilidad);
 
     // #3. Inserción y Reducción
     seleccion_Natural(Poblacion,Next_Gen);
+
+    // #4. Aumentar Edad
+
 
 }

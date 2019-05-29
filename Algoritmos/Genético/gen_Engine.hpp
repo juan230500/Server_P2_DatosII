@@ -20,11 +20,11 @@ class Gen_Engine
 
     //! \brief Lleva a cab una mutación sobre los individuos hijos.
     //! \param Poblacion: Población sobre la cual se aplica la mutación en algoritmo genético.
-    static void Mutation(Lista<Gladiador*> *Next_Gen);
+    static void Mutation(Lista<Gladiador*> *Next_Gen,int probabilidad);
 
     //! \brief Lleva a cab una inversión sobre los individuos hijos.
     //! \param Poblacion: Población sobre la cual se aplica la inversión en algoritmo genético.
-    static void Invertion(Lista<Gladiador*> *Next_Gen);
+    static void Invertion(Lista<Gladiador*> *Next_Gen,int probabilidad);
 
     //! \brief Método que ingresa a los nuevos individuos a la población, y elimina a los débiles.
     //! \param Poblacion: Población original.
@@ -40,7 +40,7 @@ public:
     //! \brief Se encarga de realizar un Proceso evolutivo sobre la población:
     //! Selecciona, Cruza, Muta e inserta.
     //! \param Poblacion: Población sobre la que se aplica el algoritmo genético.
-    static void Evolve(Poblacion *Poblacion);
+    static void Evolve(Poblacion *Poblacion,int probabilidad);
 
 
 };

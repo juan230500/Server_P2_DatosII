@@ -99,6 +99,10 @@ public:
     unsigned short getId() const{
         return id;
     }
+
+    void aumentarEdad(){
+        this->Edad++;
+    }
 };
 
 #endif // GLADIADOR_H

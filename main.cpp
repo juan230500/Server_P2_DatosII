@@ -31,7 +31,7 @@ int main(){
 
     Server *server = new Server();
     Socket* socket = &Socket::getInstance();
-    string ip = "192.168.100.17";
+    string ip = "192.168.43.144";
     while (true) {
         server->Play(ip);
         delete server;
