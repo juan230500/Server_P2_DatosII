@@ -10,7 +10,7 @@ unsigned short int Gladiador::idGlobal=0;
 Gladiador::Gladiador()
 {
     id=++idGlobal;
-    Edad=rand()%20+21;
+    Edad= 1;
     InteligenciaEmocional=rand()%20; //coeficiente
     CondicionFisica=rand()%12; //Test de Ruffier
     FuerzaTroncoSuperior=rand()%10; //Newtons
@@ -102,7 +102,7 @@ int manipular_ADN(int p1_ADN,int p2_ADN){
 // cruzar dos gladiadores de manera que se sumen sus atributos.
 Gladiador* Gladiador::operator+(const Gladiador &P){
 
-    unsigned short int Edad = manipular_ADN(this->getEdad(),P.getEdad());
+    unsigned short int Edad = 1;
     unsigned short int InteligenciaEmocional = manipular_ADN(this->getInteligenciaEmocional(),P.getInteligenciaEmocional());
     unsigned short int CondicionFisica = manipular_ADN(this->getCondicionFisica(),P.getCondicionFisica());
     unsigned short int FuerzaTroncoSuperior = manipular_ADN(this->getFuerzaTroncoSuperior(),P.getFuerzaTroncoSuperior());

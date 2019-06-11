@@ -109,11 +109,12 @@ void Server::moverObstaculos(Tablero* maze, int G1fila, int G1col, int G2fila, i
 
 void Server::Play(string ip){
 
+    Gladiador::resetIdGlobal();
+
     // #1. Generar las dos poblaciones iniciales
     Poblacion *Pob_1 = new Poblacion(90);
     Poblacion *Pob_2 = new Poblacion(90);
     Gladiador *G1, *G2;
-    Gladiador::resetIdGlobal();
     int G1_info[10], G2_info[10];
 
     // #4. Generar un tablero
